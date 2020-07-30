@@ -36,10 +36,10 @@ public class SimpleExample {
     public static void main(String[] args) {
 
         args = new String[2];
-        args[0] = "src/main/resources/knowdip-2.0.owl";
+        args[0] = "src/main/resources/knowdip.owl";
         args[1] = "output/";
         try {
-            Knowdip knowdip = new Knowdip(args[0], args[1], false);
+            Knowdip knowdip = new Knowdip(args[0], args[1], true);
             knowdip.add(LoadCloud.class);
             knowdip.add(PatchesSegmentation.class);
             // Load point cloud
