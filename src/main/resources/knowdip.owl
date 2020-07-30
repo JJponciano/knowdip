@@ -1,0 +1,3128 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://lab.ponciano.info/knowdip#"
+     xml:base="http://lab.ponciano.info/knowdip"
+     xmlns:knowdip="http://lab.ponciano.info/knowdip#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://lab.ponciano.info/knowdip">
+        <owl:versionIRI rdf:resource="http://lab.ponciano.info/knowdip/1.0"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#ColorLabel -->
+
+    <owl:AnnotationProperty rdf:about="http://lab.ponciano.info/knowdip#ColorLabel"/>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#hasOrigin -->
+
+    <owl:AnnotationProperty rdf:about="http://lab.ponciano.info/knowdip#hasOrigin"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#ComposedOf -->
+
+    <owl:ObjectProperty rdf:about="http://lab.ponciano.info/knowdip#ComposedOf"/>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#PointCloudCharacteristics -->
+
+    <owl:ObjectProperty rdf:about="http://lab.ponciano.info/knowdip#PointCloudCharacteristics"/>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#assessDistanceOf -->
+
+    <owl:ObjectProperty rdf:about="http://lab.ponciano.info/knowdip#assessDistanceOf">
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#hasCharacteristic"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#automaticObjectProperty -->
+
+    <owl:ObjectProperty rdf:about="http://lab.ponciano.info/knowdip#automaticObjectProperty"/>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#belongsTo -->
+
+    <owl:ObjectProperty rdf:about="http://lab.ponciano.info/knowdip#belongsTo"/>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#closer_than_a_meter -->
+
+    <owl:ObjectProperty rdf:about="http://lab.ponciano.info/knowdip#closer_than_a_meter"/>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#cloudOutput -->
+
+    <owl:ObjectProperty rdf:about="http://lab.ponciano.info/knowdip#cloudOutput">
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#hasInput"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#comesFrom -->
+
+    <owl:ObjectProperty rdf:about="http://lab.ponciano.info/knowdip#comesFrom">
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#hasCharacteristic"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#consistsOf -->
+
+    <owl:ObjectProperty rdf:about="http://lab.ponciano.info/knowdip#consistsOf"/>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#contains -->
+
+    <owl:ObjectProperty rdf:about="http://lab.ponciano.info/knowdip#contains"/>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#filteredFrom -->
+
+    <owl:ObjectProperty rdf:about="http://lab.ponciano.info/knowdip#filteredFrom">
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#hasCharacteristic"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#hasAcquisitionTechnology -->
+
+    <owl:ObjectProperty rdf:about="http://lab.ponciano.info/knowdip#hasAcquisitionTechnology">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#hasAssess -->
+
+    <owl:ObjectProperty rdf:about="http://lab.ponciano.info/knowdip#hasAssess">
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#hasInput"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#hasBiTangentVectors -->
+
+    <owl:ObjectProperty rdf:about="http://lab.ponciano.info/knowdip#hasBiTangentVectors">
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#hasTangentVectors"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#hasCentroid -->
+
+    <owl:ObjectProperty rdf:about="http://lab.ponciano.info/knowdip#hasCentroid">
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#hasCharacteristic"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#hasCharacteristic -->
+
+    <owl:ObjectProperty rdf:about="http://lab.ponciano.info/knowdip#hasCharacteristic"/>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#hasCloud -->
+
+    <owl:ObjectProperty rdf:about="http://lab.ponciano.info/knowdip#hasCloud">
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#hasInput"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#hasColor -->
+
+    <owl:ObjectProperty rdf:about="http://lab.ponciano.info/knowdip#hasColor">
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#hasCharacteristic"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#hasDistance -->
+
+    <owl:ObjectProperty rdf:about="http://lab.ponciano.info/knowdip#hasDistance"/>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#hasFileInput -->
+
+    <owl:ObjectProperty rdf:about="http://lab.ponciano.info/knowdip#hasFileInput">
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#hasInput"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#hasFormat -->
+
+    <owl:ObjectProperty rdf:about="http://lab.ponciano.info/knowdip#hasFormat">
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#PointCloudCharacteristics"/>
+        <rdfs:domain rdf:resource="http://lab.ponciano.info/knowdip#Data"/>
+        <rdfs:range rdf:resource="http://lab.ponciano.info/knowdip#Format"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#hasGap -->
+
+    <owl:ObjectProperty rdf:about="http://lab.ponciano.info/knowdip#hasGap">
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#hasCharacteristic"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#hasGeometry -->
+
+    <owl:ObjectProperty rdf:about="http://lab.ponciano.info/knowdip#hasGeometry">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#hasHighResolution -->
+
+    <owl:ObjectProperty rdf:about="http://lab.ponciano.info/knowdip#hasHighResolution">
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#hasCharacteristic"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#hasInput -->
+
+    <owl:ObjectProperty rdf:about="http://lab.ponciano.info/knowdip#hasInput">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://lab.ponciano.info/knowdip#Algorithm"/>
+        <rdfs:range rdf:resource="http://lab.ponciano.info/knowdip#Data"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#hasMaterial -->
+
+    <owl:ObjectProperty rdf:about="http://lab.ponciano.info/knowdip#hasMaterial">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#hasNoise -->
+
+    <owl:ObjectProperty rdf:about="http://lab.ponciano.info/knowdip#hasNoise">
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#PointCloudCharacteristics"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#hasNormal -->
+
+    <owl:ObjectProperty rdf:about="http://lab.ponciano.info/knowdip#hasNormal">
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#hasCharacteristic"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#hasOrientation -->
+
+    <owl:ObjectProperty rdf:about="http://lab.ponciano.info/knowdip#hasOrientation">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#hasOutput -->
+
+    <owl:ObjectProperty rdf:about="http://lab.ponciano.info/knowdip#hasOutput"/>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#hasParameter -->
+
+    <owl:ObjectProperty rdf:about="http://lab.ponciano.info/knowdip#hasParameter"/>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#hasPrerequisite -->
+
+    <owl:ObjectProperty rdf:about="http://lab.ponciano.info/knowdip#hasPrerequisite"/>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#hasReference -->
+
+    <owl:ObjectProperty rdf:about="http://lab.ponciano.info/knowdip#hasReference">
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#hasCharacteristic"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#hasResolution -->
+
+    <owl:ObjectProperty rdf:about="http://lab.ponciano.info/knowdip#hasResolution">
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#PointCloudCharacteristics"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#hasRoadSize -->
+
+    <owl:ObjectProperty rdf:about="http://lab.ponciano.info/knowdip#hasRoadSize">
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#PointCloudCharacteristics"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#hasRoughness -->
+
+    <owl:ObjectProperty rdf:about="http://lab.ponciano.info/knowdip#hasRoughness">
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#hasTolerance"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#hasScene -->
+
+    <owl:ObjectProperty rdf:about="http://lab.ponciano.info/knowdip#hasScene"/>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#hasSourceFile -->
+
+    <owl:ObjectProperty rdf:about="http://lab.ponciano.info/knowdip#hasSourceFile">
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#PointCloudCharacteristics"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#hasTangentVectors -->
+
+    <owl:ObjectProperty rdf:about="http://lab.ponciano.info/knowdip#hasTangentVectors"/>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#hasTolerance -->
+
+    <owl:ObjectProperty rdf:about="http://lab.ponciano.info/knowdip#hasTolerance">
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#hasCharacteristic"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#hasTranslation -->
+
+    <owl:ObjectProperty rdf:about="http://lab.ponciano.info/knowdip#hasTranslation">
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#PointCloudCharacteristics"/>
+        <rdfs:domain rdf:resource="http://lab.ponciano.info/knowdip#PointCloud"/>
+        <rdfs:range rdf:resource="http://lab.ponciano.info/knowdip#Vector"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#isAcharacteristicsOf -->
+
+    <owl:ObjectProperty rdf:about="http://lab.ponciano.info/knowdip#isAcharacteristicsOf">
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#hasCharacteristic"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#isAcquiredBy -->
+
+    <owl:ObjectProperty rdf:about="http://lab.ponciano.info/knowdip#isAcquiredBy">
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#PointCloudCharacteristics"/>
+        <rdfs:domain rdf:resource="http://lab.ponciano.info/knowdip#PointCloud"/>
+        <rdfs:range rdf:resource="http://lab.ponciano.info/knowdip#AcquisitionTechnology"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#isAregionOf -->
+
+    <owl:ObjectProperty rdf:about="http://lab.ponciano.info/knowdip#isAregionOf">
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#hasCharacteristic"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#isClose -->
+
+    <owl:ObjectProperty rdf:about="http://lab.ponciano.info/knowdip#isClose"/>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#isInContact -->
+
+    <owl:ObjectProperty rdf:about="http://lab.ponciano.info/knowdip#isInContact">
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#assessDistanceOf"/>
+        <rdfs:domain rdf:resource="http://lab.ponciano.info/knowdip#Segment"/>
+        <rdfs:range rdf:resource="http://lab.ponciano.info/knowdip#Segment"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#isPerpendicular -->
+
+    <owl:ObjectProperty rdf:about="http://lab.ponciano.info/knowdip#isPerpendicular"/>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#isRelevantTo -->
+
+    <owl:ObjectProperty rdf:about="http://lab.ponciano.info/knowdip#isRelevantTo">
+        <rdfs:domain rdf:resource="http://lab.ponciano.info/knowdip#Algorithm"/>
+        <rdfs:range rdf:resource="http://lab.ponciano.info/knowdip#Object"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#on -->
+
+    <owl:ObjectProperty rdf:about="http://lab.ponciano.info/knowdip#on"/>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#sameAltitudeAs -->
+
+    <owl:ObjectProperty rdf:about="http://lab.ponciano.info/knowdip#sameAltitudeAs">
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#hasCharacteristic"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#viralProperty -->
+
+    <owl:ObjectProperty rdf:about="http://lab.ponciano.info/knowdip#viralProperty">
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#hasCharacteristic"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#DataCharacteristic -->
+
+    <owl:DatatypeProperty rdf:about="http://lab.ponciano.info/knowdip#DataCharacteristic">
+        <rdfs:domain rdf:resource="http://lab.ponciano.info/knowdip#Data"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#ObjectCharacteristic -->
+
+    <owl:DatatypeProperty rdf:about="http://lab.ponciano.info/knowdip#ObjectCharacteristic"/>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#areaInput -->
+
+    <owl:DatatypeProperty rdf:about="http://lab.ponciano.info/knowdip#areaInput">
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#hasParameterValue"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#hasAccuracy -->
+
+    <owl:DatatypeProperty rdf:about="http://lab.ponciano.info/knowdip#hasAccuracy">
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#hasValue"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#hasAltitude -->
+
+    <owl:DatatypeProperty rdf:about="http://lab.ponciano.info/knowdip#hasAltitude">
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#hasValue"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#hasArea -->
+
+    <owl:DatatypeProperty rdf:about="http://lab.ponciano.info/knowdip#hasArea">
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#hasValue"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#hasAreaOutput -->
+
+    <owl:DatatypeProperty rdf:about="http://lab.ponciano.info/knowdip#hasAreaOutput">
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#isAbleToDetectData"/>
+        <rdfs:seeAlso rdf:resource="http://lab.ponciano.info/knowdip#hasArea"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#hasBiTangentV -->
+
+    <owl:DatatypeProperty rdf:about="http://lab.ponciano.info/knowdip#hasBiTangentV">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#hasBiTangentX -->
+
+    <owl:DatatypeProperty rdf:about="http://lab.ponciano.info/knowdip#hasBiTangentX">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#hasBiTangentY -->
+
+    <owl:DatatypeProperty rdf:about="http://lab.ponciano.info/knowdip#hasBiTangentY">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#hasBiTangentZ -->
+
+    <owl:DatatypeProperty rdf:about="http://lab.ponciano.info/knowdip#hasBiTangentZ">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#hasCentroidDistance -->
+
+    <owl:DatatypeProperty rdf:about="http://lab.ponciano.info/knowdip#hasCentroidDistance">
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#hasDistanceDouble"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#hasCentroidX -->
+
+    <owl:DatatypeProperty rdf:about="http://lab.ponciano.info/knowdip#hasCentroidX">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#hasCentroidY -->
+
+    <owl:DatatypeProperty rdf:about="http://lab.ponciano.info/knowdip#hasCentroidY">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#hasCentroidZ -->
+
+    <owl:DatatypeProperty rdf:about="http://lab.ponciano.info/knowdip#hasCentroidZ">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#hasClass -->
+
+    <owl:DatatypeProperty rdf:about="http://lab.ponciano.info/knowdip#hasClass">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#hasClassInstances -->
+
+    <owl:DatatypeProperty rdf:about="http://lab.ponciano.info/knowdip#hasClassInstances">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#hasClassOverlap -->
+
+    <owl:DatatypeProperty rdf:about="http://lab.ponciano.info/knowdip#hasClassOverlap">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#hasColorString -->
+
+    <owl:DatatypeProperty rdf:about="http://lab.ponciano.info/knowdip#hasColorString">
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#hasValue"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#hasDensity -->
+
+    <owl:DatatypeProperty rdf:about="http://lab.ponciano.info/knowdip#hasDensity">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#hasDepth -->
+
+    <owl:DatatypeProperty rdf:about="http://lab.ponciano.info/knowdip#hasDepth">
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#hasValue"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#hasDepthOutput -->
+
+    <owl:DatatypeProperty rdf:about="http://lab.ponciano.info/knowdip#hasDepthOutput">
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#isAbleToDetectData"/>
+        <rdfs:seeAlso rdf:resource="http://lab.ponciano.info/knowdip#hasDepth"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#hasDistanceDouble -->
+
+    <owl:DatatypeProperty rdf:about="http://lab.ponciano.info/knowdip#hasDistanceDouble">
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#hasValue"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#hasDistanceOutput -->
+
+    <owl:DatatypeProperty rdf:about="http://lab.ponciano.info/knowdip#hasDistanceOutput">
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#isAbleToDetectData"/>
+        <rdfs:seeAlso rdf:resource="http://lab.ponciano.info/knowdip#hasDistance"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#hasDominantClass -->
+
+    <owl:DatatypeProperty rdf:about="http://lab.ponciano.info/knowdip#hasDominantClass">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#hasDx -->
+
+    <owl:DatatypeProperty rdf:about="http://lab.ponciano.info/knowdip#hasDx">
+        <owl:equivalentProperty rdf:resource="http://lab.ponciano.info/knowdip#hasLength"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#hasDy -->
+
+    <owl:DatatypeProperty rdf:about="http://lab.ponciano.info/knowdip#hasDy">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#hasDz -->
+
+    <owl:DatatypeProperty rdf:about="http://lab.ponciano.info/knowdip#hasDz">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#hasHeight -->
+
+    <owl:DatatypeProperty rdf:about="http://lab.ponciano.info/knowdip#hasHeight">
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#hasValue"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#hasHeightOutput -->
+
+    <owl:DatatypeProperty rdf:about="http://lab.ponciano.info/knowdip#hasHeightOutput">
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#isAbleToDetectData"/>
+        <rdfs:seeAlso rdf:resource="http://lab.ponciano.info/knowdip#hasHeight"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#hasJSON -->
+
+    <owl:DatatypeProperty rdf:about="http://lab.ponciano.info/knowdip#hasJSON">
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#DataCharacteristic"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#hasLength -->
+
+    <owl:DatatypeProperty rdf:about="http://lab.ponciano.info/knowdip#hasLength"/>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#hasLocationZOutput -->
+
+    <owl:DatatypeProperty rdf:about="http://lab.ponciano.info/knowdip#hasLocationZOutput">
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#isAbleToDetectData"/>
+        <rdfs:seeAlso rdf:resource="http://lab.ponciano.info/knowdip#hasAltitude"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#hasMaxX -->
+
+    <owl:DatatypeProperty rdf:about="http://lab.ponciano.info/knowdip#hasMaxX">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#hasMaxY -->
+
+    <owl:DatatypeProperty rdf:about="http://lab.ponciano.info/knowdip#hasMaxY">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#hasMaxZ -->
+
+    <owl:DatatypeProperty rdf:about="http://lab.ponciano.info/knowdip#hasMaxZ">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#hasMinX -->
+
+    <owl:DatatypeProperty rdf:about="http://lab.ponciano.info/knowdip#hasMinX">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#hasMinY -->
+
+    <owl:DatatypeProperty rdf:about="http://lab.ponciano.info/knowdip#hasMinY">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#hasMinZ -->
+
+    <owl:DatatypeProperty rdf:about="http://lab.ponciano.info/knowdip#hasMinZ">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#hasNoNoiseAt -->
+
+    <owl:DatatypeProperty rdf:about="http://lab.ponciano.info/knowdip#hasNoNoiseAt">
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#DataCharacteristic"/>
+        <rdfs:domain rdf:resource="http://lab.ponciano.info/knowdip#Data"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#hasNormalScale -->
+
+    <owl:DatatypeProperty rdf:about="http://lab.ponciano.info/knowdip#hasNormalScale">
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#DataCharacteristic"/>
+        <rdfs:domain rdf:resource="http://lab.ponciano.info/knowdip#PointCloud"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#hasNormalV -->
+
+    <owl:DatatypeProperty rdf:about="http://lab.ponciano.info/knowdip#hasNormalV">
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#ObjectCharacteristic"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#hasNormalVariation -->
+
+    <owl:DatatypeProperty rdf:about="http://lab.ponciano.info/knowdip#hasNormalVariation">
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#hasValue"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#hasNormalX -->
+
+    <owl:DatatypeProperty rdf:about="http://lab.ponciano.info/knowdip#hasNormalX">
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#hasValue"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#hasNormalY -->
+
+    <owl:DatatypeProperty rdf:about="http://lab.ponciano.info/knowdip#hasNormalY">
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#hasValue"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#hasNormalZ -->
+
+    <owl:DatatypeProperty rdf:about="http://lab.ponciano.info/knowdip#hasNormalZ">
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#hasValue"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#hasOBB -->
+
+    <owl:DatatypeProperty rdf:about="http://lab.ponciano.info/knowdip#hasOBB">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#hasParameterValue -->
+
+    <owl:DatatypeProperty rdf:about="http://lab.ponciano.info/knowdip#hasParameterValue">
+        <rdfs:domain rdf:resource="http://lab.ponciano.info/knowdip#Algorithm"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#hasResolutionValue -->
+
+    <owl:DatatypeProperty rdf:about="http://lab.ponciano.info/knowdip#hasResolutionValue">
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#hasValue"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#hasScale -->
+
+    <owl:DatatypeProperty rdf:about="http://lab.ponciano.info/knowdip#hasScale">
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#DataCharacteristic"/>
+        <rdfs:domain rdf:resource="http://lab.ponciano.info/knowdip#PointCloud"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#hasSize -->
+
+    <owl:DatatypeProperty rdf:about="http://lab.ponciano.info/knowdip#hasSize">
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#hasValue"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#hasSizeOutput -->
+
+    <owl:DatatypeProperty rdf:about="http://lab.ponciano.info/knowdip#hasSizeOutput">
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#isAbleToDetectData"/>
+        <rdfs:seeAlso rdf:resource="http://lab.ponciano.info/knowdip#hasSize"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#hasSource -->
+
+    <owl:DatatypeProperty rdf:about="http://lab.ponciano.info/knowdip#hasSource">
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#DataCharacteristic"/>
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#hasValue"/>
+        <rdfs:domain rdf:resource="http://lab.ponciano.info/knowdip#File"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#hasTangentV -->
+
+    <owl:DatatypeProperty rdf:about="http://lab.ponciano.info/knowdip#hasTangentV">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#hasTangentX -->
+
+    <owl:DatatypeProperty rdf:about="http://lab.ponciano.info/knowdip#hasTangentX">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#hasTangentY -->
+
+    <owl:DatatypeProperty rdf:about="http://lab.ponciano.info/knowdip#hasTangentY">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#hasTangentZ -->
+
+    <owl:DatatypeProperty rdf:about="http://lab.ponciano.info/knowdip#hasTangentZ">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#hasValue -->
+
+    <owl:DatatypeProperty rdf:about="http://lab.ponciano.info/knowdip#hasValue">
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#ObjectCharacteristic"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#hasVectorJSON -->
+
+    <owl:DatatypeProperty rdf:about="http://lab.ponciano.info/knowdip#hasVectorJSON">
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#hasJSON"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#hasVolume -->
+
+    <owl:DatatypeProperty rdf:about="http://lab.ponciano.info/knowdip#hasVolume">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#hasWidth -->
+
+    <owl:DatatypeProperty rdf:about="http://lab.ponciano.info/knowdip#hasWidth">
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#hasValue"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#hasWidthOutput -->
+
+    <owl:DatatypeProperty rdf:about="http://lab.ponciano.info/knowdip#hasWidthOutput">
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#isAbleToDetectData"/>
+        <rdfs:seeAlso rdf:resource="http://lab.ponciano.info/knowdip#hasWidth"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#hasX -->
+
+    <owl:DatatypeProperty rdf:about="http://lab.ponciano.info/knowdip#hasX">
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#hasValue"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#hasY -->
+
+    <owl:DatatypeProperty rdf:about="http://lab.ponciano.info/knowdip#hasY">
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#hasValue"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#hasZ -->
+
+    <owl:DatatypeProperty rdf:about="http://lab.ponciano.info/knowdip#hasZ">
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#hasValue"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#isAbleToDetectData -->
+
+    <owl:DatatypeProperty rdf:about="http://lab.ponciano.info/knowdip#isAbleToDetectData"/>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#pathInput -->
+
+    <owl:DatatypeProperty rdf:about="http://lab.ponciano.info/knowdip#pathInput">
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#hasParameterValue"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#AcquisitionTechnology -->
+
+    <owl:Class rdf:about="http://lab.ponciano.info/knowdip#AcquisitionTechnology"/>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#Algorithm -->
+
+    <owl:Class rdf:about="http://lab.ponciano.info/knowdip#Algorithm"/>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#AlgorithmAvailableOnPointCloud -->
+
+    <owl:Class rdf:about="http://lab.ponciano.info/knowdip#AlgorithmAvailableOnPointCloud">
+        <rdfs:subClassOf rdf:resource="http://lab.ponciano.info/knowdip#Algorithm"/>
+    </owl:Class>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#Beam -->
+
+    <owl:Class rdf:about="http://lab.ponciano.info/knowdip#Beam">
+        <rdfs:subClassOf rdf:resource="http://lab.ponciano.info/knowdip#Indoor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#Board -->
+
+    <owl:Class rdf:about="http://lab.ponciano.info/knowdip#Board">
+        <rdfs:subClassOf rdf:resource="http://lab.ponciano.info/knowdip#Indoor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#Bookcase -->
+
+    <owl:Class rdf:about="http://lab.ponciano.info/knowdip#Bookcase">
+        <rdfs:subClassOf rdf:resource="http://lab.ponciano.info/knowdip#Indoor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#Branch -->
+
+    <owl:Class rdf:about="http://lab.ponciano.info/knowdip#Branch">
+        <rdfs:subClassOf rdf:resource="http://lab.ponciano.info/knowdip#Indoor"/>
+        <rdfs:subClassOf rdf:resource="http://lab.ponciano.info/knowdip#Outdoor"/>
+        <ColorLabel>0,100,0</ColorLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#Building -->
+
+    <owl:Class rdf:about="http://lab.ponciano.info/knowdip#Building">
+        <rdfs:subClassOf rdf:resource="http://lab.ponciano.info/knowdip#Indoor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#Bush -->
+
+    <owl:Class rdf:about="http://lab.ponciano.info/knowdip#Bush">
+        <rdfs:subClassOf rdf:resource="http://lab.ponciano.info/knowdip#Indoor"/>
+        <rdfs:subClassOf rdf:resource="http://lab.ponciano.info/knowdip#Outdoor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#Car -->
+
+    <owl:Class rdf:about="http://lab.ponciano.info/knowdip#Car">
+        <rdfs:subClassOf rdf:resource="http://lab.ponciano.info/knowdip#Indoor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#Ceiling -->
+
+    <owl:Class rdf:about="http://lab.ponciano.info/knowdip#Ceiling">
+        <rdfs:subClassOf rdf:resource="http://lab.ponciano.info/knowdip#HorizontalObject"/>
+        <rdfs:subClassOf rdf:resource="http://lab.ponciano.info/knowdip#Indoor"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasAltitude"/>
+                <owl:someValuesFrom>
+                    <rdfs:Datatype>
+                        <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+                        <owl:withRestrictions rdf:parseType="Collection">
+                            <rdf:Description>
+                                <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#double">2.1</xsd:minInclusive>
+                            </rdf:Description>
+                        </owl:withRestrictions>
+                    </rdfs:Datatype>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasArea"/>
+                <owl:someValuesFrom>
+                    <rdfs:Datatype>
+                        <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+                        <owl:withRestrictions rdf:parseType="Collection">
+                            <rdf:Description>
+                                <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.58</xsd:minInclusive>
+                            </rdf:Description>
+                        </owl:withRestrictions>
+                    </rdfs:Datatype>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <ColorLabel>255,0,0</ColorLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#Chair -->
+
+    <owl:Class rdf:about="http://lab.ponciano.info/knowdip#Chair">
+        <rdfs:subClassOf rdf:resource="http://lab.ponciano.info/knowdip#Indoor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#Characteristic -->
+
+    <owl:Class rdf:about="http://lab.ponciano.info/knowdip#Characteristic"/>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#ClassifiedObject -->
+
+    <owl:Class rdf:about="http://lab.ponciano.info/knowdip#ClassifiedObject">
+        <rdfs:subClassOf rdf:resource="http://lab.ponciano.info/knowdip#Segment"/>
+    </owl:Class>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#CloseToRoad -->
+
+    <owl:Class rdf:about="http://lab.ponciano.info/knowdip#CloseToRoad">
+        <rdfs:subClassOf rdf:resource="http://lab.ponciano.info/knowdip#Outdoor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#Clutter -->
+
+    <owl:Class rdf:about="http://lab.ponciano.info/knowdip#Clutter">
+        <rdfs:subClassOf rdf:resource="http://lab.ponciano.info/knowdip#Indoor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#Color -->
+
+    <owl:Class rdf:about="http://lab.ponciano.info/knowdip#Color">
+        <rdfs:subClassOf rdf:resource="http://lab.ponciano.info/knowdip#Characteristic"/>
+    </owl:Class>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#Column -->
+
+    <owl:Class rdf:about="http://lab.ponciano.info/knowdip#Column">
+        <rdfs:subClassOf rdf:resource="http://lab.ponciano.info/knowdip#Indoor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#Data -->
+
+    <owl:Class rdf:about="http://lab.ponciano.info/knowdip#Data">
+        <rdfs:subClassOf rdf:resource="http://lab.ponciano.info/knowdip#Entity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#DataCharacteristic -->
+
+    <owl:Class rdf:about="http://lab.ponciano.info/knowdip#DataCharacteristic">
+        <rdfs:subClassOf rdf:resource="http://lab.ponciano.info/knowdip#Characteristic"/>
+    </owl:Class>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#Distance -->
+
+    <owl:Class rdf:about="http://lab.ponciano.info/knowdip#Distance">
+        <rdfs:subClassOf rdf:resource="http://lab.ponciano.info/knowdip#Geometry"/>
+        <rdfs:subClassOf rdf:resource="http://lab.ponciano.info/knowdip#Indoor"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#assessDistanceOf"/>
+                <owl:someValuesFrom rdf:resource="http://lab.ponciano.info/knowdip#Segment"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasReference"/>
+                <owl:someValuesFrom rdf:resource="http://lab.ponciano.info/knowdip#Segment"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasValue"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#Door -->
+
+    <owl:Class rdf:about="http://lab.ponciano.info/knowdip#Door">
+        <rdfs:subClassOf rdf:resource="http://lab.ponciano.info/knowdip#Indoor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#Entity -->
+
+    <owl:Class rdf:about="http://lab.ponciano.info/knowdip#Entity"/>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#EuclideanClustering -->
+
+    <owl:Class rdf:about="http://lab.ponciano.info/knowdip#EuclideanClustering">
+        <rdfs:subClassOf rdf:resource="http://lab.ponciano.info/knowdip#AlgorithmAvailableOnPointCloud"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasInput"/>
+                <owl:someValuesFrom rdf:resource="http://lab.ponciano.info/knowdip#GuttedPointCloud"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasOutput"/>
+                <owl:someValuesFrom rdf:resource="http://lab.ponciano.info/knowdip#UnclassifySeg"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasResolution"/>
+                <owl:someValuesFrom rdf:resource="http://lab.ponciano.info/knowdip#Resolution"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasTolerance"/>
+                <owl:someValuesFrom rdf:resource="http://lab.ponciano.info/knowdip#Tolerance"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#File -->
+
+    <owl:Class rdf:about="http://lab.ponciano.info/knowdip#File">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasSource"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://lab.ponciano.info/knowdip#Data"/>
+    </owl:Class>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#FilteredCloud -->
+
+    <owl:Class rdf:about="http://lab.ponciano.info/knowdip#FilteredCloud">
+        <rdfs:subClassOf rdf:resource="http://lab.ponciano.info/knowdip#PointCloud"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#filteredFrom"/>
+                <owl:someValuesFrom rdf:resource="http://lab.ponciano.info/knowdip#FullPointCloud"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasNormal"/>
+                <owl:someValuesFrom rdf:resource="http://lab.ponciano.info/knowdip#Vector"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasTolerance"/>
+                <owl:someValuesFrom rdf:resource="http://lab.ponciano.info/knowdip#NormalTolerance"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#Floor -->
+
+    <owl:Class rdf:about="http://lab.ponciano.info/knowdip#Floor">
+        <rdfs:subClassOf rdf:resource="http://lab.ponciano.info/knowdip#Indoor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#FloorLamp -->
+
+    <owl:Class rdf:about="http://lab.ponciano.info/knowdip#FloorLamp">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#consistsOf"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://lab.ponciano.info/knowdip#Line"/>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasOrientation"/>
+                                        <owl:allValuesFrom rdf:resource="http://lab.ponciano.info/knowdip#VerticalNormal"/>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasDistance"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://lab.ponciano.info/knowdip#Distance"/>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#assessDistanceOf"/>
+                                        <owl:someValuesFrom rdf:resource="http://lab.ponciano.info/knowdip#FloorLamp"/>
+                                    </owl:Restriction>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasValue"/>
+                                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                                        <owl:onDataRange>
+                                            <rdfs:Datatype>
+                                                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+                                                <owl:withRestrictions rdf:parseType="Collection">
+                                                    <rdf:Description>
+                                                        <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#double">30.0</xsd:minInclusive>
+                                                    </rdf:Description>
+                                                </owl:withRestrictions>
+                                            </rdfs:Datatype>
+                                        </owl:onDataRange>
+                                    </owl:Restriction>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasValue"/>
+                                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                                        <owl:onDataRange>
+                                            <rdfs:Datatype>
+                                                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+                                                <owl:withRestrictions rdf:parseType="Collection">
+                                                    <rdf:Description>
+                                                        <xsd:maxInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#double">40.0</xsd:maxInclusive>
+                                                    </rdf:Description>
+                                                </owl:withRestrictions>
+                                            </rdfs:Datatype>
+                                        </owl:onDataRange>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasMaterial"/>
+                        <owl:someValuesFrom rdf:resource="http://lab.ponciano.info/knowdip#Reflectif"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasRoughness"/>
+                        <owl:someValuesFrom rdf:resource="http://lab.ponciano.info/knowdip#LowRoughness"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#belongsTo"/>
+                        <owl:allValuesFrom rdf:resource="http://lab.ponciano.info/knowdip#Outdoor"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasHeight"/>
+                        <owl:allValuesFrom>
+                            <rdfs:Datatype>
+                                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+                                <owl:withRestrictions rdf:parseType="Collection">
+                                    <rdf:Description>
+                                        <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#double">3.0</xsd:minInclusive>
+                                    </rdf:Description>
+                                </owl:withRestrictions>
+                            </rdfs:Datatype>
+                        </owl:allValuesFrom>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasLength"/>
+                        <owl:allValuesFrom>
+                            <rdfs:Datatype>
+                                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+                                <owl:withRestrictions rdf:parseType="Collection">
+                                    <rdf:Description>
+                                        <xsd:maxExclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.5</xsd:maxExclusive>
+                                    </rdf:Description>
+                                </owl:withRestrictions>
+                            </rdfs:Datatype>
+                        </owl:allValuesFrom>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasWidth"/>
+                        <owl:allValuesFrom>
+                            <rdfs:Datatype>
+                                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+                                <owl:withRestrictions rdf:parseType="Collection">
+                                    <rdf:Description>
+                                        <xsd:maxExclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.5</xsd:maxExclusive>
+                                    </rdf:Description>
+                                </owl:withRestrictions>
+                            </rdfs:Datatype>
+                        </owl:allValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://lab.ponciano.info/knowdip#Outdoor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#Format -->
+
+    <owl:Class rdf:about="http://lab.ponciano.info/knowdip#Format">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasJSON"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://lab.ponciano.info/knowdip#PointCloudCharacteristics"/>
+    </owl:Class>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#FullPointCloud -->
+
+    <owl:Class rdf:about="http://lab.ponciano.info/knowdip#FullPointCloud">
+        <rdfs:subClassOf rdf:resource="http://lab.ponciano.info/knowdip#PointCloud"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasSourceFile"/>
+                <owl:someValuesFrom rdf:resource="http://lab.ponciano.info/knowdip#File"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">Point cloud without any process of sampling or filtering.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#Geometry -->
+
+    <owl:Class rdf:about="http://lab.ponciano.info/knowdip#Geometry">
+        <rdfs:subClassOf rdf:resource="http://lab.ponciano.info/knowdip#Characteristic"/>
+    </owl:Class>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#GetCloudAltitude -->
+
+    <owl:Class rdf:about="http://lab.ponciano.info/knowdip#GetCloudAltitude">
+        <rdfs:subClassOf rdf:resource="http://lab.ponciano.info/knowdip#AlgorithmAvailableOnPointCloud"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasInput"/>
+                <owl:someValuesFrom rdf:resource="http://lab.ponciano.info/knowdip#Segment"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasLocationZOutput"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#GetCloudArea -->
+
+    <owl:Class rdf:about="http://lab.ponciano.info/knowdip#GetCloudArea">
+        <rdfs:subClassOf rdf:resource="http://lab.ponciano.info/knowdip#AlgorithmAvailableOnPointCloud"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasInput"/>
+                <owl:someValuesFrom rdf:resource="http://lab.ponciano.info/knowdip#Segment"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasAreaOutput"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#GetCloudDepth -->
+
+    <owl:Class rdf:about="http://lab.ponciano.info/knowdip#GetCloudDepth">
+        <rdfs:subClassOf rdf:resource="http://lab.ponciano.info/knowdip#AlgorithmAvailableOnPointCloud"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasInput"/>
+                <owl:someValuesFrom rdf:resource="http://lab.ponciano.info/knowdip#Segment"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasDepthOutput"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#GetCloudHeight -->
+
+    <owl:Class rdf:about="http://lab.ponciano.info/knowdip#GetCloudHeight">
+        <rdfs:subClassOf rdf:resource="http://lab.ponciano.info/knowdip#AlgorithmAvailableOnPointCloud"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasInput"/>
+                <owl:someValuesFrom rdf:resource="http://lab.ponciano.info/knowdip#Segment"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasHeightOutput"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#GetCloudWidth -->
+
+    <owl:Class rdf:about="http://lab.ponciano.info/knowdip#GetCloudWidth">
+        <rdfs:subClassOf rdf:resource="http://lab.ponciano.info/knowdip#AlgorithmAvailableOnPointCloud"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasInput"/>
+                <owl:someValuesFrom rdf:resource="http://lab.ponciano.info/knowdip#Segment"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasWidthOutput"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#GetDistance -->
+
+    <owl:Class rdf:about="http://lab.ponciano.info/knowdip#GetDistance">
+        <rdfs:subClassOf rdf:resource="http://lab.ponciano.info/knowdip#AlgorithmAvailableOnPointCloud"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasAssess"/>
+                <owl:someValuesFrom rdf:resource="http://lab.ponciano.info/knowdip#Segment"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasCloud"/>
+                <owl:someValuesFrom rdf:resource="http://lab.ponciano.info/knowdip#Segment"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasOutput"/>
+                <owl:someValuesFrom rdf:resource="http://lab.ponciano.info/knowdip#Distance"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasDistanceOutput"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#GetNormal -->
+
+    <owl:Class rdf:about="http://lab.ponciano.info/knowdip#GetNormal">
+        <rdfs:subClassOf rdf:resource="http://lab.ponciano.info/knowdip#AlgorithmAvailableOnPointCloud"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasInput"/>
+                <owl:someValuesFrom rdf:resource="http://lab.ponciano.info/knowdip#Segment"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasOutput"/>
+                <owl:someValuesFrom rdf:resource="http://lab.ponciano.info/knowdip#Vector"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#isRelevantTo"/>
+                <owl:someValuesFrom rdf:resource="http://lab.ponciano.info/knowdip#OrientedObject"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#GetSize -->
+
+    <owl:Class rdf:about="http://lab.ponciano.info/knowdip#GetSize">
+        <rdfs:subClassOf rdf:resource="http://lab.ponciano.info/knowdip#AlgorithmAvailableOnPointCloud"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasInput"/>
+                <owl:someValuesFrom rdf:resource="http://lab.ponciano.info/knowdip#Segment"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasSizeOutput"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#Ground -->
+
+    <owl:Class rdf:about="http://lab.ponciano.info/knowdip#Ground">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasArea"/>
+                        <owl:someValuesFrom>
+                            <rdfs:Datatype>
+                                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+                                <owl:withRestrictions rdf:parseType="Collection">
+                                    <rdf:Description>
+                                        <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.58</xsd:minInclusive>
+                                    </rdf:Description>
+                                </owl:withRestrictions>
+                            </rdfs:Datatype>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasHeight"/>
+                        <owl:someValuesFrom>
+                            <rdfs:Datatype>
+                                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+                                <owl:withRestrictions rdf:parseType="Collection">
+                                    <rdf:Description>
+                                        <xsd:maxExclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.5</xsd:maxExclusive>
+                                    </rdf:Description>
+                                </owl:withRestrictions>
+                            </rdfs:Datatype>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://lab.ponciano.info/knowdip#HorizontalObject"/>
+        <rdfs:subClassOf rdf:resource="http://lab.ponciano.info/knowdip#Indoor"/>
+        <rdfs:subClassOf rdf:resource="http://lab.ponciano.info/knowdip#Object"/>
+        <rdfs:subClassOf rdf:resource="http://lab.ponciano.info/knowdip#Outdoor"/>
+        <ColorLabel>0,255,0</ColorLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#GuttedPointCloud -->
+
+    <owl:Class rdf:about="http://lab.ponciano.info/knowdip#GuttedPointCloud">
+        <rdfs:subClassOf rdf:resource="http://lab.ponciano.info/knowdip#PointCloud"/>
+    </owl:Class>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#HighAndLongVO -->
+
+    <owl:Class rdf:about="http://lab.ponciano.info/knowdip#HighAndLongVO">
+        <rdfs:subClassOf rdf:resource="http://lab.ponciano.info/knowdip#HighVerticalObject"/>
+    </owl:Class>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#HighVerticalObject -->
+
+    <owl:Class rdf:about="http://lab.ponciano.info/knowdip#HighVerticalObject">
+        <rdfs:subClassOf rdf:resource="http://lab.ponciano.info/knowdip#VerticalObject"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasHeight"/>
+                <owl:someValuesFrom>
+                    <rdfs:Datatype>
+                        <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+                        <owl:withRestrictions rdf:parseType="Collection">
+                            <rdf:Description>
+                                <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.5</xsd:minInclusive>
+                            </rdf:Description>
+                        </owl:withRestrictions>
+                    </rdfs:Datatype>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#HorizontalNormal -->
+
+    <owl:Class rdf:about="http://lab.ponciano.info/knowdip#HorizontalNormal">
+        <rdfs:subClassOf rdf:resource="http://lab.ponciano.info/knowdip#Vector"/>
+    </owl:Class>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#HorizontalObject -->
+
+    <owl:Class rdf:about="http://lab.ponciano.info/knowdip#HorizontalObject">
+        <rdfs:subClassOf rdf:resource="http://lab.ponciano.info/knowdip#OrientedObject"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasNormal"/>
+                <owl:hasValue rdf:resource="http://lab.ponciano.info/knowdip#verticalNormal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#IPM_PointCloud -->
+
+    <owl:Class rdf:about="http://lab.ponciano.info/knowdip#IPM_PointCloud">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://lab.ponciano.info/knowdip#PointCloudFile"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#contains"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://lab.ponciano.info/knowdip#Building"/>
+                                    <rdf:Description rdf:about="http://lab.ponciano.info/knowdip#Bush"/>
+                                    <rdf:Description rdf:about="http://lab.ponciano.info/knowdip#Car"/>
+                                    <rdf:Description rdf:about="http://lab.ponciano.info/knowdip#FloorLamp"/>
+                                    <rdf:Description rdf:about="http://lab.ponciano.info/knowdip#Ground"/>
+                                    <rdf:Description rdf:about="http://lab.ponciano.info/knowdip#Tree"/>
+                                </owl:unionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#isAcquiredBy"/>
+                        <owl:someValuesFrom rdf:resource="http://lab.ponciano.info/knowdip#MobileMappingSystem"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasCharacteristic"/>
+                        <owl:hasValue rdf:resource="http://lab.ponciano.info/knowdip#incomplete"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasCharacteristic"/>
+                        <owl:hasValue rdf:resource="http://lab.ponciano.info/knowdip#noised"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasFormat"/>
+                        <owl:hasValue rdf:resource="http://lab.ponciano.info/knowdip#format_xyzrgbnxnynz"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasScene"/>
+                        <owl:hasValue rdf:resource="http://lab.ponciano.info/knowdip#urbanOutdoor"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://lab.ponciano.info/knowdip#PointCloudFile"/>
+    </owl:Class>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#ImageFile -->
+
+    <owl:Class rdf:about="http://lab.ponciano.info/knowdip#ImageFile">
+        <rdfs:subClassOf rdf:resource="http://lab.ponciano.info/knowdip#File"/>
+    </owl:Class>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#Indoor -->
+
+    <owl:Class rdf:about="http://lab.ponciano.info/knowdip#Indoor">
+        <rdfs:subClassOf rdf:resource="http://lab.ponciano.info/knowdip#Object"/>
+    </owl:Class>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#IndoorScene -->
+
+    <owl:Class rdf:about="http://lab.ponciano.info/knowdip#IndoorScene">
+        <rdfs:subClassOf rdf:resource="http://lab.ponciano.info/knowdip#Scene"/>
+    </owl:Class>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#Line -->
+
+    <owl:Class rdf:about="http://lab.ponciano.info/knowdip#Line">
+        <rdfs:subClassOf rdf:resource="http://lab.ponciano.info/knowdip#Geometry"/>
+    </owl:Class>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#LoadCloud -->
+
+    <owl:Class rdf:about="http://lab.ponciano.info/knowdip#LoadCloud">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://lab.ponciano.info/knowdip#AlgorithmAvailableOnPointCloud"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasInput"/>
+                        <owl:someValuesFrom rdf:resource="http://lab.ponciano.info/knowdip#File"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasOutput"/>
+                        <owl:someValuesFrom rdf:resource="http://lab.ponciano.info/knowdip#FullPointCloud"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://lab.ponciano.info/knowdip#AlgorithmAvailableOnPointCloud"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasInput"/>
+                <owl:someValuesFrom rdf:resource="http://lab.ponciano.info/knowdip#File"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasOutput"/>
+                <owl:someValuesFrom rdf:resource="http://lab.ponciano.info/knowdip#FullPointCloud"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#LowRoughness -->
+
+    <owl:Class rdf:about="http://lab.ponciano.info/knowdip#LowRoughness">
+        <rdfs:subClassOf rdf:resource="http://lab.ponciano.info/knowdip#Roughness"/>
+    </owl:Class>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#Mat -->
+
+    <owl:Class rdf:about="http://lab.ponciano.info/knowdip#Mat">
+        <rdfs:subClassOf rdf:resource="http://lab.ponciano.info/knowdip#Material"/>
+    </owl:Class>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#Material -->
+
+    <owl:Class rdf:about="http://lab.ponciano.info/knowdip#Material">
+        <rdfs:subClassOf rdf:resource="http://lab.ponciano.info/knowdip#Characteristic"/>
+    </owl:Class>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#MobileMappingSystem -->
+
+    <owl:Class rdf:about="http://lab.ponciano.info/knowdip#MobileMappingSystem">
+        <rdfs:subClassOf rdf:resource="http://lab.ponciano.info/knowdip#AcquisitionTechnology"/>
+    </owl:Class>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#Noise -->
+
+    <owl:Class rdf:about="http://lab.ponciano.info/knowdip#Noise">
+        <rdfs:subClassOf rdf:resource="http://lab.ponciano.info/knowdip#Indoor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#NormalFiltering3d -->
+
+    <owl:Class rdf:about="http://lab.ponciano.info/knowdip#NormalFiltering3d">
+        <rdfs:subClassOf rdf:resource="http://lab.ponciano.info/knowdip#AlgorithmAvailableOnPointCloud"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasInput"/>
+                <owl:someValuesFrom rdf:resource="http://lab.ponciano.info/knowdip#FullPointCloud"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasNormal"/>
+                <owl:someValuesFrom rdf:resource="http://lab.ponciano.info/knowdip#Vector"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasOutput"/>
+                <owl:someValuesFrom rdf:resource="http://lab.ponciano.info/knowdip#FilteredCloud"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasTolerance"/>
+                <owl:someValuesFrom rdf:resource="http://lab.ponciano.info/knowdip#NormalTolerance"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#isRelevantTo"/>
+                <owl:someValuesFrom rdf:resource="http://lab.ponciano.info/knowdip#OrientedObject"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>nycylnclkymlc</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#NormalRegionGrowing -->
+
+    <owl:Class rdf:about="http://lab.ponciano.info/knowdip#NormalRegionGrowing">
+        <rdfs:subClassOf rdf:resource="http://lab.ponciano.info/knowdip#AlgorithmAvailableOnPointCloud"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasInput"/>
+                <owl:someValuesFrom rdf:resource="http://lab.ponciano.info/knowdip#FilteredCloud"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasOutput"/>
+                <owl:someValuesFrom rdf:resource="http://lab.ponciano.info/knowdip#Segment"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasResolution"/>
+                <owl:someValuesFrom rdf:resource="http://lab.ponciano.info/knowdip#Resolution"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasTolerance"/>
+                <owl:someValuesFrom rdf:resource="http://lab.ponciano.info/knowdip#NormalTolerance"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#isRelevantTo"/>
+                <owl:someValuesFrom rdf:resource="http://lab.ponciano.info/knowdip#OrientedObject"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#NormalTolerance -->
+
+    <owl:Class rdf:about="http://lab.ponciano.info/knowdip#NormalTolerance">
+        <rdfs:subClassOf rdf:resource="http://lab.ponciano.info/knowdip#Tolerance"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasAccuracy"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#Nothing -->
+
+    <owl:Class rdf:about="http://lab.ponciano.info/knowdip#Nothing"/>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#Object -->
+
+    <owl:Class rdf:about="http://lab.ponciano.info/knowdip#Object">
+        <rdfs:subClassOf rdf:resource="http://lab.ponciano.info/knowdip#Entity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#OnGround -->
+
+    <owl:Class rdf:about="http://lab.ponciano.info/knowdip#OnGround">
+        <rdfs:subClassOf rdf:resource="http://lab.ponciano.info/knowdip#Indoor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#OnTheRoad -->
+
+    <owl:Class rdf:about="http://lab.ponciano.info/knowdip#OnTheRoad">
+        <rdfs:subClassOf rdf:resource="http://lab.ponciano.info/knowdip#Indoor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#OrientedObject -->
+
+    <owl:Class rdf:about="http://lab.ponciano.info/knowdip#OrientedObject">
+        <rdfs:subClassOf rdf:resource="http://lab.ponciano.info/knowdip#Segment"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasNormal"/>
+                <owl:someValuesFrom rdf:resource="http://lab.ponciano.info/knowdip#Vector"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasTolerance"/>
+                <owl:someValuesFrom rdf:resource="http://lab.ponciano.info/knowdip#NormalTolerance"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#Outdoor -->
+
+    <owl:Class rdf:about="http://lab.ponciano.info/knowdip#Outdoor">
+        <rdfs:subClassOf rdf:resource="http://lab.ponciano.info/knowdip#Object"/>
+    </owl:Class>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#OutdoorScene -->
+
+    <owl:Class rdf:about="http://lab.ponciano.info/knowdip#OutdoorScene">
+        <rdfs:subClassOf rdf:resource="http://lab.ponciano.info/knowdip#Scene"/>
+    </owl:Class>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#Plane -->
+
+    <owl:Class rdf:about="http://lab.ponciano.info/knowdip#Plane">
+        <rdfs:subClassOf rdf:resource="http://lab.ponciano.info/knowdip#Geometry"/>
+    </owl:Class>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#Point -->
+
+    <owl:Class rdf:about="http://lab.ponciano.info/knowdip#Point">
+        <rdfs:subClassOf rdf:resource="http://lab.ponciano.info/knowdip#Geometry"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasX"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasY"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasZ"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#PointCloud -->
+
+    <owl:Class rdf:about="http://lab.ponciano.info/knowdip#PointCloud">
+        <rdfs:subClassOf rdf:resource="http://lab.ponciano.info/knowdip#Data"/>
+    </owl:Class>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#PointCloudCharacteristics -->
+
+    <owl:Class rdf:about="http://lab.ponciano.info/knowdip#PointCloudCharacteristics">
+        <rdfs:subClassOf rdf:resource="http://lab.ponciano.info/knowdip#DataCharacteristic"/>
+    </owl:Class>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#PointCloudFile -->
+
+    <owl:Class rdf:about="http://lab.ponciano.info/knowdip#PointCloudFile">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://lab.ponciano.info/knowdip#File"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#isAcquiredBy"/>
+                        <owl:someValuesFrom rdf:resource="http://lab.ponciano.info/knowdip#AcquisitionTechnology"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasFormat"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                        <owl:onClass rdf:resource="http://lab.ponciano.info/knowdip#Format"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasSource"/>
+                        <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasNormalScale"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                        <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasScale"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                        <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasVectorJSON"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                        <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://lab.ponciano.info/knowdip#File"/>
+    </owl:Class>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#Reflectif -->
+
+    <owl:Class rdf:about="http://lab.ponciano.info/knowdip#Reflectif">
+        <rdfs:subClassOf rdf:resource="http://lab.ponciano.info/knowdip#Material"/>
+    </owl:Class>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#Resolution -->
+
+    <owl:Class rdf:about="http://lab.ponciano.info/knowdip#Resolution">
+        <rdfs:subClassOf rdf:resource="http://lab.ponciano.info/knowdip#DataCharacteristic"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasResolutionValue"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">Area in cubic meter</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#Road -->
+
+    <owl:Class rdf:about="http://lab.ponciano.info/knowdip#Road">
+        <rdfs:subClassOf rdf:resource="http://lab.ponciano.info/knowdip#Indoor"/>
+        <rdfs:subClassOf rdf:resource="http://lab.ponciano.info/knowdip#Outdoor"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasRoadSize"/>
+                <owl:someValuesFrom rdf:resource="http://lab.ponciano.info/knowdip#RoadSize"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#isAregionOf"/>
+                <owl:someValuesFrom rdf:resource="http://lab.ponciano.info/knowdip#Ground"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <ColorLabel>236, 245, 11</ColorLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#RoadExtraction -->
+
+    <owl:Class rdf:about="http://lab.ponciano.info/knowdip#RoadExtraction">
+        <rdfs:subClassOf rdf:resource="http://lab.ponciano.info/knowdip#AlgorithmAvailableOnPointCloud"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasInput"/>
+                <owl:someValuesFrom rdf:resource="http://lab.ponciano.info/knowdip#Ground"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasOutput"/>
+                <owl:someValuesFrom rdf:resource="http://lab.ponciano.info/knowdip#Road"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasRoadSize"/>
+                <owl:someValuesFrom rdf:resource="http://lab.ponciano.info/knowdip#RoadSize"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasTolerance"/>
+                <owl:someValuesFrom rdf:resource="http://lab.ponciano.info/knowdip#Tolerance"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#isRelevantTo"/>
+                <owl:someValuesFrom rdf:resource="http://lab.ponciano.info/knowdip#Road"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#RoadPointFile -->
+
+    <owl:Class rdf:about="http://lab.ponciano.info/knowdip#RoadPointFile">
+        <rdfs:subClassOf rdf:resource="http://lab.ponciano.info/knowdip#File"/>
+    </owl:Class>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#RoadPoints -->
+
+    <owl:Class rdf:about="http://lab.ponciano.info/knowdip#RoadPoints">
+        <rdfs:subClassOf rdf:resource="http://lab.ponciano.info/knowdip#PointCloud"/>
+    </owl:Class>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#RoadSize -->
+
+    <owl:Class rdf:about="http://lab.ponciano.info/knowdip#RoadSize">
+        <rdfs:subClassOf rdf:resource="http://lab.ponciano.info/knowdip#PointCloudCharacteristics"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasValue"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#Room -->
+
+    <owl:Class rdf:about="http://lab.ponciano.info/knowdip#Room">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#ComposedOf"/>
+                <owl:someValuesFrom rdf:resource="http://lab.ponciano.info/knowdip#Ground"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#ComposedOf"/>
+                <owl:someValuesFrom rdf:resource="http://lab.ponciano.info/knowdip#Wall"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://lab.ponciano.info/knowdip#Indoor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#Roughness -->
+
+    <owl:Class rdf:about="http://lab.ponciano.info/knowdip#Roughness">
+        <rdfs:subClassOf rdf:resource="http://lab.ponciano.info/knowdip#DataCharacteristic"/>
+    </owl:Class>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#SampledCloud -->
+
+    <owl:Class rdf:about="http://lab.ponciano.info/knowdip#SampledCloud">
+        <rdfs:subClassOf rdf:resource="http://lab.ponciano.info/knowdip#PointCloud"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasHighResolution"/>
+                <owl:someValuesFrom rdf:resource="http://lab.ponciano.info/knowdip#FullPointCloud"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasResolution"/>
+                <owl:someValuesFrom rdf:resource="http://lab.ponciano.info/knowdip#Resolution"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#Sampling -->
+
+    <owl:Class rdf:about="http://lab.ponciano.info/knowdip#Sampling">
+        <rdfs:subClassOf rdf:resource="http://lab.ponciano.info/knowdip#AlgorithmAvailableOnPointCloud"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasInput"/>
+                <owl:someValuesFrom rdf:resource="http://lab.ponciano.info/knowdip#FullPointCloud"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasOutput"/>
+                <owl:someValuesFrom rdf:resource="http://lab.ponciano.info/knowdip#SampledCloud"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasResolution"/>
+                <owl:someValuesFrom rdf:resource="http://lab.ponciano.info/knowdip#Resolution"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#isRelevantTo"/>
+                <owl:someValuesFrom rdf:resource="http://lab.ponciano.info/knowdip#Object"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#Scene -->
+
+    <owl:Class rdf:about="http://lab.ponciano.info/knowdip#Scene"/>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#Segment -->
+
+    <owl:Class rdf:about="http://lab.ponciano.info/knowdip#Segment">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasX"/>
+                                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasY"/>
+                                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasZ"/>
+                                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasBiTangentVectors"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                        <owl:onClass rdf:resource="http://lab.ponciano.info/knowdip#Vector"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasCentroid"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                        <owl:onClass>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasX"/>
+                                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                                        <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+                                    </owl:Restriction>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasY"/>
+                                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                                        <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+                                    </owl:Restriction>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasZ"/>
+                                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                                        <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:onClass>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasOrientation"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                        <owl:onClass rdf:resource="http://lab.ponciano.info/knowdip#Vector"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasTangentVectors"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                        <owl:onClass rdf:resource="http://lab.ponciano.info/knowdip#Vector"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasHeight"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                        <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasLength"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                        <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasWidth"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                        <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://lab.ponciano.info/knowdip#Entity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasResolution"/>
+                <owl:someValuesFrom rdf:resource="http://lab.ponciano.info/knowdip#Resolution"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#isAregionOf"/>
+                <owl:someValuesFrom rdf:resource="http://lab.ponciano.info/knowdip#PointCloud"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#Sofa -->
+
+    <owl:Class rdf:about="http://lab.ponciano.info/knowdip#Sofa">
+        <rdfs:subClassOf rdf:resource="http://lab.ponciano.info/knowdip#Indoor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#Stairs -->
+
+    <owl:Class rdf:about="http://lab.ponciano.info/knowdip#Stairs">
+        <rdfs:subClassOf rdf:resource="http://lab.ponciano.info/knowdip#Indoor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#StructuredLightSensors -->
+
+    <owl:Class rdf:about="http://lab.ponciano.info/knowdip#StructuredLightSensors">
+        <rdfs:subClassOf rdf:resource="http://lab.ponciano.info/knowdip#AcquisitionTechnology"/>
+    </owl:Class>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#Table -->
+
+    <owl:Class rdf:about="http://lab.ponciano.info/knowdip#Table">
+        <rdfs:subClassOf rdf:resource="http://lab.ponciano.info/knowdip#Indoor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#Target -->
+
+    <owl:Class rdf:about="http://lab.ponciano.info/knowdip#Target">
+        <rdfs:subClassOf rdf:resource="http://lab.ponciano.info/knowdip#Entity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#Tolerance -->
+
+    <owl:Class rdf:about="http://lab.ponciano.info/knowdip#Tolerance">
+        <rdfs:subClassOf rdf:resource="http://lab.ponciano.info/knowdip#Characteristic"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasAccuracy"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#Tree -->
+
+    <owl:Class rdf:about="http://lab.ponciano.info/knowdip#Tree">
+        <rdfs:subClassOf rdf:resource="http://lab.ponciano.info/knowdip#Indoor"/>
+        <rdfs:subClassOf rdf:resource="http://lab.ponciano.info/knowdip#Outdoor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#UnclassifySeg -->
+
+    <owl:Class rdf:about="http://lab.ponciano.info/knowdip#UnclassifySeg">
+        <rdfs:subClassOf rdf:resource="http://lab.ponciano.info/knowdip#Segment"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#comesFrom"/>
+                <owl:allValuesFrom rdf:resource="http://lab.ponciano.info/knowdip#GuttedPointCloud"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#Vector -->
+
+    <owl:Class rdf:about="http://lab.ponciano.info/knowdip#Vector">
+        <rdfs:subClassOf rdf:resource="http://lab.ponciano.info/knowdip#Geometry"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#isAcharacteristicsOf"/>
+                <owl:someValuesFrom rdf:resource="http://lab.ponciano.info/knowdip#Segment"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasX"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasY"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasZ"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#Vegetation -->
+
+    <owl:Class rdf:about="http://lab.ponciano.info/knowdip#Vegetation">
+        <rdfs:subClassOf rdf:resource="http://lab.ponciano.info/knowdip#Indoor"/>
+        <rdfs:subClassOf rdf:resource="http://lab.ponciano.info/knowdip#Outdoor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#Vehicle -->
+
+    <owl:Class rdf:about="http://lab.ponciano.info/knowdip#Vehicle">
+        <rdfs:subClassOf rdf:resource="http://lab.ponciano.info/knowdip#Outdoor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#VerticalNormal -->
+
+    <owl:Class rdf:about="http://lab.ponciano.info/knowdip#VerticalNormal">
+        <rdfs:subClassOf rdf:resource="http://lab.ponciano.info/knowdip#Vector"/>
+    </owl:Class>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#VerticalObject -->
+
+    <owl:Class rdf:about="http://lab.ponciano.info/knowdip#VerticalObject">
+        <rdfs:subClassOf rdf:resource="http://lab.ponciano.info/knowdip#OrientedObject"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasNormal"/>
+                <owl:hasValue rdf:resource="http://lab.ponciano.info/knowdip#horizontalNormal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#Wall -->
+
+    <owl:Class rdf:about="http://lab.ponciano.info/knowdip#Wall">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasLength"/>
+                                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                                <owl:onDataRange>
+                                    <rdfs:Datatype>
+                                        <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+                                        <owl:withRestrictions rdf:parseType="Collection">
+                                            <rdf:Description>
+                                                <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#double">3.0</xsd:minInclusive>
+                                            </rdf:Description>
+                                        </owl:withRestrictions>
+                                    </rdfs:Datatype>
+                                </owl:onDataRange>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasWidth"/>
+                                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                                <owl:onDataRange>
+                                    <rdfs:Datatype>
+                                        <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+                                        <owl:withRestrictions rdf:parseType="Collection">
+                                            <rdf:Description>
+                                                <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#double">3.0</xsd:minInclusive>
+                                            </rdf:Description>
+                                        </owl:withRestrictions>
+                                    </rdfs:Datatype>
+                                </owl:onDataRange>
+                            </owl:Restriction>
+                        </owl:unionOf>
+                    </owl:Class>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasAcquisitionTechnology"/>
+                        <owl:someValuesFrom rdf:resource="http://lab.ponciano.info/knowdip#StructuredLightSensors"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasColor"/>
+                        <owl:someValuesFrom rdf:resource="http://lab.ponciano.info/knowdip#Color"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasGeometry"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://lab.ponciano.info/knowdip#Plane"/>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasOrientation"/>
+                                        <owl:allValuesFrom rdf:resource="http://lab.ponciano.info/knowdip#VerticalNormal"/>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasMaterial"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://lab.ponciano.info/knowdip#Mat"/>
+                                    <rdf:Description rdf:about="http://lab.ponciano.info/knowdip#Reflectif"/>
+                                </owl:unionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasRoughness"/>
+                        <owl:someValuesFrom rdf:resource="http://lab.ponciano.info/knowdip#LowRoughness"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#isPerpendicular"/>
+                        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                        <owl:onClass rdf:resource="http://lab.ponciano.info/knowdip#Floor"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#on"/>
+                        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                        <owl:onClass rdf:resource="http://lab.ponciano.info/knowdip#Floor"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasHeight"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                        <owl:onDataRange>
+                            <rdfs:Datatype>
+                                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+                                <owl:withRestrictions rdf:parseType="Collection">
+                                    <rdf:Description>
+                                        <xsd:minExclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#double">2.0</xsd:minExclusive>
+                                    </rdf:Description>
+                                </owl:withRestrictions>
+                            </rdfs:Datatype>
+                        </owl:onDataRange>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://lab.ponciano.info/knowdip#HighVerticalObject"/>
+        <rdfs:subClassOf rdf:resource="http://lab.ponciano.info/knowdip#Indoor"/>
+        <rdfs:subClassOf rdf:resource="http://lab.ponciano.info/knowdip#Outdoor"/>
+        <ColorLabel>0,0,255</ColorLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#Window -->
+
+    <owl:Class rdf:about="http://lab.ponciano.info/knowdip#Window">
+        <rdfs:subClassOf rdf:resource="http://lab.ponciano.info/knowdip#Indoor"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#buildingIndoor -->
+
+    <owl:NamedIndividual rdf:about="http://lab.ponciano.info/knowdip#buildingIndoor">
+        <rdf:type rdf:resource="http://lab.ponciano.info/knowdip#IndoorScene"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#format_xyz -->
+
+    <owl:NamedIndividual rdf:about="http://lab.ponciano.info/knowdip#format_xyz">
+        <rdf:type rdf:resource="http://lab.ponciano.info/knowdip#Format"/>
+        <hasJSON rdf:datatype="http://www.w3.org/2001/XMLSchema#string">{
+    &quot;ix&quot;: 0,
+    &quot;iy&quot;: 1,
+    &quot;iz&quot;: 2,
+    &quot;ir&quot;: -1,
+    &quot;ig&quot;: -1,
+    &quot;ib&quot;: -1,
+    &quot;inx&quot;: -1,
+    &quot;iny&quot;: -1,
+    &quot;inz&quot;: -1,
+    &quot;icour&quot;: -1,
+    &quot;iIntensity&quot;: -1,
+    &quot;irough&quot;: -1
+}</hasJSON>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#format_xyzrgb -->
+
+    <owl:NamedIndividual rdf:about="http://lab.ponciano.info/knowdip#format_xyzrgb">
+        <rdf:type rdf:resource="http://lab.ponciano.info/knowdip#Format"/>
+        <hasJSON rdf:datatype="http://www.w3.org/2001/XMLSchema#string">{
+    &quot;ix&quot;: 0,
+    &quot;iy&quot;: 1,
+    &quot;iz&quot;: 2,
+    &quot;ir&quot;: 3,
+    &quot;ig&quot;: 4,
+    &quot;ib&quot;: 5,
+    &quot;inx&quot;: -1,
+    &quot;iny&quot;: -1,
+    &quot;inz&quot;: -1,
+    &quot;icour&quot;: -1,
+    &quot;iIntensity&quot;: -1,
+    &quot;irough&quot;: -1
+}</hasJSON>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#format_xyzrgb_dcr_nxnynz -->
+
+    <owl:NamedIndividual rdf:about="http://lab.ponciano.info/knowdip#format_xyzrgb_dcr_nxnynz">
+        <rdf:type rdf:resource="http://lab.ponciano.info/knowdip#Format"/>
+        <hasJSON rdf:datatype="http://www.w3.org/2001/XMLSchema#string">{
+    &quot;ix&quot;: 0,
+    &quot;iy&quot;: 1,
+    &quot;iz&quot;: 2,
+    &quot;ir&quot;: 3,
+    &quot;ig&quot;: 4,
+    &quot;ib&quot;: 5,
+    &quot;inx&quot;: 9,
+    &quot;iny&quot;: 10,
+    &quot;inz&quot;: 11,
+    &quot;icour&quot;: 7,
+    &quot;iIntensity&quot;: 6,
+    &quot;irough&quot;: 8
+}</hasJSON>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#format_xyzrgbnxnynz -->
+
+    <owl:NamedIndividual rdf:about="http://lab.ponciano.info/knowdip#format_xyzrgbnxnynz">
+        <rdf:type rdf:resource="http://lab.ponciano.info/knowdip#Format"/>
+        <hasJSON rdf:datatype="http://www.w3.org/2001/XMLSchema#string">{
+    &quot;ix&quot;: 0,
+    &quot;iy&quot;: 1,
+    &quot;iz&quot;: 2,
+    &quot;ir&quot;: 3,
+    &quot;ig&quot;: 4,
+    &quot;ib&quot;: 5,
+    &quot;inx&quot;: 6,
+    &quot;iny&quot;: 7,
+    &quot;inz&quot;: 8,
+    &quot;icour&quot;: -1,
+    &quot;iIntensity&quot;: -1,
+    &quot;irough&quot;: -1
+}</hasJSON>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#format_xyzrgbnxnynz_courvature -->
+
+    <owl:NamedIndividual rdf:about="http://lab.ponciano.info/knowdip#format_xyzrgbnxnynz_courvature">
+        <rdf:type rdf:resource="http://lab.ponciano.info/knowdip#Format"/>
+        <hasJSON rdf:datatype="http://www.w3.org/2001/XMLSchema#string">{
+    &quot;ix&quot;: 0,
+    &quot;iy&quot;: 1,
+    &quot;iz&quot;: 2,
+    &quot;ir&quot;: 3,
+    &quot;ig&quot;: 4,
+    &quot;ib&quot;: 5,
+    &quot;inx&quot;: 6,
+    &quot;iny&quot;: 7,
+    &quot;inz&quot;: 8,
+    &quot;icour&quot;: 9,
+    &quot;iIntensity&quot;: -1,
+    &quot;irough&quot;: -1
+}</hasJSON>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#format_xyzrgbnxnynz_intensity -->
+
+    <owl:NamedIndividual rdf:about="http://lab.ponciano.info/knowdip#format_xyzrgbnxnynz_intensity">
+        <rdf:type rdf:resource="http://lab.ponciano.info/knowdip#Format"/>
+        <hasJSON rdf:datatype="http://www.w3.org/2001/XMLSchema#string">{
+    &quot;ix&quot;: 0,
+    &quot;iy&quot;: 1,
+    &quot;iz&quot;: 2,
+    &quot;ir&quot;: 3,
+    &quot;ig&quot;: 4,
+    &quot;ib&quot;: 5,
+    &quot;inx&quot;: 6,
+    &quot;iny&quot;: 7,
+    &quot;inz&quot;: 8,
+    &quot;icour&quot;: -1,
+    &quot;iIntensity&quot;: 9,
+    &quot;irough&quot;: -1
+}</hasJSON>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#format_xyzrgbnxnynz_rci -->
+
+    <owl:NamedIndividual rdf:about="http://lab.ponciano.info/knowdip#format_xyzrgbnxnynz_rci">
+        <rdf:type rdf:resource="http://lab.ponciano.info/knowdip#Format"/>
+        <hasJSON rdf:datatype="http://www.w3.org/2001/XMLSchema#string">{
+    &quot;ix&quot;: 0,
+    &quot;iy&quot;: 1,
+    &quot;iz&quot;: 2,
+    &quot;ir&quot;: 3,
+    &quot;ig&quot;: 4,
+    &quot;ib&quot;: 5,
+    &quot;inx&quot;: 6,
+    &quot;iny&quot;: 7,
+    &quot;inz&quot;: 8,
+    &quot;icour&quot;: 9,
+    &quot;iIntensity&quot;: 10,
+    &quot;irough&quot;: 11
+}</hasJSON>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#format_xyzrgbnxnynz_roughness -->
+
+    <owl:NamedIndividual rdf:about="http://lab.ponciano.info/knowdip#format_xyzrgbnxnynz_roughness">
+        <rdf:type rdf:resource="http://lab.ponciano.info/knowdip#Format"/>
+        <hasJSON rdf:datatype="http://www.w3.org/2001/XMLSchema#string">{
+    &quot;ix&quot;: 0,
+    &quot;iy&quot;: 1,
+    &quot;iz&quot;: 2,
+    &quot;ir&quot;: 3,
+    &quot;ig&quot;: 4,
+    &quot;ib&quot;: 5,
+    &quot;inx&quot;: 6,
+    &quot;iny&quot;: 7,
+    &quot;inz&quot;: 8,
+    &quot;icour&quot;: -1,
+    &quot;iIntensity&quot;: -1,
+    &quot;irough&quot;: 9
+}</hasJSON>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#horizontalNormal -->
+
+    <owl:NamedIndividual rdf:about="http://lab.ponciano.info/knowdip#horizontalNormal">
+        <rdf:type rdf:resource="http://lab.ponciano.info/knowdip#Characteristic"/>
+        <rdf:type rdf:resource="http://lab.ponciano.info/knowdip#HorizontalNormal"/>
+        <rdf:type rdf:resource="http://lab.ponciano.info/knowdip#Vector"/>
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#isAcharacteristicsOf"/>
+                <owl:someValuesFrom rdf:resource="http://lab.ponciano.info/knowdip#Segment"/>
+            </owl:Restriction>
+        </rdf:type>
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasX"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+            </owl:Restriction>
+        </rdf:type>
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasY"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+            </owl:Restriction>
+        </rdf:type>
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasZ"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+            </owl:Restriction>
+        </rdf:type>
+        <hasX rdf:datatype="http://www.w3.org/2001/XMLSchema#double">-1.0</hasX>
+        <hasY rdf:datatype="http://www.w3.org/2001/XMLSchema#double">-1.0</hasY>
+        <hasZ rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.01</hasZ>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#incomplete -->
+
+    <owl:NamedIndividual rdf:about="http://lab.ponciano.info/knowdip#incomplete">
+        <rdf:type rdf:resource="http://lab.ponciano.info/knowdip#PointCloudCharacteristics"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#ipmPC_p4 -->
+
+    <owl:NamedIndividual rdf:about="http://lab.ponciano.info/knowdip#ipmPC_p4">
+        <rdf:type rdf:resource="http://lab.ponciano.info/knowdip#IPM_PointCloud"/>
+        <rdf:type rdf:resource="http://lab.ponciano.info/knowdip#PointCloud"/>
+        <hasFormat rdf:resource="http://lab.ponciano.info/knowdip#format_xyzrgbnxnynz"/>
+        <hasNormalScale rdf:datatype="http://www.w3.org/2001/XMLSchema#int">4</hasNormalScale>
+        <hasScale rdf:datatype="http://www.w3.org/2001/XMLSchema#int">4</hasScale>
+        <hasSource rdf:datatype="http://www.w3.org/2001/XMLSchema#string">D:\2020\2020_data_IPM\paper_data\parts4comparison\fullFiles\p4_original.txt</hasSource>
+        <hasVectorJSON rdf:datatype="http://www.w3.org/2001/XMLSchema#string">{
+    &quot;x&quot;: -413058.189499,
+    &quot;y&quot;: -5318018.223101,
+    &quot;z&quot;: -306.831085
+}</hasVectorJSON>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#ipmPC_p4v2 -->
+
+    <owl:NamedIndividual rdf:about="http://lab.ponciano.info/knowdip#ipmPC_p4v2">
+        <rdf:type rdf:resource="http://lab.ponciano.info/knowdip#IPM_PointCloud"/>
+        <rdf:type rdf:resource="http://lab.ponciano.info/knowdip#PointCloud"/>
+        <hasFormat rdf:resource="http://lab.ponciano.info/knowdip#format_xyzrgbnxnynz"/>
+        <hasNormalScale rdf:datatype="http://www.w3.org/2001/XMLSchema#int">4</hasNormalScale>
+        <hasScale rdf:datatype="http://www.w3.org/2001/XMLSchema#int">4</hasScale>
+        <hasSource rdf:datatype="http://www.w3.org/2001/XMLSchema#string">D:\2020\2020_data_IPM\paper_data\parts4comparison\fullFiles\p4_original_2.txt</hasSource>
+        <hasVectorJSON rdf:datatype="http://www.w3.org/2001/XMLSchema#string">{
+    &quot;x&quot;: -413058.189499,
+    &quot;y&quot;: -5318018.223101,
+    &quot;z&quot;: -306.831085
+}</hasVectorJSON>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#noised -->
+
+    <owl:NamedIndividual rdf:about="http://lab.ponciano.info/knowdip#noised">
+        <rdf:type rdf:resource="http://lab.ponciano.info/knowdip#PointCloudCharacteristics"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#roadFile -->
+
+    <owl:NamedIndividual rdf:about="http://lab.ponciano.info/knowdip#roadFile">
+        <rdf:type rdf:resource="http://lab.ponciano.info/knowdip#RoadPointFile"/>
+        <hasSource>C:/Users/jean-jacques.poncian/Documents/data/fullRoad2.txt</hasSource>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#testingPC -->
+
+    <owl:NamedIndividual rdf:about="http://lab.ponciano.info/knowdip#testingPC">
+        <rdf:type rdf:resource="http://lab.ponciano.info/knowdip#PointCloudFile"/>
+        <hasSource rdf:datatype="http://www.w3.org/2001/XMLSchema#string">test_part_small.txt</hasSource>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#urbanOutdoor -->
+
+    <owl:NamedIndividual rdf:about="http://lab.ponciano.info/knowdip#urbanOutdoor">
+        <rdf:type rdf:resource="http://lab.ponciano.info/knowdip#OutdoorScene"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#verticalNormal -->
+
+    <owl:NamedIndividual rdf:about="http://lab.ponciano.info/knowdip#verticalNormal">
+        <rdf:type rdf:resource="http://lab.ponciano.info/knowdip#Characteristic"/>
+        <rdf:type rdf:resource="http://lab.ponciano.info/knowdip#Vector"/>
+        <rdf:type rdf:resource="http://lab.ponciano.info/knowdip#VerticalNormal"/>
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#isAcharacteristicsOf"/>
+                <owl:someValuesFrom rdf:resource="http://lab.ponciano.info/knowdip#Segment"/>
+            </owl:Restriction>
+        </rdf:type>
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasX"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+            </owl:Restriction>
+        </rdf:type>
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasY"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+            </owl:Restriction>
+        </rdf:type>
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasZ"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+            </owl:Restriction>
+        </rdf:type>
+        <hasX rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.01</hasX>
+        <hasY rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.01</hasY>
+        <hasZ rdf:datatype="http://www.w3.org/2001/XMLSchema#double">-1.0</hasZ>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointProperties"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://lab.ponciano.info/knowdip#ComposedOf"/>
+            <rdf:Description rdf:about="http://lab.ponciano.info/knowdip#automaticObjectProperty"/>
+            <rdf:Description rdf:about="http://lab.ponciano.info/knowdip#closer_than_a_meter"/>
+            <rdf:Description rdf:about="http://lab.ponciano.info/knowdip#hasAcquisitionTechnology"/>
+            <rdf:Description rdf:about="http://lab.ponciano.info/knowdip#hasCharacteristic"/>
+            <rdf:Description rdf:about="http://lab.ponciano.info/knowdip#hasGeometry"/>
+            <rdf:Description rdf:about="http://lab.ponciano.info/knowdip#hasInput"/>
+            <rdf:Description rdf:about="http://lab.ponciano.info/knowdip#hasMaterial"/>
+            <rdf:Description rdf:about="http://lab.ponciano.info/knowdip#hasOrientation"/>
+            <rdf:Description rdf:about="http://lab.ponciano.info/knowdip#hasOutput"/>
+            <rdf:Description rdf:about="http://lab.ponciano.info/knowdip#hasParameter"/>
+            <rdf:Description rdf:about="http://lab.ponciano.info/knowdip#hasPrerequisite"/>
+            <rdf:Description rdf:about="http://lab.ponciano.info/knowdip#isClose"/>
+            <rdf:Description rdf:about="http://lab.ponciano.info/knowdip#isRelevantTo"/>
+        </owl:members>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi -->
+
