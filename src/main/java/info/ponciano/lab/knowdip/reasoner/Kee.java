@@ -16,7 +16,6 @@
  */
 package info.ponciano.lab.knowdip.reasoner;
 
-
 import info.ponciano.lab.knowdip.KD;
 import info.ponciano.lab.knowdip.Knowdip;
 import info.ponciano.lab.knowdip.aee.AlgorithmRegistry;
@@ -54,6 +53,7 @@ public abstract class Kee {
     protected String memoryPath;
     protected OntModel model;
     protected String prefix;
+    protected Memory memory;
 
     /**
      * Create new instance of @code{Controler}
@@ -71,12 +71,13 @@ public abstract class Kee {
      * contains the memory data.
      */
     public Kee(String ontologyPath, String workingDir) throws IOException, FileNotFoundException, KnowdipException {
-      new File(workingDir).mkdirs();
+        this.memory = new Memory();
+        new File(workingDir).mkdirs();
         this.ontologyPath = ontologyPath;
         this.datasetPath = workingDir + "dataset/";
         this.memoryPath = workingDir + "kmemory";
         if (new File(memoryPath).exists()) {
-            Knowdip.get().getMemory().read(memoryPath);
+            this.memory.read(memoryPath);
         }
         this.init();
         this.prefix = "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n";
@@ -84,6 +85,10 @@ public abstract class Kee {
         this.prefix += "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n";
         this.prefix += "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n";
         this.prefix += "PREFIX knowdip: <" + KD.NS + ">\n";
+    }
+
+    public Memory getMemory() {
+        return this.memory;
     }
 
     /**
@@ -163,7 +168,7 @@ public abstract class Kee {
      * @throws IOException
      */
     public void saveMemory() throws IOException {
-         Knowdip.get().getMemory().write(memoryPath);
+        this.memory.write(memoryPath);
     }
 
     /**
@@ -267,7 +272,6 @@ public abstract class Kee {
      * @throws info.ponciano.lab.knowdip.KnowdipException if something wrong.
      */
     protected abstract Model execConstruct(String queryString) throws KnowdipException;
-
 
     /**
      * Get the ontology model
