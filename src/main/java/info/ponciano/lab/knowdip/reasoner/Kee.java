@@ -18,6 +18,7 @@ package info.ponciano.lab.knowdip.reasoner;
 
 
 import info.ponciano.lab.knowdip.KD;
+import info.ponciano.lab.knowdip.Knowdip;
 import info.ponciano.lab.knowdip.aee.AlgorithmRegistry;
 import info.ponciano.lab.knowdip.aee.KnowdipException;
 import info.ponciano.lab.knowdip.aee.algorithm.sparql.Algorithm;
@@ -75,7 +76,7 @@ public abstract class Kee {
         this.datasetPath = workingDir + "dataset/";
         this.memoryPath = workingDir + "kmemory";
         if (new File(memoryPath).exists()) {
-            Memory.load(memoryPath);
+            Knowdip.get().getMemory().read(memoryPath);
         }
         this.init();
         this.prefix = "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n";
@@ -162,7 +163,7 @@ public abstract class Kee {
      * @throws IOException
      */
     public void saveMemory() throws IOException {
-        Memory.get().write(memoryPath);
+         Knowdip.get().getMemory().write(memoryPath);
     }
 
     /**
