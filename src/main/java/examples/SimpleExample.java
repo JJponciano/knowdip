@@ -20,6 +20,7 @@ import info.ponciano.lab.knowdip.Knowdip;
 import info.ponciano.lab.knowdip.aee.KnowdipException;
 import info.ponciano.lab.knowdip.aee.algorithm.sparql.LoadCloud;
 import info.ponciano.lab.knowdip.aee.algorithm.sparql.PatchesSegmentation;
+import info.ponciano.lab.knowdip.aee.algorithm.sparql.getter.GetPatchSize;
 import info.ponciano.lab.pisemantic.PiOntologyException;
 import java.io.IOException;
 import java.util.logging.Level;
@@ -43,6 +44,7 @@ public class SimpleExample {
             Knowdip knowdip = Knowdip.get();
             knowdip.add(LoadCloud.class);
             knowdip.add(PatchesSegmentation.class);
+            knowdip.add(GetPatchSize.class);
             // Load point cloud
             knowdip.interprets("CONSTRUCT{ ?out rdf:type knowdip:FullPointCloud . ?out knowdip:readFrom ?i0.} " + "WHERE{"
                     + "?i0 rdf:type knowdip:PointCloudFile . "
@@ -52,8 +54,16 @@ public class SimpleExample {
             // Segments in patches point cloud
             knowdip.interprets("CONSTRUCT{ ?out rdf:type knowdip:Patches . ?out knowdip:comesFrom ?i0.} " + "WHERE{"
                     + "?i0 rdf:type knowdip:FullPointCloud . "
-                    + "FILTER NOT EXISTS { ?something knowdip:comeFrom ?i0 } . "
+                    + "FILTER NOT EXISTS { ?something knowdip:comesFrom ?i0 } . "
                     + "?out knowdip:PatchesSegmentation( \"hasInput =\" ?i0)"
+                    + "}");
+
+            // Get the size of each patch 
+            knowdip.interprets("CONSTRUCT{ ?p knowdip:hasSize ?out } " + "WHERE{"
+                    + "?p rdf:type knowdip:Patches . "
+                    + "FILTER NOT EXISTS { ?p knowdip:hasSize ?s } . "
+                    + "?p knowdip:comesFrom ?i0 . "
+                    + "?out knowdip:GetPatchSize( \"hasInput =\" ?i0 \"patchID =\" ?p)"
                     + "}");
 
             ResultSet select = knowdip.select("SELECT ?c WHERE{ ?c rdf:type knowdip:FullPointCloud }");
@@ -62,7 +72,7 @@ public class SimpleExample {
                 String uri = next.get("c").asResource().getURI();
                 System.out.println(uri);
             }
-            
+
             knowdip.save();
         } catch (KnowdipException | IOException | PiOntologyException ex) {
             Logger.getLogger(Knowdip.class.getName()).log(Level.SEVERE, null, ex);
