@@ -24,14 +24,15 @@ import info.ponciano.lab.pisemantic.PiOntologyException;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.HashMap;
 import java.util.UUID;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.apache.commons.io.FileUtils;
 import org.apache.jena.graph.Node;
 import org.apache.jena.graph.NodeFactory;
+import org.apache.jena.ontology.OntProperty;
 import org.apache.jena.query.ResultSet;
+import org.apache.jena.rdf.model.Property;
 
 /**
  *
@@ -42,15 +43,16 @@ public class Knowdip {
     private static Knowdip instance;
     private Memory memory;
 
-    public Memory getMemory(){
+    public Memory getMemory() {
         return this.memory;
     }
 
-  public static void init(String ontologyPath, String outDir, boolean reset)throws IOException, KnowdipException, FileNotFoundException, PiOntologyException {
+    public static void init(String ontologyPath, String outDir, boolean reset) throws IOException, KnowdipException, FileNotFoundException, PiOntologyException {
         if (instance == null) {
             instance = new Knowdip(ontologyPath, outDir, reset);
         }
     }
+
     public static Knowdip get() {
         return instance;
     }
@@ -132,6 +134,7 @@ public class Knowdip {
 
     public void save() {
         this.reasoner.close();
+
     }
 
     public static Node createURI() {
@@ -153,6 +156,10 @@ public class Knowdip {
      */
     public ResultSet select(String query) {
         return this.reasoner.select(query);
+    }
+
+    public Property getProperty(String HAS_VALUE) {
+        return this.reasoner.getModel().getProperty(HAS_VALUE);
     }
 
 }
