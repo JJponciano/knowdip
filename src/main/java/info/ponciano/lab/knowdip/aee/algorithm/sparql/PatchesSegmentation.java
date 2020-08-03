@@ -45,7 +45,7 @@ public class PatchesSegmentation extends Algorithm {
             Pointcloud pc = (Pointcloud) data;
 
             Map<String, APointCloud> patches = pc.getPatches();
-            patches.forEach((k, cloud) -> {
+            patches.forEach((String k, APointCloud cloud) -> {
                 Node node = Knowdip.createURI(k);
                 nodes.add(node);
             });
