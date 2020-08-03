@@ -17,6 +17,7 @@
 package info.ponciano.lab.knowdip.aee.algorithm.sparql;
 
 
+import info.ponciano.lab.knowdip.Knowdip;
 import info.ponciano.lab.knowdip.aee.KnowdipException;
 import info.ponciano.lab.knowdip.aee.memory.Memory;
 import info.ponciano.lab.pitools.utility.PiString;
@@ -81,10 +82,10 @@ public abstract class Algorithm extends PFuncListAndList {
                     key = key.substring(key.lastIndexOf('#') + 1, key.length());
                     String value = pair[1];
                     Object arg = null;
-                    if (Memory.get().contains(value)) {
+                    if (Knowdip.get().getMemory().contains(value)) {
                         // argument is a complex object, saved in memory
 
-                        arg = Memory.get().access(value);
+                        arg = Knowdip.get().getMemory().access(value);
                     } else if (value.contains("http:") && !value.contains("^^")) {
                         if (!value.equals("http://lab.ponciano.info/knowdip#wall") && !value.equals("http://lab.ponciano.info/knowdip#floor")) {
                             throw new KnowdipException(value + "  is a uri that is not referenced in the memory. \n You should take the value corresponding to this uri. ");
