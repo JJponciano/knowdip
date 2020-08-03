@@ -86,13 +86,16 @@ public abstract class Algorithm extends PFuncListAndList {
                         // argument is a complex object, saved in memory
 
                         arg = Knowdip.get().getMemory().access(value);
-                    } else if (value.contains("http:") && !value.contains("^^")) {
-                        if (!value.equals("http://lab.ponciano.info/knowdip#wall") && !value.equals("http://lab.ponciano.info/knowdip#floor")) {
-                            throw new KnowdipException(value + "  is a uri that is not referenced in the memory. \n You should take the value corresponding to this uri. ");
-                        } else {
-                            throw new KnowdipException(value + " is depreciated");
-                        }
-                    } else {
+                    } 
+//                    else 
+//                        if (value.contains("http:") && !value.contains("^^")) {
+//                        if (!value.equals("http://lab.ponciano.info/knowdip#wall") && !value.equals("http://lab.ponciano.info/knowdip#floor")) {
+//                            throw new KnowdipException(value + "  is a uri that is not referenced in the memory. \n You should take the value corresponding to this uri. ");
+//                        } else {
+//                            throw new KnowdipException(value + " is depreciated");
+//                        }
+//                    } 
+                        else {
                         // argument is a simple value
 
                         String[] split = value.split("\\^\\^");
