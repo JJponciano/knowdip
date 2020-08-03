@@ -16,7 +16,6 @@
  */
 package info.ponciano.lab.knowdip.aee.algorithm.sparql;
 
-
 import info.ponciano.lab.knowdip.Knowdip;
 import info.ponciano.lab.knowdip.aee.KnowdipException;
 import info.ponciano.lab.knowdip.aee.memory.Memory;
@@ -38,6 +37,7 @@ import org.apache.jena.sparql.engine.binding.BindingFactory;
 import org.apache.jena.sparql.engine.iterator.QueryIterPlainWrapper;
 import org.apache.jena.sparql.pfunction.PFuncListAndList;
 import org.apache.jena.sparql.pfunction.PropFuncArg;
+
 /**
  *
  * @author Dr Jean-Jacques Ponciano <jean-jacques@ponciano.info>
@@ -84,18 +84,17 @@ public abstract class Algorithm extends PFuncListAndList {
                     Object arg = null;
                     if (Knowdip.get().getMemory().contains(value)) {
                         // argument is a complex object, saved in memory
-
                         arg = Knowdip.get().getMemory().access(value);
-                    } 
-//                    else 
-//                        if (value.contains("http:") && !value.contains("^^")) {
+                    } else// if the argument is a URI but not memorized
+                        if (value.contains("http:") && !value.contains("^^")) {
+                        arg = value;
 //                        if (!value.equals("http://lab.ponciano.info/knowdip#wall") && !value.equals("http://lab.ponciano.info/knowdip#floor")) {
 //                            throw new KnowdipException(value + "  is a uri that is not referenced in the memory. \n You should take the value corresponding to this uri. ");
 //                        } else {
 //                            throw new KnowdipException(value + " is depreciated");
 //                        }
-//                    } 
-                        else {
+
+                    } else {
                         // argument is a simple value
 
                         String[] split = value.split("\\^\\^");
