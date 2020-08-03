@@ -49,7 +49,7 @@ public class LoadCloud extends Algorithm {
                 System.out.println("Point cloud loaded: " + cloud.size());
             }
             Node s = Knowdip.createURI(UUID.randomUUID().toString());
-            Memory.get().alloc(s.getURI(), cloud);
+           Knowdip.get().getMemory().alloc(s.getURI(), cloud);
             return Collections.singleton(s);
         } catch (IOException e) {
             throw new KnowdipException("The file  " + hasSource + " does not exist of cannot be open!");
