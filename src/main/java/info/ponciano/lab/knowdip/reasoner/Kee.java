@@ -20,7 +20,7 @@ package info.ponciano.lab.knowdip.reasoner;
 import info.ponciano.lab.knowdip.KD;
 import info.ponciano.lab.knowdip.aee.AlgorithmRegistry;
 import info.ponciano.lab.knowdip.aee.KnowdipException;
-import info.ponciano.lab.knowdip.aee.algorithm.Algorithm;
+import info.ponciano.lab.knowdip.aee.algorithm.sparql.Algorithm;
 import info.ponciano.lab.knowdip.aee.memory.Memory;
 import java.io.File;
 import java.io.FileNotFoundException;

@@ -17,20 +17,20 @@
 package info.ponciano.lab.knowdip;
 
 import info.ponciano.lab.knowdip.aee.KnowdipException;
-import info.ponciano.lab.knowdip.aee.algorithm.Algorithm;
-import info.ponciano.lab.knowdip.aee.algorithm.LoadCloud;
+import info.ponciano.lab.knowdip.aee.algorithm.sparql.Algorithm;
+import info.ponciano.lab.knowdip.aee.memory.Memory;
 import info.ponciano.lab.knowdip.reasoner.KReasoner;
 import info.ponciano.lab.pisemantic.PiOntologyException;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.UUID;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.apache.commons.io.FileUtils;
 import org.apache.jena.graph.Node;
 import org.apache.jena.graph.NodeFactory;
-import org.apache.jena.query.QuerySolution;
 import org.apache.jena.query.ResultSet;
 
 /**
@@ -39,9 +39,26 @@ import org.apache.jena.query.ResultSet;
  */
 public class Knowdip {
 
+    private static Knowdip instance;
+    private Memory memory;
+
+    public Memory getMemory(){
+        return this.memory;
+    }
+
+  public static void init(String ontologyPath, String outDir, boolean reset)throws IOException, KnowdipException, FileNotFoundException, PiOntologyException {
+        if (instance == null) {
+            instance = new Knowdip(ontologyPath, outDir, reset);
+        }
+    }
+    public static Knowdip get() {
+        return instance;
+    }
+
     private final KReasoner reasoner;
 
-    public Knowdip(String ontologyPath, String outDir, boolean reset) throws IOException, KnowdipException, FileNotFoundException, PiOntologyException {
+    Knowdip(String ontologyPath, String outDir, boolean reset) throws IOException, KnowdipException, FileNotFoundException, PiOntologyException {
+        this.memory = new Memory();
         if (reset) {
             clearAll(outDir);
         }

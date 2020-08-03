@@ -14,18 +14,21 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package info.ponciano.lab.knowdip.aee.algorithm;
+package info.ponciano.lab.knowdip.aee.algorithm.sparql;
 
 import info.ponciano.lab.jpc.pointcloud.Pointcloud;
 import info.ponciano.lab.jpc.pointcloud.components.APointCloud;
+import info.ponciano.lab.knowdip.KD;
 import info.ponciano.lab.knowdip.Knowdip;
 import info.ponciano.lab.knowdip.aee.KnowdipException;
-import info.ponciano.lab.knowdip.aee.algorithm.Algorithm;
+import info.ponciano.lab.knowdip.aee.algorithm.sparql.Algorithm;
 import info.ponciano.lab.knowdip.aee.memory.WritableResource;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import org.apache.jena.graph.Node;
+import org.apache.jena.rdf.model.Resource;
+import org.apache.jena.rdf.model.ResourceFactory;
 
 public class PatchesSegmentation extends Algorithm {
 
@@ -44,11 +47,6 @@ public class PatchesSegmentation extends Algorithm {
             Map<String, APointCloud> patches = pc.getPatches();
             patches.forEach((k, cloud) -> {
                 Node node = Knowdip.createURI(k);
-                /*  here we do not want to allocate patches
-                since their are defined inside the pointcloud. 
-                var uri = node.getURI();
-                 Memory.get().alloc(uri, cloud); 
-                 */
                 nodes.add(node);
             });
             System.out.println("Patches: " + nodes.size());

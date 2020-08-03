@@ -49,7 +49,7 @@ public class KReasoner extends KeeOwlFile {
 
     protected PiOnt piont;
     protected List<OntClass> objects;
-
+    
     public KReasoner(String ontologyPath, String datasetPath) throws IOException, KnowdipException, FileNotFoundException, PiOntologyException {
         super(ontologyPath, datasetPath);
 

@@ -50,7 +50,7 @@ import org.apache.jena.util.FileManager;
 public class KeeOwlFile extends Kee {
 
     protected String workingOntPath;
-    protected OntModel workingModel;
+    public OntModel workingModel;
 
     public KeeOwlFile(String ontologyPath, String workingDir) throws IOException, FileNotFoundException, KnowdipException {
         super(ontologyPath, workingDir);

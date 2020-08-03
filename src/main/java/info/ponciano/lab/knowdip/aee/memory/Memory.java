@@ -38,27 +38,14 @@ import org.apache.commons.io.FileUtils;
  */
 public class Memory {
 
-    private static Memory instance;
     private Map<String, WritableResource> data;
 
-    Memory() {
+   public Memory() {
         super();
         this.data=new HashMap<>();
-    }
+    }  
 
-    public static void load(String dir) throws IOException {
-        if (instance == null) {
-            instance = new Memory();
-            instance.read(dir);
-        }
-    }
-
-    public static Memory get() {
-        if (instance == null) {
-            instance = new Memory();
-        }
-        return instance;
-    }
+  
 
     /**
      * Allocates a point cloud with the given URI

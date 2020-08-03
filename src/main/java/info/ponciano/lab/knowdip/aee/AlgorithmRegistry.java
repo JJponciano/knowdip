@@ -18,7 +18,7 @@
 package info.ponciano.lab.knowdip.aee;
 
 import info.ponciano.lab.knowdip.KD;
-import info.ponciano.lab.knowdip.aee.algorithm.Algorithm;
+import info.ponciano.lab.knowdip.aee.algorithm.sparql.Algorithm;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;

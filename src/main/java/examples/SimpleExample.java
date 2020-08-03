@@ -18,8 +18,8 @@ package examples;
 
 import info.ponciano.lab.knowdip.Knowdip;
 import info.ponciano.lab.knowdip.aee.KnowdipException;
-import info.ponciano.lab.knowdip.aee.algorithm.LoadCloud;
-import info.ponciano.lab.knowdip.aee.algorithm.PatchesSegmentation;
+import info.ponciano.lab.knowdip.aee.algorithm.sparql.LoadCloud;
+import info.ponciano.lab.knowdip.aee.algorithm.sparql.PatchesSegmentation;
 import info.ponciano.lab.pisemantic.PiOntologyException;
 import java.io.IOException;
 import java.util.logging.Level;
