@@ -16,6 +16,7 @@
  */
 package info.ponciano.lab.knowdip.reasoner;
 
+import info.ponciano.lab.knowdip.Knowdip;
 import info.ponciano.lab.knowdip.aee.KnowdipException;
 import info.ponciano.lab.knowdip.aee.memory.Memory;
 import java.io.File;
@@ -127,7 +128,7 @@ public class KeeOwlFile extends Kee {
     public synchronized void close() {
         try {
             saveOntology();
-            Memory.get().write(this.memoryPath);
+            Knowdip.get().getMemory().write(this.memoryPath);
         } catch (IOException ex) {
             Logger.getLogger(KeeOwlFile.class.getName()).log(Level.SEVERE, null, ex);
         }
