@@ -39,7 +39,8 @@ public class SimpleExample {
         args[0] = "src/main/resources/knowdip.owl";
         args[1] = "output/";
         try {
-            Knowdip knowdip = new Knowdip(args[0], args[1], true);
+            Knowdip.init(args[0], args[1], true);
+            Knowdip knowdip = Knowdip.get();
             knowdip.add(LoadCloud.class);
             knowdip.add(PatchesSegmentation.class);
             // Load point cloud
@@ -61,6 +62,7 @@ public class SimpleExample {
                 String uri = next.get("c").asResource().getURI();
                 System.out.println(uri);
             }
+            
             knowdip.save();
         } catch (KnowdipException | IOException | PiOntologyException ex) {
             Logger.getLogger(Knowdip.class.getName()).log(Level.SEVERE, null, ex);
