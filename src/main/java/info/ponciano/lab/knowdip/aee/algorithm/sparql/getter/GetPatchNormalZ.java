@@ -47,7 +47,7 @@ public class GetPatchNormalZ extends Algorithm {
             double value = patch.getMeanNormal().getZ();
             
             return Collections.singleton(NodeFactory.createLiteralByValue(value,
-                    XSDDatatype.XSDinteger));
+                    XSDDatatype.XSDdouble));
         }
         return null;
     }
