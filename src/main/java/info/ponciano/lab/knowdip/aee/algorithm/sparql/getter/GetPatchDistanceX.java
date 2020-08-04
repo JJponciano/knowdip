@@ -39,7 +39,7 @@ public class GetPatchDistanceX extends Algorithm {
     protected Iterable<Node> process() throws KnowdipException {
         Object data = hasInput.getData();
         if (!data.getClass().equals(Pointcloud.class)) {
-            System.err.println("hasInput is not a point cloud in info.ponciano.lab.knowdip.aee.algorithm.mappc.GetPatchDistanceX.process()");
+            System.err.println("hasInput is not a patch in "+getClass()+"");
         } else {
             Pointcloud pc = (Pointcloud) data;
             String localName =patchID.substring(patchID.lastIndexOf('#')+1,patchID.length());
