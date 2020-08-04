@@ -18,13 +18,10 @@ package info.ponciano.lab.knowdip.aee.algorithm.sparql.getter;
 
 import info.ponciano.lab.jpc.pointcloud.Pointcloud;
 import info.ponciano.lab.jpc.pointcloud.components.APointCloud;
-import info.ponciano.lab.knowdip.Knowdip;
 import info.ponciano.lab.knowdip.aee.KnowdipException;
 import info.ponciano.lab.knowdip.aee.algorithm.sparql.Algorithm;
 import info.ponciano.lab.knowdip.aee.memory.WritableResource;
-import java.util.ArrayList;
 import java.util.Collections;
-import java.util.List;
 import org.apache.jena.datatypes.xsd.XSDDatatype;
 import org.apache.jena.graph.Node;
 import org.apache.jena.graph.NodeFactory;
@@ -40,7 +37,6 @@ public class GetPatchSize extends Algorithm {
 
     @Override
     protected Iterable<Node> process() throws KnowdipException {
-        List<Node> nodes = new ArrayList<>();
         Object data = hasInput.getData();
         if (!data.getClass().equals(Pointcloud.class)) {
             System.err.println("hasInput is not a point cloud in info.ponciano.lab.knowdip.aee.algorithm.mappc.PatchesSegmentation.process()");
