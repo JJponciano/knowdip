@@ -47,7 +47,7 @@ public class GetPatchNormalX extends Algorithm {
             double value = patch.getMeanNormal().getX();
             
             return Collections.singleton(NodeFactory.createLiteralByValue(value,
-                    XSDDatatype.XSDinteger));
+                    XSDDatatype.XSDdouble));
         }
         return null;
     }
