@@ -47,7 +47,7 @@ public class GetPatchDistanceX extends Algorithm {
             double value = patch.getDx();
             
             return Collections.singleton(NodeFactory.createLiteralByValue(value,
-                    XSDDatatype.XSDinteger));
+                    XSDDatatype.XSDdouble));
         }
         return null;
     }
