@@ -16,12 +16,12 @@
  */
 package info.ponciano.lab.knowdip.aee.algorithm.sparql.getter;
 
+import info.ponciano.lab.jpc.math.Color;
 import info.ponciano.lab.jpc.pointcloud.Pointcloud;
 import info.ponciano.lab.jpc.pointcloud.components.APointCloud;
 import info.ponciano.lab.knowdip.aee.KnowdipException;
 import info.ponciano.lab.knowdip.aee.algorithm.sparql.Algorithm;
 import info.ponciano.lab.knowdip.aee.memory.WritableResource;
-import info.ponciano.lab.pimath.geometry.Color;
 import java.util.Collections;
 import org.apache.jena.datatypes.xsd.XSDDatatype;
 import org.apache.jena.graph.Node;
