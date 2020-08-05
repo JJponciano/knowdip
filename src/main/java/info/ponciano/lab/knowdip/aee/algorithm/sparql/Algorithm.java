@@ -18,13 +18,12 @@ package info.ponciano.lab.knowdip.aee.algorithm.sparql;
 
 import info.ponciano.lab.knowdip.Knowdip;
 import info.ponciano.lab.knowdip.aee.KnowdipException;
-import info.ponciano.lab.knowdip.aee.memory.Memory;
-import info.ponciano.lab.pitools.utility.PiString;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Pattern;
 
 import org.apache.commons.lang3.reflect.FieldUtils;
 import org.apache.jena.graph.Node;
@@ -74,9 +73,7 @@ public abstract class Algorithm extends PFuncListAndList {
                 }
                 String[] pair = stringParameter.split("=");
                 if (pair.length == 2) {
-                    PiString ps0 = new PiString(pair[0]);
-                    ps0.removeEndingSpace();
-                    ps0.removeStartingSpace();
+                    String ps0 =pair[0].strip();
 
                     String key = ps0.toString();
                     key = key.substring(key.lastIndexOf('#') + 1, key.length());
@@ -104,12 +101,10 @@ public abstract class Algorithm extends PFuncListAndList {
                             if (split[0].isEmpty()) {
                                 arg = null;
                             } else {
-                                PiString ps1 = new PiString(split[1]);
-                                ps1.remove("<");
-                                ps1.remove(">");
-                                ps1.remove("xsd:");
-                                ps1.removeEndingSpace();
-                                ps1.removeStartingSpace();
+                                String ps1 = split[1];
+                                ps1.replaceAll(Pattern.quote("<"), "");
+                                ps1.replaceAll(Pattern.quote(">"), "");
+                                ps1.replaceAll(Pattern.quote("xsd:"), "");
                                 //  final RDFDatatype typeByName = TypeMapper.getInstance().getTypeByName(piString.toString());
                                 // Literal literal = ResourceFactory.createTypedLiteral(split[0], typeByName);
                                 //                            arg = literal.getValue();
