@@ -14,16 +14,16 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-
-
 package info.ponciano.lab.knowdip.reasoner.automatic.algorithms;
 
 import info.ponciano.lab.knowdip.aee.KnowdipException;
-import info.ponciano.lab.pisemantic.PiOnt;
-import info.ponciano.lab.pisemantic.PiOntologyException;
-import info.ponciano.lab.pitools.utility.PiRegex;
+import info.ponciano.lab.knowdip.reasoner.PiOnt;
+import info.ponciano.lab.knowdip.reasoner.PiOntologyException;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import org.apache.jena.ontology.OntClass;
 
 /**
@@ -52,9 +52,17 @@ public class SparqlAlgorithm extends SemanticAlgorithm {
     }
 
     protected List<String> extractVar(String where) {
-
-        List<String> group = new PiRegex("\\?\\w+", where).getGroup(false);
-        return group;
+        List<String> res = new ArrayList<String>();
+        Pattern pattern = Pattern.compile("\\?\\w+");
+        String source = where;
+        Matcher matcher = pattern.matcher(source);
+        while (matcher.find()) {
+            final String group = matcher.group();
+            if (!res.contains(group)) {
+                res.add(group);
+            }
+        }
+        return res;
     }
 
     public List<String> getCommonElements(List<String> varWhere, List<String> varConstruct) {
@@ -66,29 +74,29 @@ public class SparqlAlgorithm extends SemanticAlgorithm {
     }
 
     private void init() {
-            //get the sparql query to integrate the output of the algorithm.
-            this.insert = "INSERT DATA {" + this.getSparqlOutput() + "}";
-            // get queries to retrieve object value and execute the algorithm
-            String[] sparqlAlgoExecution = sparqlAlgoExecution();
-            //build the where content of the sparql query
-            String where = " WHERE{\n" + sparqlSelectInputs() + sparqlSelectParameters() + sparqlAlgoExecution[0] + " }";
+        //get the sparql query to integrate the output of the algorithm.
+        this.insert = "INSERT DATA {" + this.getSparqlOutput() + "}";
+        // get queries to retrieve object value and execute the algorithm
+        String[] sparqlAlgoExecution = sparqlAlgoExecution();
+        //build the where content of the sparql query
+        String where = " WHERE{\n" + sparqlSelectInputs() + sparqlSelectParameters() + sparqlAlgoExecution[0] + " }";
 
-            this.execution = "SELECT ?out WHERE{ " + sparqlAlgoExecution[1] + " }";
-            //build the first select
+        this.execution = "SELECT ?out WHERE{ " + sparqlAlgoExecution[1] + " }";
+        //build the first select
 
-            //get list of variable inside the where
-            List<String> varWhere = this.extractVar(where);
-            List<String> varInsert = this.extractVar(insert);
-            List<String> varExecution = this.extractVar(execution);
-            //get only common elements
-            this.varCommon = this.mergeWithoutDouble(varExecution, this.getCommonElements(varWhere, varInsert));
-            this.varCommon.remove("?out");
-            //add the variable to be extracted
-            varCommon.forEach((v) -> {
-                selectQuery += " " + v;
-            });
-            //build the string query
-            selectQuery += where;
+        //get list of variable inside the where
+        List<String> varWhere = this.extractVar(where);
+        List<String> varInsert = this.extractVar(insert);
+        List<String> varExecution = this.extractVar(execution);
+        //get only common elements
+        this.varCommon = this.mergeWithoutDouble(varExecution, this.getCommonElements(varWhere, varInsert));
+        this.varCommon.remove("?out");
+        //add the variable to be extracted
+        varCommon.forEach((v) -> {
+            selectQuery += " " + v;
+        });
+        //build the string query
+        selectQuery += where;
 
     }
 
@@ -110,7 +118,5 @@ public class SparqlAlgorithm extends SemanticAlgorithm {
         });
         return vars;
     }
-
-    
 
 }
