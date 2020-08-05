@@ -17,7 +17,6 @@
 package info.ponciano.lab.knowdip.reasoner;
 
 import info.ponciano.lab.knowdip.KD;
-import info.ponciano.lab.knowdip.Knowdip;
 import info.ponciano.lab.knowdip.aee.AlgorithmRegistry;
 import info.ponciano.lab.knowdip.aee.KnowdipException;
 import info.ponciano.lab.knowdip.aee.algorithm.sparql.Algorithm;
