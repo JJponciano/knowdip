@@ -18,8 +18,8 @@
 package info.ponciano.lab.knowdip.reasoner.automatic;
 
 import info.ponciano.lab.knowdip.aee.KnowdipException;
-import info.ponciano.lab.pisemantic.PiOnt;
-import info.ponciano.lab.pisemantic.PiRestrictions;
+import info.ponciano.lab.knowdip.reasoner.PiOnt;
+import info.ponciano.lab.knowdip.reasoner.PiRestrictions;
 import org.apache.jena.ontology.OntClass;
 import org.apache.jena.ontology.OntProperty;
 
