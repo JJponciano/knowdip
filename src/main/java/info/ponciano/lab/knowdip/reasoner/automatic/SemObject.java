@@ -20,11 +20,11 @@ package info.ponciano.lab.knowdip.reasoner.automatic;
 
 import info.ponciano.lab.knowdip.KD;
 import info.ponciano.lab.knowdip.aee.KnowdipException;
-import info.ponciano.lab.pisemantic.PiDatatype;
-import info.ponciano.lab.pisemantic.PiOnt;
-import info.ponciano.lab.pisemantic.PiOntologyException;
-import info.ponciano.lab.pisemantic.PiRestriction;
-import info.ponciano.lab.pisemantic.PiRestrictions;
+import info.ponciano.lab.knowdip.reasoner.PiDatatype;
+import info.ponciano.lab.knowdip.reasoner.PiOnt;
+import info.ponciano.lab.knowdip.reasoner.PiOntologyException;
+import info.ponciano.lab.knowdip.reasoner.PiRestriction;
+import info.ponciano.lab.knowdip.reasoner.PiRestrictions;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.apache.jena.ontology.OntClass;
