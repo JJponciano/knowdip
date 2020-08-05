@@ -18,12 +18,9 @@ package info.ponciano.lab.knowdip.reasoner;
 
 import info.ponciano.lab.knowdip.KD;
 import info.ponciano.lab.knowdip.aee.KnowdipException;
+import info.ponciano.lab.knowdip.reasoner.automatic.PiRegex;
 import info.ponciano.lab.knowdip.reasoner.automatic.SemObject;
 import info.ponciano.lab.knowdip.reasoner.automatic.algorithms.SparqlAlgorithm;
-import info.ponciano.lab.pisemantic.PiOnt;
-import info.ponciano.lab.pisemantic.PiOntologyException;
-import info.ponciano.lab.pitools.utility.PiRegex;
-import info.ponciano.lab.pitools.utility.PiString;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -49,7 +46,7 @@ public class KReasoner extends KeeOwlFile {
 
     protected PiOnt piont;
     protected List<OntClass> objects;
-    
+
     public KReasoner(String ontologyPath, String datasetPath) throws IOException, KnowdipException, FileNotFoundException, PiOntologyException {
         super(ontologyPath, datasetPath);
 
@@ -208,7 +205,12 @@ public class KReasoner extends KeeOwlFile {
             //replace every var in the execute query  by its  value
             for (String key : varNode.keySet()) {
                 sout = this.replaceAllString(sout, key, varNode.get(key));
-                updateq = new PiString(updateq).replaceAllString(key, varNode.get(key));
+                String exp = key;
+                String string = varNode.get(key);
+                exp = exp.replaceAll("\\?", "\\\\?");
+                exp = exp.replaceAll("\\*", "\\\\*");
+                exp = exp.replaceAll("\\.", "\\\\.");
+                updateq.replaceAll(exp, string);
             }
             //Executes algorithms 
             if (!executeMemory.contains(sout)) {
@@ -235,7 +237,12 @@ public class KReasoner extends KeeOwlFile {
                             out = piString.toString();
                         }
                     }*/
-                    String upOut = new PiString(updateq).replaceAllString("?out", out);
+                    String exp = "?out";
+                    String string = varNode.get(out);
+                    exp = exp.replaceAll("\\?", "\\\\?");
+                    exp = exp.replaceAll("\\*", "\\\\*");
+                    exp = exp.replaceAll("\\.", "\\\\.");
+                    String upOut = updateq.replaceAll(exp, string);
                     //update the knowledge base
                     //  System.out.println(upOut);
                     updateQuery.add(upOut);
