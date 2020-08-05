@@ -23,7 +23,7 @@ import org.apache.jena.ontology.OntProperty;
 
 /**
  *
- * @author Jean-Jacques
+ * @author Jean-Jacques Ponciano
  */
 public class PropVar {
 
