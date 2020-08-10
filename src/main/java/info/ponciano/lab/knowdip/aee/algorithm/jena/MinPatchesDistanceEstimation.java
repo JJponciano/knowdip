@@ -61,19 +61,23 @@ public class MinPatchesDistanceEstimation implements Runnable {
             execute.shutdown();
             execute.awaitTermination(10, TimeUnit.DAYS);
             
-              workers.forEach(w -> {
-                APointCloud patch1 = w.getPatch1();
-                APointCloud patch2 = w.getPatch2();
-                Double results = w.getResults();
-                //retrieve URI
-                String uri1 = patches.get(patch1);
-                String uri2 = patches.get(patch2);
-                String property = getDistanceProperty(results);
-                Knowdip.get().update("INSERT DATA {<"+uri1+"> knowdip:"+property+" <"+uri2+"> }");
-              });
+              this.postprocessing(workers, patches);
         } catch (InterruptedException ex) {
             Logger.getLogger(MinPatchesDistanceEstimation.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    protected void postprocessing(List<info.ponciano.lab.jpc.algorithms.MinPatchesDistanceEstimation> workers, Map<APointCloud, String> patches) {
+        workers.forEach(w -> {
+            APointCloud patch1 = w.getPatch1();
+            APointCloud patch2 = w.getPatch2();
+            Double results = w.getResults();
+            //retrieve URI
+            String uri1 = patches.get(patch1);
+            String uri2 = patches.get(patch2);
+            String property = getDistanceProperty(results);
+            Knowdip.get().update("INSERT DATA {<"+uri1+"> knowdip:"+property+" <"+uri2+"> }");
+        });
     }
 
     private Map<APointCloud,String> getPatches() {
