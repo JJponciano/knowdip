@@ -44,13 +44,15 @@ public class MinPatchesDistanceEstimation extends PatchesDistanceEstimation {
             String uri1 = patches.get(patch1);
             String uri2 = patches.get(patch2);
             String property = getDistanceProperty(results);
-            Knowdip.get().update("INSERT DATA {<"+uri1+"> knowdip:"+property+" <"+uri2+"> }");
+            if (!property.isEmpty()) {
+                Knowdip.get().update("INSERT DATA {<" + uri1 + "> knowdip:" + property + " <" + uri2 + "> }");
+            }
         });
     }
 
     @Override
-    protected Map<APointCloud,String> getPatches() {
-        Map<APointCloud,String> patches = new HashMap<>();
+    protected Map<APointCloud, String> getPatches() {
+        Map<APointCloud, String> patches = new HashMap<>();
         ResultSet select = Knowdip.get().select("SELECT ?p WHERE{ ?p rdf:type knowdip:Patch}");
         while (select.hasNext()) {
             //get URI of the patch
@@ -58,13 +60,26 @@ public class MinPatchesDistanceEstimation extends PatchesDistanceEstimation {
             String uri = next.get("p").asResource().getURI();
             //retrieve the patch in the memory
             APointCloud access = (APointCloud) Knowdip.get().getMemory().access(uri);
-            patches.put(access,uri);
+            patches.put(access, uri);
         }
         return patches;
     }
 
     private String getDistanceProperty(Double results) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if (results < 0.01) {
+            return "inContact";
+        } else if (results < 0.1) {
+            return "isClose";
+        } else if (results < 1) {
+            return "isInTheVicinityOf ";
+        } else if (results < 100) {
+            return "has" + Math.round(results) + "m";
+        } else if (results > 100) {
+            return "has" + Math.round(results / 10.0) + "0m";
+        } else if (results > 1000) {
+            return "has" + Math.round(results / 100.0) + "00m";
+        }
+        return "";
     }
 
 }
