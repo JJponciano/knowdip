@@ -129,6 +129,294 @@
     
 
 
+    <!-- http://lab.ponciano.info/knowdip#has1000m -->
+
+    <owl:ObjectProperty rdf:about="http://lab.ponciano.info/knowdip#has1000m">
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#DistanceProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#has100m -->
+
+    <owl:ObjectProperty rdf:about="http://lab.ponciano.info/knowdip#has100m">
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#DistanceProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#has10m -->
+
+    <owl:ObjectProperty rdf:about="http://lab.ponciano.info/knowdip#has10m">
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#DistanceProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#has11m -->
+
+    <owl:ObjectProperty rdf:about="http://lab.ponciano.info/knowdip#has11m">
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#DistanceProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#has12m -->
+
+    <owl:ObjectProperty rdf:about="http://lab.ponciano.info/knowdip#has12m">
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#DistanceProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#has13m -->
+
+    <owl:ObjectProperty rdf:about="http://lab.ponciano.info/knowdip#has13m">
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#DistanceProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#has14m -->
+
+    <owl:ObjectProperty rdf:about="http://lab.ponciano.info/knowdip#has14m">
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#DistanceProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#has15m -->
+
+    <owl:ObjectProperty rdf:about="http://lab.ponciano.info/knowdip#has15m">
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#DistanceProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#has16m -->
+
+    <owl:ObjectProperty rdf:about="http://lab.ponciano.info/knowdip#has16m">
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#DistanceProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#has17m -->
+
+    <owl:ObjectProperty rdf:about="http://lab.ponciano.info/knowdip#has17m">
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#DistanceProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#has18m -->
+
+    <owl:ObjectProperty rdf:about="http://lab.ponciano.info/knowdip#has18m">
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#DistanceProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#has19m -->
+
+    <owl:ObjectProperty rdf:about="http://lab.ponciano.info/knowdip#has19m">
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#DistanceProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#has200m -->
+
+    <owl:ObjectProperty rdf:about="http://lab.ponciano.info/knowdip#has200m">
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#DistanceProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#has20m -->
+
+    <owl:ObjectProperty rdf:about="http://lab.ponciano.info/knowdip#has20m">
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#DistanceProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#has2m -->
+
+    <owl:ObjectProperty rdf:about="http://lab.ponciano.info/knowdip#has2m">
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#DistanceProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#has300m -->
+
+    <owl:ObjectProperty rdf:about="http://lab.ponciano.info/knowdip#has300m">
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#DistanceProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#has30m -->
+
+    <owl:ObjectProperty rdf:about="http://lab.ponciano.info/knowdip#has30m">
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#DistanceProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#has3m -->
+
+    <owl:ObjectProperty rdf:about="http://lab.ponciano.info/knowdip#has3m">
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#DistanceProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#has400m -->
+
+    <owl:ObjectProperty rdf:about="http://lab.ponciano.info/knowdip#has400m">
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#DistanceProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#has40m -->
+
+    <owl:ObjectProperty rdf:about="http://lab.ponciano.info/knowdip#has40m">
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#DistanceProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#has4m -->
+
+    <owl:ObjectProperty rdf:about="http://lab.ponciano.info/knowdip#has4m">
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#DistanceProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#has500m -->
+
+    <owl:ObjectProperty rdf:about="http://lab.ponciano.info/knowdip#has500m">
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#DistanceProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#has50m -->
+
+    <owl:ObjectProperty rdf:about="http://lab.ponciano.info/knowdip#has50m">
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#DistanceProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#has5m -->
+
+    <owl:ObjectProperty rdf:about="http://lab.ponciano.info/knowdip#has5m">
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#DistanceProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#has600m -->
+
+    <owl:ObjectProperty rdf:about="http://lab.ponciano.info/knowdip#has600m">
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#DistanceProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#has60m -->
+
+    <owl:ObjectProperty rdf:about="http://lab.ponciano.info/knowdip#has60m">
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#DistanceProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#has6m -->
+
+    <owl:ObjectProperty rdf:about="http://lab.ponciano.info/knowdip#has6m">
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#DistanceProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#has700m -->
+
+    <owl:ObjectProperty rdf:about="http://lab.ponciano.info/knowdip#has700m">
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#DistanceProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#has70m -->
+
+    <owl:ObjectProperty rdf:about="http://lab.ponciano.info/knowdip#has70m">
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#DistanceProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#has7m -->
+
+    <owl:ObjectProperty rdf:about="http://lab.ponciano.info/knowdip#has7m">
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#DistanceProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#has800m -->
+
+    <owl:ObjectProperty rdf:about="http://lab.ponciano.info/knowdip#has800m">
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#DistanceProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#has80m -->
+
+    <owl:ObjectProperty rdf:about="http://lab.ponciano.info/knowdip#has80m">
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#DistanceProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#has8m -->
+
+    <owl:ObjectProperty rdf:about="http://lab.ponciano.info/knowdip#has8m">
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#DistanceProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#has900m -->
+
+    <owl:ObjectProperty rdf:about="http://lab.ponciano.info/knowdip#has900m">
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#DistanceProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#has90m -->
+
+    <owl:ObjectProperty rdf:about="http://lab.ponciano.info/knowdip#has90m">
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#DistanceProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#has9m -->
+
+    <owl:ObjectProperty rdf:about="http://lab.ponciano.info/knowdip#has9m">
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#DistanceProperty"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://lab.ponciano.info/knowdip#hasAcquisitionTechnology -->
 
     <owl:ObjectProperty rdf:about="http://lab.ponciano.info/knowdip#hasAcquisitionTechnology">
