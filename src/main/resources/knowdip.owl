@@ -642,6 +642,34 @@
     
 
 
+    <!-- http://lab.ponciano.info/knowdip#hasDistanceX -->
+
+    <owl:DatatypeProperty rdf:about="http://lab.ponciano.info/knowdip#hasDistanceX">
+        <owl:equivalentProperty rdf:resource="http://lab.ponciano.info/knowdip#hasDx"/>
+        <owl:equivalentProperty rdf:resource="http://lab.ponciano.info/knowdip#hasLength"/>
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#DataCharacteristic"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#hasDistanceY -->
+
+    <owl:DatatypeProperty rdf:about="http://lab.ponciano.info/knowdip#hasDistanceY">
+        <owl:equivalentProperty rdf:resource="http://lab.ponciano.info/knowdip#hasDy"/>
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#DataCharacteristic"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#hasDistanceZ -->
+
+    <owl:DatatypeProperty rdf:about="http://lab.ponciano.info/knowdip#hasDistanceZ">
+        <owl:equivalentProperty rdf:resource="http://lab.ponciano.info/knowdip#hasDz"/>
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#DataCharacteristic"/>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://lab.ponciano.info/knowdip#hasDominantClass -->
 
     <owl:DatatypeProperty rdf:about="http://lab.ponciano.info/knowdip#hasDominantClass">
