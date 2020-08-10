@@ -2088,6 +2088,14 @@
     
 
 
+    <!-- http://lab.ponciano.info/knowdip#Patch -->
+
+    <owl:Class rdf:about="http://lab.ponciano.info/knowdip#Patch">
+        <rdfs:subClassOf rdf:resource="http://lab.ponciano.info/knowdip#PointCloud"/>
+    </owl:Class>
+    
+
+
     <!-- http://lab.ponciano.info/knowdip#Plane -->
 
     <owl:Class rdf:about="http://lab.ponciano.info/knowdip#Plane">
