@@ -32,11 +32,11 @@ public class MinPatchesDistanceEstimation implements Runnable{
     @Override
     public void run() {
         
-        getPatches();
+        List<APointCloud> patches = getPatches();
         
     }
 
-    private void getPatches() {
+    private List<APointCloud> getPatches() {
         //get all patches
         List<APointCloud> patches=new ArrayList<>();
         ResultSet select = Knowdip.get().select("SELECT ?p WHERE{ ?p rdf:type knowdip:Patch}");
@@ -48,6 +48,7 @@ public class MinPatchesDistanceEstimation implements Runnable{
             APointCloud access = (APointCloud) Knowdip.get().getMemory().access(uri);
             patches.add(access);
         }
+        return patches;
     }
 
     
