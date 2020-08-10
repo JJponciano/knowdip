@@ -53,6 +53,14 @@
     
 
 
+    <!-- http://lab.ponciano.info/knowdip#DistanceProperty -->
+
+    <owl:ObjectProperty rdf:about="http://lab.ponciano.info/knowdip#DistanceProperty">
+        <rdfs:comment xml:lang="en">If the two elements have a minimum distance of less than 1m</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://lab.ponciano.info/knowdip#PointCloudCharacteristics -->
 
     <owl:ObjectProperty rdf:about="http://lab.ponciano.info/knowdip#PointCloudCharacteristics"/>
@@ -345,6 +353,15 @@
     
 
 
+    <!-- http://lab.ponciano.info/knowdip#inContact -->
+
+    <owl:ObjectProperty rdf:about="http://lab.ponciano.info/knowdip#inContact">
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#DistanceProperty"/>
+        <rdfs:comment xml:lang="en">If the two elements have a minimum distance of less than 0.01m</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://lab.ponciano.info/knowdip#isAcharacteristicsOf -->
 
     <owl:ObjectProperty rdf:about="http://lab.ponciano.info/knowdip#isAcharacteristicsOf">
@@ -373,7 +390,10 @@
 
     <!-- http://lab.ponciano.info/knowdip#isClose -->
 
-    <owl:ObjectProperty rdf:about="http://lab.ponciano.info/knowdip#isClose"/>
+    <owl:ObjectProperty rdf:about="http://lab.ponciano.info/knowdip#isClose">
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#DistanceProperty"/>
+        <rdfs:comment xml:lang="en">If the two elements have a minimum distance of less than 0.1m</rdfs:comment>
+    </owl:ObjectProperty>
     
 
 
@@ -383,6 +403,14 @@
         <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#assessDistanceOf"/>
         <rdfs:domain rdf:resource="http://lab.ponciano.info/knowdip#Segment"/>
         <rdfs:range rdf:resource="http://lab.ponciano.info/knowdip#Segment"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#isInTheVicinityOf -->
+
+    <owl:ObjectProperty rdf:about="http://lab.ponciano.info/knowdip#isInTheVicinityOf">
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#DistanceProperty"/>
     </owl:ObjectProperty>
     
 
