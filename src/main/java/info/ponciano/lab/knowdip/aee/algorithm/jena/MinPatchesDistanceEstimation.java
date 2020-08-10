@@ -20,25 +20,40 @@ import info.ponciano.lab.jpc.pointcloud.components.APointCloud;
 import info.ponciano.lab.knowdip.Knowdip;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import org.apache.jena.query.QuerySolution;
 import org.apache.jena.query.ResultSet;
 
 /**
- *{@code MinPatchesDistanceEstimation } aims to calculate the minimum distance between all patches stored in the ontology according to their oriented bounding box.
+ * {@code MinPatchesDistanceEstimation } aims to calculate the minimum distance
+ * between all patches stored in the ontology according to their oriented
+ * bounding box.
+ *
  * @author Dr Jean-Jacques Ponciano <jean-jacques@ponciano.info>
  */
-public class MinPatchesDistanceEstimation implements Runnable{
+public class MinPatchesDistanceEstimation implements Runnable {
 
     @Override
     public void run() {
-        
-        List<APointCloud> patches = getPatches();
-        
+        //get all patches
+        List<APointCloud> patches = this.getPatches();
+        //calculate the minimum distance between all patches in multi-threading
+        List<info.ponciano.lab.jpc.algorithms.MinPatchesDistanceEstimation> workers = new ArrayList<>();
+        for (int i = 0; i < patches.size() - 1; i++) {
+            for (int j = i + 1; j < patches.size(); j++) {
+                workers.add(new info.ponciano.lab.jpc.algorithms.MinPatchesDistanceEstimation(patches.get(i), patches.get(j)));
+            }
+        }
+        //executes all thread
+        ExecutorService execute = Executors.newCachedThreadPool();
+        workers.forEach(w->execute.submit(w));
+
     }
 
     private List<APointCloud> getPatches() {
-        //get all patches
-        List<APointCloud> patches=new ArrayList<>();
+
+        List<APointCloud> patches = new ArrayList<>();
         ResultSet select = Knowdip.get().select("SELECT ?p WHERE{ ?p rdf:type knowdip:Patch}");
         while (select.hasNext()) {
             //get URI of the patch
@@ -51,5 +66,4 @@ public class MinPatchesDistanceEstimation implements Runnable{
         return patches;
     }
 
-    
 }
