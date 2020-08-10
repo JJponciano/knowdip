@@ -72,13 +72,13 @@ public class MinPatchesDistanceEstimation extends PatchesDistanceEstimation {
             return "isClose";
         } else if (results < 1) {
             return "isInTheVicinityOf ";
-        } else if (results < 100) {
+        }else if (results <=20) {
             return "has" + Math.round(results) + "m";
-        } else if (results > 100) {
+        }  else if (results < 100) {
             return "has" + Math.round(results / 10.0) + "0m";
-        } else if (results > 1000) {
+        } else if (results < 1001) {
             return "has" + Math.round(results / 100.0) + "00m";
-        }
+        } 
         return "";
     }
 
