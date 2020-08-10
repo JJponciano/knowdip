@@ -20,7 +20,19 @@ import info.ponciano.lab.knowdip.Knowdip;
 import info.ponciano.lab.knowdip.aee.KnowdipException;
 import info.ponciano.lab.knowdip.aee.algorithm.sparql.LoadCloud;
 import info.ponciano.lab.knowdip.aee.algorithm.sparql.PatchesSegmentation;
+import info.ponciano.lab.knowdip.aee.algorithm.sparql.getter.GetPatchArea;
+import info.ponciano.lab.knowdip.aee.algorithm.sparql.getter.GetPatchColor;
+import info.ponciano.lab.knowdip.aee.algorithm.sparql.getter.GetPatchDensity;
+import info.ponciano.lab.knowdip.aee.algorithm.sparql.getter.GetPatchDistanceX;
+import info.ponciano.lab.knowdip.aee.algorithm.sparql.getter.GetPatchDistanceY;
+import info.ponciano.lab.knowdip.aee.algorithm.sparql.getter.GetPatchDistanceZ;
+import info.ponciano.lab.knowdip.aee.algorithm.sparql.getter.GetPatchMaxZ;
+import info.ponciano.lab.knowdip.aee.algorithm.sparql.getter.GetPatchMinZ;
+import info.ponciano.lab.knowdip.aee.algorithm.sparql.getter.GetPatchNormalX;
+import info.ponciano.lab.knowdip.aee.algorithm.sparql.getter.GetPatchNormalY;
+import info.ponciano.lab.knowdip.aee.algorithm.sparql.getter.GetPatchNormalZ;
 import info.ponciano.lab.knowdip.aee.algorithm.sparql.getter.GetPatchSize;
+import info.ponciano.lab.knowdip.aee.algorithm.sparql.getter.GetPatchVolume;
 import info.ponciano.lab.knowdip.reasoner.PiOntologyException;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -52,6 +64,18 @@ public class SimpleExample {
             knowdip.add(LoadCloud.class);
             knowdip.add(PatchesSegmentation.class);
             knowdip.add(GetPatchSize.class);
+            knowdip.add(GetPatchColor.class);
+            knowdip.add(GetPatchArea.class);
+            knowdip.add(GetPatchDensity.class);
+            knowdip.add(GetPatchDistanceX.class);
+            knowdip.add(GetPatchDistanceY.class);
+            knowdip.add(GetPatchDistanceZ.class);
+            knowdip.add(GetPatchMaxZ.class);
+            knowdip.add(GetPatchMinZ.class);
+            knowdip.add(GetPatchNormalX.class);
+            knowdip.add(GetPatchNormalY.class);
+            knowdip.add(GetPatchNormalZ.class);
+            knowdip.add(GetPatchVolume.class);
             // Load point cloud
             knowdip.interprets("CONSTRUCT{ ?out rdf:type knowdip:FullPointCloud . ?out knowdip:readFrom ?i0.} " + "WHERE{"
                     + "?i0 rdf:type knowdip:PointCloudFile . "
