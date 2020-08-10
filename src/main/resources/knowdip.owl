@@ -167,14 +167,6 @@
     
 
 
-    <!-- http://lab.ponciano.info/knowdip#hasColor -->
-
-    <owl:ObjectProperty rdf:about="http://lab.ponciano.info/knowdip#hasColor">
-        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#hasCharacteristic"/>
-    </owl:ObjectProperty>
-    
-
-
     <!-- http://lab.ponciano.info/knowdip#hasDistance -->
 
     <owl:ObjectProperty rdf:about="http://lab.ponciano.info/knowdip#hasDistance"/>
@@ -445,9 +437,7 @@
 
     <!-- http://lab.ponciano.info/knowdip#DataCharacteristic -->
 
-    <owl:DatatypeProperty rdf:about="http://lab.ponciano.info/knowdip#DataCharacteristic">
-        <rdfs:domain rdf:resource="http://lab.ponciano.info/knowdip#Data"/>
-    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:about="http://lab.ponciano.info/knowdip#DataCharacteristic"/>
     
 
 
@@ -486,8 +476,8 @@
     <!-- http://lab.ponciano.info/knowdip#hasArea -->
 
     <owl:DatatypeProperty rdf:about="http://lab.ponciano.info/knowdip#hasArea">
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#DataCharacteristic"/>
         <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#hasValue"/>
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
     </owl:DatatypeProperty>
     
@@ -505,7 +495,7 @@
     <!-- http://lab.ponciano.info/knowdip#hasBiTangentV -->
 
     <owl:DatatypeProperty rdf:about="http://lab.ponciano.info/knowdip#hasBiTangentV">
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#DataCharacteristic"/>
     </owl:DatatypeProperty>
     
 
@@ -513,7 +503,7 @@
     <!-- http://lab.ponciano.info/knowdip#hasBiTangentX -->
 
     <owl:DatatypeProperty rdf:about="http://lab.ponciano.info/knowdip#hasBiTangentX">
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#DataCharacteristic"/>
     </owl:DatatypeProperty>
     
 
@@ -521,7 +511,7 @@
     <!-- http://lab.ponciano.info/knowdip#hasBiTangentY -->
 
     <owl:DatatypeProperty rdf:about="http://lab.ponciano.info/knowdip#hasBiTangentY">
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#DataCharacteristic"/>
     </owl:DatatypeProperty>
     
 
@@ -529,7 +519,7 @@
     <!-- http://lab.ponciano.info/knowdip#hasBiTangentZ -->
 
     <owl:DatatypeProperty rdf:about="http://lab.ponciano.info/knowdip#hasBiTangentZ">
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#DataCharacteristic"/>
     </owl:DatatypeProperty>
     
 
@@ -537,8 +527,8 @@
     <!-- http://lab.ponciano.info/knowdip#hasCentroidDistance -->
 
     <owl:DatatypeProperty rdf:about="http://lab.ponciano.info/knowdip#hasCentroidDistance">
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#DataCharacteristic"/>
         <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#hasDistanceDouble"/>
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
     </owl:DatatypeProperty>
     
 
@@ -546,7 +536,7 @@
     <!-- http://lab.ponciano.info/knowdip#hasCentroidX -->
 
     <owl:DatatypeProperty rdf:about="http://lab.ponciano.info/knowdip#hasCentroidX">
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#DataCharacteristic"/>
     </owl:DatatypeProperty>
     
 
@@ -554,7 +544,7 @@
     <!-- http://lab.ponciano.info/knowdip#hasCentroidY -->
 
     <owl:DatatypeProperty rdf:about="http://lab.ponciano.info/knowdip#hasCentroidY">
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#DataCharacteristic"/>
     </owl:DatatypeProperty>
     
 
@@ -562,7 +552,7 @@
     <!-- http://lab.ponciano.info/knowdip#hasCentroidZ -->
 
     <owl:DatatypeProperty rdf:about="http://lab.ponciano.info/knowdip#hasCentroidZ">
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#DataCharacteristic"/>
     </owl:DatatypeProperty>
     
 
@@ -570,7 +560,7 @@
     <!-- http://lab.ponciano.info/knowdip#hasClass -->
 
     <owl:DatatypeProperty rdf:about="http://lab.ponciano.info/knowdip#hasClass">
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#DataCharacteristic"/>
     </owl:DatatypeProperty>
     
 
@@ -578,7 +568,7 @@
     <!-- http://lab.ponciano.info/knowdip#hasClassInstances -->
 
     <owl:DatatypeProperty rdf:about="http://lab.ponciano.info/knowdip#hasClassInstances">
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#DataCharacteristic"/>
     </owl:DatatypeProperty>
     
 
@@ -586,7 +576,15 @@
     <!-- http://lab.ponciano.info/knowdip#hasClassOverlap -->
 
     <owl:DatatypeProperty rdf:about="http://lab.ponciano.info/knowdip#hasClassOverlap">
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#DataCharacteristic"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#hasColor -->
+
+    <owl:DatatypeProperty rdf:about="http://lab.ponciano.info/knowdip#hasColor">
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#DataCharacteristic"/>
     </owl:DatatypeProperty>
     
 
@@ -594,8 +592,8 @@
     <!-- http://lab.ponciano.info/knowdip#hasColorString -->
 
     <owl:DatatypeProperty rdf:about="http://lab.ponciano.info/knowdip#hasColorString">
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#DataCharacteristic"/>
         <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#hasValue"/>
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
     </owl:DatatypeProperty>
     
 
@@ -603,7 +601,7 @@
     <!-- http://lab.ponciano.info/knowdip#hasDensity -->
 
     <owl:DatatypeProperty rdf:about="http://lab.ponciano.info/knowdip#hasDensity">
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#DataCharacteristic"/>
     </owl:DatatypeProperty>
     
 
@@ -647,7 +645,7 @@
     <!-- http://lab.ponciano.info/knowdip#hasDominantClass -->
 
     <owl:DatatypeProperty rdf:about="http://lab.ponciano.info/knowdip#hasDominantClass">
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#DataCharacteristic"/>
     </owl:DatatypeProperty>
     
 
@@ -656,7 +654,7 @@
 
     <owl:DatatypeProperty rdf:about="http://lab.ponciano.info/knowdip#hasDx">
         <owl:equivalentProperty rdf:resource="http://lab.ponciano.info/knowdip#hasLength"/>
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#DataCharacteristic"/>
     </owl:DatatypeProperty>
     
 
@@ -664,7 +662,7 @@
     <!-- http://lab.ponciano.info/knowdip#hasDy -->
 
     <owl:DatatypeProperty rdf:about="http://lab.ponciano.info/knowdip#hasDy">
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#DataCharacteristic"/>
     </owl:DatatypeProperty>
     
 
@@ -672,7 +670,7 @@
     <!-- http://lab.ponciano.info/knowdip#hasDz -->
 
     <owl:DatatypeProperty rdf:about="http://lab.ponciano.info/knowdip#hasDz">
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#DataCharacteristic"/>
     </owl:DatatypeProperty>
     
 
@@ -706,7 +704,9 @@
 
     <!-- http://lab.ponciano.info/knowdip#hasLength -->
 
-    <owl:DatatypeProperty rdf:about="http://lab.ponciano.info/knowdip#hasLength"/>
+    <owl:DatatypeProperty rdf:about="http://lab.ponciano.info/knowdip#hasLength">
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#DataCharacteristic"/>
+    </owl:DatatypeProperty>
     
 
 
@@ -722,7 +722,7 @@
     <!-- http://lab.ponciano.info/knowdip#hasMaxX -->
 
     <owl:DatatypeProperty rdf:about="http://lab.ponciano.info/knowdip#hasMaxX">
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#DataCharacteristic"/>
     </owl:DatatypeProperty>
     
 
@@ -730,7 +730,7 @@
     <!-- http://lab.ponciano.info/knowdip#hasMaxY -->
 
     <owl:DatatypeProperty rdf:about="http://lab.ponciano.info/knowdip#hasMaxY">
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#DataCharacteristic"/>
     </owl:DatatypeProperty>
     
 
@@ -738,7 +738,7 @@
     <!-- http://lab.ponciano.info/knowdip#hasMaxZ -->
 
     <owl:DatatypeProperty rdf:about="http://lab.ponciano.info/knowdip#hasMaxZ">
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#DataCharacteristic"/>
     </owl:DatatypeProperty>
     
 
@@ -746,7 +746,7 @@
     <!-- http://lab.ponciano.info/knowdip#hasMinX -->
 
     <owl:DatatypeProperty rdf:about="http://lab.ponciano.info/knowdip#hasMinX">
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#DataCharacteristic"/>
     </owl:DatatypeProperty>
     
 
@@ -754,7 +754,7 @@
     <!-- http://lab.ponciano.info/knowdip#hasMinY -->
 
     <owl:DatatypeProperty rdf:about="http://lab.ponciano.info/knowdip#hasMinY">
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#DataCharacteristic"/>
     </owl:DatatypeProperty>
     
 
@@ -762,7 +762,7 @@
     <!-- http://lab.ponciano.info/knowdip#hasMinZ -->
 
     <owl:DatatypeProperty rdf:about="http://lab.ponciano.info/knowdip#hasMinZ">
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#DataCharacteristic"/>
     </owl:DatatypeProperty>
     
 
@@ -790,7 +790,7 @@
     <!-- http://lab.ponciano.info/knowdip#hasNormalV -->
 
     <owl:DatatypeProperty rdf:about="http://lab.ponciano.info/knowdip#hasNormalV">
-        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#ObjectCharacteristic"/>
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#DataCharacteristic"/>
     </owl:DatatypeProperty>
     
 
@@ -807,8 +807,8 @@
     <!-- http://lab.ponciano.info/knowdip#hasNormalX -->
 
     <owl:DatatypeProperty rdf:about="http://lab.ponciano.info/knowdip#hasNormalX">
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#DataCharacteristic"/>
         <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#hasValue"/>
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
     </owl:DatatypeProperty>
     
@@ -817,8 +817,8 @@
     <!-- http://lab.ponciano.info/knowdip#hasNormalY -->
 
     <owl:DatatypeProperty rdf:about="http://lab.ponciano.info/knowdip#hasNormalY">
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#DataCharacteristic"/>
         <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#hasValue"/>
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
     </owl:DatatypeProperty>
     
@@ -827,8 +827,8 @@
     <!-- http://lab.ponciano.info/knowdip#hasNormalZ -->
 
     <owl:DatatypeProperty rdf:about="http://lab.ponciano.info/knowdip#hasNormalZ">
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#DataCharacteristic"/>
         <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#hasValue"/>
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
     </owl:DatatypeProperty>
     
@@ -837,7 +837,7 @@
     <!-- http://lab.ponciano.info/knowdip#hasOBB -->
 
     <owl:DatatypeProperty rdf:about="http://lab.ponciano.info/knowdip#hasOBB">
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#DataCharacteristic"/>
     </owl:DatatypeProperty>
     
 
@@ -872,8 +872,8 @@
     <!-- http://lab.ponciano.info/knowdip#hasSize -->
 
     <owl:DatatypeProperty rdf:about="http://lab.ponciano.info/knowdip#hasSize">
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#DataCharacteristic"/>
         <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#hasValue"/>
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
     </owl:DatatypeProperty>
     
@@ -902,7 +902,7 @@
     <!-- http://lab.ponciano.info/knowdip#hasTangentV -->
 
     <owl:DatatypeProperty rdf:about="http://lab.ponciano.info/knowdip#hasTangentV">
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#DataCharacteristic"/>
     </owl:DatatypeProperty>
     
 
@@ -910,7 +910,7 @@
     <!-- http://lab.ponciano.info/knowdip#hasTangentX -->
 
     <owl:DatatypeProperty rdf:about="http://lab.ponciano.info/knowdip#hasTangentX">
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#DataCharacteristic"/>
     </owl:DatatypeProperty>
     
 
@@ -918,7 +918,7 @@
     <!-- http://lab.ponciano.info/knowdip#hasTangentY -->
 
     <owl:DatatypeProperty rdf:about="http://lab.ponciano.info/knowdip#hasTangentY">
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#DataCharacteristic"/>
     </owl:DatatypeProperty>
     
 
@@ -926,7 +926,7 @@
     <!-- http://lab.ponciano.info/knowdip#hasTangentZ -->
 
     <owl:DatatypeProperty rdf:about="http://lab.ponciano.info/knowdip#hasTangentZ">
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#DataCharacteristic"/>
     </owl:DatatypeProperty>
     
 
@@ -950,7 +950,7 @@
     <!-- http://lab.ponciano.info/knowdip#hasVolume -->
 
     <owl:DatatypeProperty rdf:about="http://lab.ponciano.info/knowdip#hasVolume">
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#DataCharacteristic"/>
     </owl:DatatypeProperty>
     
 
@@ -2639,105 +2639,6 @@
     <!-- http://lab.ponciano.info/knowdip#Wall -->
 
     <owl:Class rdf:about="http://lab.ponciano.info/knowdip#Wall">
-        <owl:equivalentClass>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <owl:Class>
-                        <owl:unionOf rdf:parseType="Collection">
-                            <owl:Restriction>
-                                <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasLength"/>
-                                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-                                <owl:onDataRange>
-                                    <rdfs:Datatype>
-                                        <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
-                                        <owl:withRestrictions rdf:parseType="Collection">
-                                            <rdf:Description>
-                                                <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#double">3.0</xsd:minInclusive>
-                                            </rdf:Description>
-                                        </owl:withRestrictions>
-                                    </rdfs:Datatype>
-                                </owl:onDataRange>
-                            </owl:Restriction>
-                            <owl:Restriction>
-                                <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasWidth"/>
-                                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-                                <owl:onDataRange>
-                                    <rdfs:Datatype>
-                                        <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
-                                        <owl:withRestrictions rdf:parseType="Collection">
-                                            <rdf:Description>
-                                                <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#double">3.0</xsd:minInclusive>
-                                            </rdf:Description>
-                                        </owl:withRestrictions>
-                                    </rdfs:Datatype>
-                                </owl:onDataRange>
-                            </owl:Restriction>
-                        </owl:unionOf>
-                    </owl:Class>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasAcquisitionTechnology"/>
-                        <owl:someValuesFrom rdf:resource="http://lab.ponciano.info/knowdip#StructuredLightSensors"/>
-                    </owl:Restriction>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasColor"/>
-                        <owl:someValuesFrom rdf:resource="http://lab.ponciano.info/knowdip#Color"/>
-                    </owl:Restriction>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasGeometry"/>
-                        <owl:someValuesFrom>
-                            <owl:Class>
-                                <owl:intersectionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="http://lab.ponciano.info/knowdip#Plane"/>
-                                    <owl:Restriction>
-                                        <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasOrientation"/>
-                                        <owl:allValuesFrom rdf:resource="http://lab.ponciano.info/knowdip#VerticalNormal"/>
-                                    </owl:Restriction>
-                                </owl:intersectionOf>
-                            </owl:Class>
-                        </owl:someValuesFrom>
-                    </owl:Restriction>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasMaterial"/>
-                        <owl:someValuesFrom>
-                            <owl:Class>
-                                <owl:unionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="http://lab.ponciano.info/knowdip#Mat"/>
-                                    <rdf:Description rdf:about="http://lab.ponciano.info/knowdip#Reflectif"/>
-                                </owl:unionOf>
-                            </owl:Class>
-                        </owl:someValuesFrom>
-                    </owl:Restriction>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasRoughness"/>
-                        <owl:someValuesFrom rdf:resource="http://lab.ponciano.info/knowdip#LowRoughness"/>
-                    </owl:Restriction>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#isPerpendicular"/>
-                        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
-                        <owl:onClass rdf:resource="http://lab.ponciano.info/knowdip#Floor"/>
-                    </owl:Restriction>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#on"/>
-                        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
-                        <owl:onClass rdf:resource="http://lab.ponciano.info/knowdip#Floor"/>
-                    </owl:Restriction>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasHeight"/>
-                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-                        <owl:onDataRange>
-                            <rdfs:Datatype>
-                                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
-                                <owl:withRestrictions rdf:parseType="Collection">
-                                    <rdf:Description>
-                                        <xsd:minExclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#double">2.0</xsd:minExclusive>
-                                    </rdf:Description>
-                                </owl:withRestrictions>
-                            </rdfs:Datatype>
-                        </owl:onDataRange>
-                    </owl:Restriction>
-                </owl:intersectionOf>
-            </owl:Class>
-        </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://lab.ponciano.info/knowdip#HighVerticalObject"/>
         <rdfs:subClassOf rdf:resource="http://lab.ponciano.info/knowdip#Indoor"/>
         <rdfs:subClassOf rdf:resource="http://lab.ponciano.info/knowdip#Outdoor"/>
