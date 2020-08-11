@@ -86,7 +86,7 @@ public class SimpleExample {
             knowdip.interprets("CONSTRUCT{ ?out rdf:type knowdip:Patch . ?out knowdip:comesFrom ?i0.} " + "WHERE{"
                     + "?i0 rdf:type knowdip:FullPointCloud . "
                     + "FILTER NOT EXISTS { ?something knowdip:comesFrom ?i0 } . "
-                    + "?out knowdip:PatchesSegmentation( \"hasInput =\" ?i0)"
+                    + "?out knowdip:PatchSegmentation( \"hasInput =\" ?i0)"
                     + "}");
 
             /*
@@ -94,80 +94,80 @@ public class SimpleExample {
              */
             // Get the size of each patch
             knowdip.interprets("CONSTRUCT{ ?p knowdip:hasSize ?out } " + "WHERE{"
-                    + "?p rdf:type knowdip:Patches . "
+                    + "?p rdf:type knowdip:Patch . "
                     + "FILTER NOT EXISTS { ?p knowdip:hasSize ?s } . "
                     + "?p knowdip:comesFrom ?i0 . "
                     + "?out knowdip:GetPatchSize( \"hasInput =\" ?i0 \"patchID =\" ?p)"
                     + "}");
             knowdip.interprets("CONSTRUCT{ ?p knowdip:hasColor ?out } " + "WHERE{"
-                    + "?p rdf:type knowdip:Patches . "
+                    + "?p rdf:type knowdip:Patch . "
                     + "FILTER NOT EXISTS { ?p knowdip:hasColor ?s } . "
                     + "?p knowdip:comesFrom ?i0 . "
                     + "?out knowdip:GetPatchColor( \"hasInput =\" ?i0 \"patchID =\" ?p)"
                     + "}");
             knowdip.interprets("CONSTRUCT{ ?p knowdip:hasArea ?out } " + "WHERE{"
-                    + "?p rdf:type knowdip:Patches . "
+                    + "?p rdf:type knowdip:Patch . "
                     + "FILTER NOT EXISTS { ?p knowdip:hasArea ?s } . "
                     + "?p knowdip:comesFrom ?i0 . "
                     + "?out knowdip:GetPatchArea( \"hasInput =\" ?i0 \"patchID =\" ?p)"
                     + "}");
             knowdip.interprets("CONSTRUCT{ ?p knowdip:hasDensity ?out } " + "WHERE{"
-                    + "?p rdf:type knowdip:Patches . "
+                    + "?p rdf:type knowdip:Patch . "
                     + "FILTER NOT EXISTS { ?p knowdip:hasDensity ?s } . "
                     + "?p knowdip:comesFrom ?i0 . "
                     + "?out knowdip:GetPatchDensity( \"hasInput =\" ?i0 \"patchID =\" ?p)"
                     + "}");
             knowdip.interprets("CONSTRUCT{ ?p knowdip:hasDistanceX ?out } " + "WHERE{"
-                    + "?p rdf:type knowdip:Patches . "
+                    + "?p rdf:type knowdip:Patch . "
                     + "FILTER NOT EXISTS { ?p knowdip:hasDistanceX ?s } . "
                     + "?p knowdip:comesFrom ?i0 . "
                     + "?out knowdip:GetPatchDistanceX( \"hasInput =\" ?i0 \"patchID =\" ?p)"
                     + "}");
             knowdip.interprets("CONSTRUCT{ ?p knowdip:hasDistanceY ?out } " + "WHERE{"
-                    + "?p rdf:type knowdip:Patches . "
+                    + "?p rdf:type knowdip:Patch . "
                     + "FILTER NOT EXISTS { ?p knowdip:hasDistanceY ?s } . "
                     + "?p knowdip:comesFrom ?i0 . "
                     + "?out knowdip:GetPatchDistanceY( \"hasInput =\" ?i0 \"patchID =\" ?p)"
                     + "}");
             knowdip.interprets("CONSTRUCT{ ?p knowdip:hasDistanceZ ?out } " + "WHERE{"
-                    + "?p rdf:type knowdip:Patches . "
+                    + "?p rdf:type knowdip:Patch . "
                     + "FILTER NOT EXISTS { ?p knowdip:hasDistanceZ ?s } . "
                     + "?p knowdip:comesFrom ?i0 . "
                     + "?out knowdip:GetPatchDistanceZ( \"hasInput =\" ?i0 \"patchID =\" ?p)"
                     + "}");
             knowdip.interprets("CONSTRUCT{ ?p knowdip:hasMaxZ ?out } " + "WHERE{"
-                    + "?p rdf:type knowdip:Patches . "
+                    + "?p rdf:type knowdip:Patch . "
                     + "FILTER NOT EXISTS { ?p knowdip:hasMaxZ ?s } . "
                     + "?p knowdip:comesFrom ?i0 . "
                     + "?out knowdip:GetPatchMaxZ( \"hasInput =\" ?i0 \"patchID =\" ?p)"
                     + "}");
             knowdip.interprets("CONSTRUCT{ ?p knowdip:hasMinZ ?out } " + "WHERE{"
-                    + "?p rdf:type knowdip:Patches . "
+                    + "?p rdf:type knowdip:Patch . "
                     + "FILTER NOT EXISTS { ?p knowdip:hasMinZ ?s } . "
                     + "?p knowdip:comesFrom ?i0 . "
                     + "?out knowdip:GetPatchMinZ( \"hasInput =\" ?i0 \"patchID =\" ?p)"
                     + "}");
 
             knowdip.interprets("CONSTRUCT{ ?p knowdip:hasNormalX ?out } " + "WHERE{"
-                    + "?p rdf:type knowdip:Patches . "
+                    + "?p rdf:type knowdip:Patch . "
                     + "FILTER NOT EXISTS { ?p knowdip:hasNormalX ?s } . "
                     + "?p knowdip:comesFrom ?i0 . "
                     + "?out knowdip:GetPatchNormalX( \"hasInput =\" ?i0 \"patchID =\" ?p)"
                     + "}");
             knowdip.interprets("CONSTRUCT{ ?p knowdip:hasNormalY ?out } " + "WHERE{"
-                    + "?p rdf:type knowdip:Patches . "
+                    + "?p rdf:type knowdip:Patch . "
                     + "FILTER NOT EXISTS { ?p knowdip:hasNormalY ?s } . "
                     + "?p knowdip:comesFrom ?i0 . "
                     + "?out knowdip:GetPatchNormalY( \"hasInput =\" ?i0 \"patchID =\" ?p)"
                     + "}");
             knowdip.interprets("CONSTRUCT{ ?p knowdip:hasNormalZ ?out } " + "WHERE{"
-                    + "?p rdf:type knowdip:Patches . "
+                    + "?p rdf:type knowdip:Patch . "
                     + "FILTER NOT EXISTS { ?p knowdip:hasNormalZ ?s } . "
                     + "?p knowdip:comesFrom ?i0 . "
                     + "?out knowdip:GetPatchNormalZ( \"hasInput =\" ?i0 \"patchID =\" ?p)"
                     + "}");
             knowdip.interprets("CONSTRUCT{ ?p knowdip:hasVolume ?out } " + "WHERE{"
-                    + "?p rdf:type knowdip:Patches . "
+                    + "?p rdf:type knowdip:Patch . "
                     + "FILTER NOT EXISTS { ?p knowdip:hasVolume ?s } . "
                     + "?p knowdip:comesFrom ?i0 . "
                     + "?out knowdip:GetPatchVolume( \"hasInput =\" ?i0 \"patchID =\" ?p)"
