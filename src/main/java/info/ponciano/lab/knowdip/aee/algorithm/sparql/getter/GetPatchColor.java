@@ -33,23 +33,17 @@ import org.apache.jena.graph.NodeFactory;
  */
 public class GetPatchColor extends Algorithm {
 
-    WritableResource hasInput;
+    Pointcloud hasInput;
     String patchID;
 
     @Override
     protected Iterable<Node> process() throws KnowdipException {
-        Object data = hasInput.getData();
-        if (!data.getClass().equals(Pointcloud.class)) {
-            System.err.println("hasInput is not a patch in "+getClass()+"");
-        } else {
-            Pointcloud pc = (Pointcloud) data;
-            String localName =patchID.substring(patchID.lastIndexOf('#')+1,patchID.length());
-            APointCloud patch = pc.get(localName);
-            Color value = patch.getMeanColor();
-            
-            return Collections.singleton(NodeFactory.createLiteralByValue(value.getRed()+","+value.getGreen()+","+value.getBlue(),
-                    XSDDatatype.XSDstring));
-        }
-        return null;
+        String localName = patchID.substring(patchID.lastIndexOf('#') + 1, patchID.length());
+        APointCloud patch = hasInput.get(localName);
+        Color value = patch.getMeanColor();
+
+        return Collections.singleton(NodeFactory.createLiteralByValue(value.getRed() + "," + value.getGreen() + "," + value.getBlue(),
+                XSDDatatype.XSDstring));
+
     }
 }
