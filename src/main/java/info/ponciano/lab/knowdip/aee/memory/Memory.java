@@ -28,6 +28,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.management.BadAttributeValueExpException;
 import org.apache.commons.io.FileUtils;
 
 /**
@@ -39,7 +40,6 @@ import org.apache.commons.io.FileUtils;
 public class Memory {
 
     private Map<String, WritableResource> data;
-
    public Memory() {
         super();
         this.data=new HashMap<>();
@@ -90,7 +90,14 @@ public class Memory {
     }
 
     public Object access(String addr) {
-        WritableResource get = this.data.get(addr);
+        Object get = this.data.get(addr).getData();
+        //if the object get is null
+        if(get==null){
+            //perhaps it is a patch
+            //extract the patch name from the addr.
+            String name = addr.substring(addr.lastIndexOf('#')+1,addr.length());
+            
+        }
         return get;
     }
 
@@ -134,7 +141,9 @@ public class Memory {
             if (writablePointcloud.hasRightExt(path)) {
                 try {
                     writablePointcloud.read(path);
-                    this.data.put(k.substring(k.lastIndexOf(".") + 1, k.length()), writablePointcloud);
+                    String[] split = k.split("\\.");
+                    if(split==null||split.length==0)throw new InternalError("the file "+k+" cannot be load in the memory");
+                    this.data.put(split[0], writablePointcloud);
                 } catch (IOException ex) {
                     Logger.getLogger(Memory.class.getName()).log(Level.SEVERE, null, ex);
                 }

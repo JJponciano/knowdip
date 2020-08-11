@@ -175,7 +175,7 @@ public class SimpleExample {
 
             //Calculate the distance between patches.
             MinPatchesDistanceEstimation mde = new MinPatchesDistanceEstimation();
-            //mde.run();
+            mde.run();
 
             ResultSet select = knowdip.select("SELECT ?c WHERE{ ?c rdf:type knowdip:FullPointCloud }");
             while (select.hasNext()) {
