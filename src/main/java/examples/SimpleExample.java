@@ -18,6 +18,7 @@ package examples;
 
 import info.ponciano.lab.knowdip.Knowdip;
 import info.ponciano.lab.knowdip.aee.KnowdipException;
+import info.ponciano.lab.knowdip.aee.algorithm.jena.MinPatchesDistanceEstimation;
 import info.ponciano.lab.knowdip.aee.algorithm.sparql.LoadCloud;
 import info.ponciano.lab.knowdip.aee.algorithm.sparql.PatchesSegmentation;
 import info.ponciano.lab.knowdip.aee.algorithm.sparql.getter.GetPatchArea;
@@ -171,6 +172,10 @@ public class SimpleExample {
                     + "?p knowdip:comesFrom ?i0 . "
                     + "?out knowdip:GetPatchVolume( \"hasInput =\" ?i0 \"patchID =\" ?p)"
                     + "}");
+
+            //Calculate the distance between patches.
+            MinPatchesDistanceEstimation mde = new MinPatchesDistanceEstimation();
+            mde.run();
 
             ResultSet select = knowdip.select("SELECT ?c WHERE{ ?c rdf:type knowdip:FullPointCloud }");
             while (select.hasNext()) {
