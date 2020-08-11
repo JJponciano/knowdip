@@ -55,7 +55,7 @@ public class SimpleExample {
             args[0] = "src/main/resources/knowdip.owl";
             args[1] = "output/";
             try {
-                Knowdip.init(args[0], args[1], false);
+                Knowdip.init(args[0], args[1], true);
             } catch (FileNotFoundException ex) {
                 Logger.getLogger(SimpleExample.class.getName()).log(Level.SEVERE, null, ex);
             } catch (PiOntologyException ex) {
@@ -175,7 +175,7 @@ public class SimpleExample {
 
             //Calculate the distance between patches.
             MinPatchesDistanceEstimation mde = new MinPatchesDistanceEstimation();
-            mde.run();
+//            mde.run();
 
             ResultSet select = knowdip.select("SELECT ?c WHERE{ ?c rdf:type knowdip:FullPointCloud }");
             while (select.hasNext()) {
