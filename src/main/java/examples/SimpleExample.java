@@ -86,7 +86,7 @@ public class SimpleExample {
             knowdip.interprets("CONSTRUCT{ ?out rdf:type knowdip:Patch . ?out knowdip:comesFrom ?i0.} " + "WHERE{"
                     + "?i0 rdf:type knowdip:FullPointCloud . "
                     + "FILTER NOT EXISTS { ?something knowdip:comesFrom ?i0 } . "
-                    + "?out knowdip:PatchSegmentation( \"hasInput =\" ?i0)"
+                    + "?out knowdip:PatchesSegmentation( \"hasInput =\" ?i0)"
                     + "}");
 
             /*
