@@ -55,7 +55,7 @@ public class SimpleExample {
             args[0] = "src/main/resources/knowdip.owl";
             args[1] = "output/";
             try {
-                Knowdip.init(args[0], args[1], true);
+                Knowdip.init(args[0], args[1], false);
             } catch (FileNotFoundException ex) {
                 Logger.getLogger(SimpleExample.class.getName()).log(Level.SEVERE, null, ex);
             } catch (PiOntologyException ex) {
