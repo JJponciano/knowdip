@@ -24,6 +24,7 @@ import info.ponciano.lab.knowdip.reasoner.PiOntologyException;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.List;
 import java.util.UUID;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -160,6 +161,10 @@ public class Knowdip {
 
     public Property getProperty(String HAS_VALUE) {
         return this.reasoner.getModel().getProperty(HAS_VALUE);
+    }
+
+    public List<String> listPointClouds() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }

@@ -17,6 +17,7 @@
 package info.ponciano.lab.knowdip.aee.memory;
 
 import info.ponciano.lab.jpc.pointcloud.Pointcloud;
+import info.ponciano.lab.jpc.pointcloud.components.APointCloud;
 import info.ponciano.lab.knowdip.Knowdip;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -40,12 +41,11 @@ import org.apache.commons.io.FileUtils;
 public class Memory {
 
     private Map<String, WritableResource> data;
-   public Memory() {
-        super();
-        this.data=new HashMap<>();
-    }  
 
-  
+    public Memory() {
+        super();
+        this.data = new HashMap<>();
+    }
 
     /**
      * Allocates a point cloud with the given URI
@@ -92,11 +92,23 @@ public class Memory {
     public Object access(String addr) {
         Object get = this.data.get(addr).getData();
         //if the object get is null
-        if(get==null){
+        if (get == null) {
             //perhaps it is a patch
             //extract the patch name from the addr.
-            String name = addr.substring(addr.lastIndexOf('#')+1,addr.length());
-            
+            String name = addr.substring(addr.lastIndexOf('#') + 1, addr.length());
+            //get all point cloud
+            List<String> clouds = Knowdip.get().listPointClouds();
+            //Test for each cloud if it contains the name as a patch
+            for (String c : clouds) {
+                //test if the data is a pointcloud
+                Object get1 = this.data.get(c).getData();
+                if(!get1.getClass().equals(Pointcloud.class)){
+                      throw new InternalError("The method  Knowdip.get().listPointClouds() returns an element that isn't a point cloud.");
+                }
+                Pointcloud pc = (Pointcloud)get1;
+                APointCloud patch = pc.get(name);
+                if(patch!=null)return patch;
+            }
         }
         return get;
     }
@@ -124,7 +136,7 @@ public class Memory {
             //save each element
             this.data.forEach((var k, var v) -> {
                 try {
-                   var n= k.substring(k.lastIndexOf('#')+1, k.length());
+                    var n = k.substring(k.lastIndexOf('#') + 1, k.length());
                     v.write(filename + n + v.getExt());
                 } catch (IOException ex) {
                     Logger.getLogger(Memory.class.getName()).log(Level.SEVERE, null, ex);
@@ -138,16 +150,18 @@ public class Memory {
         List<String> ls = this.ls(path);
         ls.forEach(k -> {
             WritablePointcloud writablePointcloud = new WritablePointcloud();
+            //read point cloud
             if (writablePointcloud.hasRightExt(path)) {
                 try {
                     writablePointcloud.read(path);
                     String[] split = k.split("\\.");
-                    if(split==null||split.length==0)throw new InternalError("the file "+k+" cannot be load in the memory");
+                    if (split == null || split.length == 0) {
+                        throw new InternalError("the file " + k + " cannot be load in the memory");
+                    }
                     this.data.put(split[0], writablePointcloud);
                 } catch (IOException ex) {
                     Logger.getLogger(Memory.class.getName()).log(Level.SEVERE, null, ex);
                 }
-
             }
         });
     }
