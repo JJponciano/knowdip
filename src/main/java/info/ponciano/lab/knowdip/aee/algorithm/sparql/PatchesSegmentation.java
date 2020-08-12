@@ -32,25 +32,24 @@ import org.apache.jena.rdf.model.ResourceFactory;
 
 public class PatchesSegmentation extends Algorithm {
 
-    WritableResource hasInput;
+    Pointcloud hasInput;
     double hasMaxSize;
 
     @Override
     protected Iterable<Node> process() throws KnowdipException {
         List<Node> nodes = new ArrayList<>();
-        Object data = hasInput.getData();
-        if (!data.getClass().equals(Pointcloud.class)) {
-            System.err.println("hasInput is not a point cloud in info.ponciano.lab.knowdip.aee.algorithm.mappc.PatchesSegmentation.process()");
-        } else {
-            Pointcloud pc = (Pointcloud) data;
+//        if (!data.getClass().equals(Pointcloud.class)) {
+//            System.err.println("hasInput is not a point cloud in info.ponciano.lab.knowdip.aee.algorithm.mappc.PatchesSegmentation.process()");
+//        } else {
+//            Pointcloud pc = (Pointcloud) data;
 
-            Map<String, APointCloud> patches = pc.getPatches();
+            Map<String, APointCloud> patches = hasInput.getPatches();
             patches.forEach((String k, APointCloud cloud) -> {
                 Node node = Knowdip.createURI(k);
                 nodes.add(node);
             });
             System.out.println("Patches: " + nodes.size());
-        }
+//        }
         return nodes;
 
     }
