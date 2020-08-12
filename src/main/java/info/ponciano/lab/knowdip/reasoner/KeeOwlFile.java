@@ -128,7 +128,7 @@ public class KeeOwlFile extends Kee {
     public synchronized void close() {
         try {
             saveOntology();
-             this.memory.write(this.memoryPath);
+            this.memory.write(this.memoryPath);
         } catch (IOException ex) {
             Logger.getLogger(KeeOwlFile.class.getName()).log(Level.SEVERE, null, ex);
         }
