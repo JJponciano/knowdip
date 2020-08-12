@@ -16,7 +16,6 @@
  */
 package info.ponciano.lab.knowdip.aee.algorithm.sparql;
 
-
 import info.ponciano.lab.jpc.pointcloud.Pointcloud;
 import info.ponciano.lab.knowdip.Knowdip;
 import info.ponciano.lab.knowdip.aee.KnowdipException;
@@ -30,7 +29,6 @@ import org.apache.jena.graph.NodeFactory;
 import java.io.IOException;
 import java.util.UUID;
 
-
 public class LoadCloud extends Algorithm {
 
     String hasSource;
@@ -38,7 +36,7 @@ public class LoadCloud extends Algorithm {
 
     @Override
     protected Iterable<Node> process() throws KnowdipException {
-         System.out.println("Point cloud loading: ");
+        System.out.println("Point cloud loading: ");
         try {
             Pointcloud cloud;
             if (hasSource == null) {
@@ -49,7 +47,7 @@ public class LoadCloud extends Algorithm {
                 System.out.println("Point cloud loaded: " + cloud.size());
             }
             Node s = Knowdip.createURI(UUID.randomUUID().toString());
-           Knowdip.get().getMemory().alloc(s.getURI(), cloud);
+            Knowdip.get().getMemory().alloc(s.getURI(), cloud);
             return Collections.singleton(s);
         } catch (IOException e) {
             throw new KnowdipException("The file  " + hasSource + " does not exist of cannot be open!");
