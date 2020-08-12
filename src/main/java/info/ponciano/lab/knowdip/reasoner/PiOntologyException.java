@@ -24,5 +24,5 @@ public class PiOntologyException extends Exception {
 
     public PiOntologyException(String string) {
     }
-    
+
 }
