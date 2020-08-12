@@ -42,7 +42,6 @@ import org.apache.jena.rdf.model.Property;
 public class Knowdip {
 
     private static Knowdip instance;
-   
 
     public Memory getMemory() {
         return this.reasoner.getMemory();
@@ -61,7 +60,7 @@ public class Knowdip {
     private final KReasoner reasoner;
 
     Knowdip(String ontologyPath, String outDir, boolean reset) throws IOException, KnowdipException, FileNotFoundException, PiOntologyException {
-     
+
         if (reset) {
             clearAll(outDir);
         }
