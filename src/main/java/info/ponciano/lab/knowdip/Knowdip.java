@@ -144,7 +144,7 @@ public class Knowdip {
         if (!toUpperCase.contains("CONSTRUCT") && !toUpperCase.contains("SELECT") && !queryString.contains("}")) {
             throw new KnowdipException("Impossible to interprets the query: " + queryString);
         }
-        if (queryString.contains("\n")||queryString.contains("\r")) {
+        if (queryString.contains("\n") || queryString.contains("\r")) {
             queryString = queryString.replace("\n", "").replace("\r", "");
         }
         return this.reasoner.interprets(queryString);
