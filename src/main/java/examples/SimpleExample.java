@@ -54,13 +54,8 @@ public class SimpleExample {
             args = new String[2];
             args[0] = "src/main/resources/knowdip.owl";
             args[1] = "output/";
-            try {
                 Knowdip.init(args[0], args[1], false);
-            } catch (FileNotFoundException ex) {
-                Logger.getLogger(SimpleExample.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (PiOntologyException ex) {
-                Logger.getLogger(SimpleExample.class.getName()).log(Level.SEVERE, null, ex);
-            }
+
             Knowdip knowdip = Knowdip.get();
             knowdip.add(LoadCloud.class);
             knowdip.add(PatchesSegmentation.class);
@@ -190,9 +185,7 @@ public class SimpleExample {
             }
 
             knowdip.save();
-        } catch (IOException ex) {
-            Logger.getLogger(SimpleExample.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (KnowdipException ex) {
+        } catch (IOException | KnowdipException | PiOntologyException ex) {
             Logger.getLogger(SimpleExample.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
