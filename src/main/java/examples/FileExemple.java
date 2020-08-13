@@ -54,13 +54,8 @@ public class FileExemple {
             args = new String[2];
             args[0] = "src/main/resources/knowdip.owl";
             args[1] = "output/";
-            try {
                 Knowdip.init(args[0], args[1], true);
-            } catch (FileNotFoundException ex) {
-                Logger.getLogger(FileExemple.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (PiOntologyException ex) {
-                Logger.getLogger(FileExemple.class.getName()).log(Level.SEVERE, null, ex);
-            }
+
             Knowdip knowdip = Knowdip.get();
             knowdip.add(LoadCloud.class);
             knowdip.add(PatchesSegmentation.class);
@@ -83,20 +78,10 @@ public class FileExemple {
 
             String selectString = knowdip.selectAsText("SELECT ?c ?z WHERE{ ?c rdf:type knowdip:Patch . ?c knowdip:hasNormalZ ?z . Filter(?z <0.1 )  }");
             System.out.println(selectString);
-            //Select vertical patches 
-            ResultSet select = knowdip.select("SELECT ?c WHERE{ ?c rdf:type knowdip:Patch . ?c knowdip:hasNormalZ ?z . Filter(?z <0.1 )  }");
-            while (select.hasNext()) {
-                QuerySolution next = select.next();
-                String uri = next.get("c").asResource().getURI();
-                /*
-                Do something with the URI :)
-                 */
-            }
+
 
             knowdip.save();
-        } catch (IOException ex) {
-            Logger.getLogger(FileExemple.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (KnowdipException ex) {
+        } catch (IOException | KnowdipException | PiOntologyException ex) {
             Logger.getLogger(FileExemple.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
