@@ -106,7 +106,7 @@ public class Knowdip {
      * @param pathfile path of the file
      * @return true if all queries produce results, false otherwise
      */
-    public boolean interpretsFile(String pathfile) throws IOException {
+    public boolean interpretsFile(String pathfile) throws IOException, KnowdipException {
         final StringBuilder buff = new StringBuilder();
         final File fileio = new File(pathfile);
 
@@ -138,8 +138,16 @@ public class Knowdip {
      * algorithms
      * @return true if queries produces results, false otherwise
      */
-    public boolean interprets(String queryString) {
-        return this.reasoner.interprets(queryString);
+    public boolean interprets(String queryString) throws KnowdipException {
+            String toUpperCase = queryString.toUpperCase();
+
+            if (!toUpperCase.contains("CONSTRUCT") && !toUpperCase.contains("SELECT") && !queryString.contains("}")) {
+                throw new KnowdipException("Impossible to interprets the query " + queryString);
+            }
+            if (queryString.contains("\n")) {
+                throw new KnowdipException("Please remove newline form the query" + queryString);
+            }
+            return this.reasoner.interprets(queryString);
     }
 
     /**
