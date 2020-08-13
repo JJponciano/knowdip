@@ -139,15 +139,15 @@ public class Knowdip {
      * @return true if queries produces results, false otherwise
      */
     public boolean interprets(String queryString) throws KnowdipException {
-            String toUpperCase = queryString.toUpperCase();
+        String toUpperCase = queryString.toUpperCase();
 
-            if (!toUpperCase.contains("CONSTRUCT") && !toUpperCase.contains("SELECT") && !queryString.contains("}")) {
-                throw new KnowdipException("Impossible to interprets the query " + queryString);
-            }
-            if (queryString.contains("\n")) {
-                throw new KnowdipException("Please remove newline form the query" + queryString);
-            }
-            return this.reasoner.interprets(queryString);
+        if (!toUpperCase.contains("CONSTRUCT") && !toUpperCase.contains("SELECT") && !queryString.contains("}")) {
+            throw new KnowdipException("Impossible to interprets the query: " + queryString);
+        }
+        if (queryString.contains("\n")||queryString.contains("\r")) {
+            queryString = queryString.replace("\n", "").replace("\r", "");
+        }
+        return this.reasoner.interprets(queryString);
     }
 
     /**
