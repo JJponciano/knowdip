@@ -137,7 +137,7 @@ public class Memory {
             this.data.forEach((var k, var v) -> {
                 try {
                     var n = k.substring(k.lastIndexOf('#') + 1, k.length());
-                    v.write(filename + n + v.getExt());
+                    v.write(filename + n + "."+v.getExt());
                 } catch (IOException ex) {
                     Logger.getLogger(Memory.class.getName()).log(Level.SEVERE, null, ex);
                 }
