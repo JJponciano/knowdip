@@ -33,7 +33,9 @@ import org.apache.jena.graph.Node;
 import org.apache.jena.graph.NodeFactory;
 import org.apache.jena.ontology.OntProperty;
 import org.apache.jena.query.ResultSet;
+import org.apache.jena.query.ResultSetFormatter;
 import org.apache.jena.rdf.model.Property;
+import org.apache.jena.sparql.core.Prologue;
 
 /**
  *
@@ -42,6 +44,7 @@ import org.apache.jena.rdf.model.Property;
 public class Knowdip {
 
     private static Knowdip instance;
+    private final KReasoner reasoner;
 
     public Memory getMemory() {
         return this.reasoner.getMemory();
@@ -56,8 +59,6 @@ public class Knowdip {
     public static Knowdip get() {
         return instance;
     }
-
-    private final KReasoner reasoner;
 
     Knowdip(String ontologyPath, String outDir, boolean reset) throws IOException, KnowdipException, FileNotFoundException, PiOntologyException {
 
@@ -156,6 +157,10 @@ public class Knowdip {
      */
     public ResultSet select(String query) {
         return this.reasoner.select(query);
+    }
+
+    public String selectAsText(String query) {
+        return ResultSetFormatter.asText(this.select(query), new Prologue(this.reasoner.getWorkingModel()));
     }
 
     public Property getProperty(String HAS_VALUE) {
