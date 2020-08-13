@@ -200,6 +200,13 @@ public class Knowdip {
         return this.reasoner.select(query);
     }
 
+    /**
+     * Format the result of the query.
+     *
+     * @param query query to be executed.
+     * @return A string representing an array so the columns are the results of
+     * the selected variables.
+     */
     public String selectAsText(String query) {
         return ResultSetFormatter.asText(this.select(query), new Prologue(this.reasoner.getWorkingModel()));
     }
@@ -209,7 +216,7 @@ public class Knowdip {
     }
 
     public List<String> listPointClouds() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 
 }
