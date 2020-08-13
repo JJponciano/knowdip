@@ -55,7 +55,7 @@ public class SimpleExample {
             args[0] = "src/main/resources/knowdip.owl";
             args[1] = "output/";
             try {
-                Knowdip.init(args[0], args[1], true);
+                Knowdip.init(args[0], args[1], false);
             } catch (FileNotFoundException ex) {
                 Logger.getLogger(SimpleExample.class.getName()).log(Level.SEVERE, null, ex);
             } catch (PiOntologyException ex) {
@@ -177,7 +177,8 @@ public class SimpleExample {
             MinPatchesDistanceEstimation mde = new MinPatchesDistanceEstimation();
 //            mde.run();
 
-            ResultSet select = knowdip.select("SELECT ?c WHERE{ ?c rdf:type knowdip:FullPointCloud }");
+            //Select vertical patches 
+            ResultSet select = knowdip.select("SELECT ?c WHERE{ ?c rdf:type knowdip:Patch . ?c knowdip:hasNormalZ ?z . Filter(?z <0.1 )  }");
             while (select.hasNext()) {
                 QuerySolution next = select.next();
                 String uri = next.get("c").asResource().getURI();
