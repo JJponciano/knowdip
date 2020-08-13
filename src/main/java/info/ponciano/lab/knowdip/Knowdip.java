@@ -34,7 +34,6 @@ import java.util.logging.Logger;
 import org.apache.commons.io.FileUtils;
 import org.apache.jena.graph.Node;
 import org.apache.jena.graph.NodeFactory;
-import org.apache.jena.ontology.OntProperty;
 import org.apache.jena.query.ResultSet;
 import org.apache.jena.query.ResultSetFormatter;
 import org.apache.jena.rdf.model.Property;
@@ -121,12 +120,13 @@ public class Knowdip {
         //if the query is not empty, interprets it 
         boolean allOK = true;
         for (String query : buffS) {
-            if (!this.interprets(query)) {
-                allOK = false;
+            if (!query.isEmpty()) {
+                if (!this.interprets("CONSTRUCT" + query)) {
+                    allOK = false;
+                }
             }
         }
         return allOK;
-
     }
 
     /**
