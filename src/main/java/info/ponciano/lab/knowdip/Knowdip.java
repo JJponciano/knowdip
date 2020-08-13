@@ -21,9 +21,12 @@ import info.ponciano.lab.knowdip.aee.algorithm.sparql.Algorithm;
 import info.ponciano.lab.knowdip.aee.memory.Memory;
 import info.ponciano.lab.knowdip.reasoner.KReasoner;
 import info.ponciano.lab.knowdip.reasoner.PiOntologyException;
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
 import java.util.List;
 import java.util.UUID;
 import java.util.logging.Level;
@@ -94,6 +97,36 @@ public class Knowdip {
 
     public void update(String query) {
         this.reasoner.update(query);
+    }
+
+    /**
+     * Interprets every SPARQL query contained in a file
+     *
+     * The output of the algorithms should has the name "?out".
+     *
+     * @param pathfile path of the file
+     * @return true if all queries produce results, false otherwise
+     */
+    public boolean interpretsFile(String pathfile) throws IOException {
+        final StringBuilder buff = new StringBuilder();
+        final File fileio = new File(pathfile);
+
+        try ( BufferedReader reader = Files.newBufferedReader(fileio.toPath(), StandardCharsets.UTF_8)) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                buff.append(line).append("\n");
+            }
+        }
+        String[] buffS = buff.toString().split("CONSTRUCT|SELECT");
+        //if the query is not empty, interprets it 
+        boolean allOK = true;
+        for (String query : buffS) {
+            if (!this.interprets(query)) {
+                allOK = false;
+            }
+        }
+        return allOK;
+
     }
 
     /**
