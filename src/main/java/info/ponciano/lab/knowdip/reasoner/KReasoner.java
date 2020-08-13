@@ -46,7 +46,7 @@ public class KReasoner extends KeeOwlFile {
 
     protected PiOnt piont;
     protected List<OntClass> objects;
-    
+
     public KReasoner(String ontologyPath, String datasetPath) throws IOException, KnowdipException, FileNotFoundException, PiOntologyException {
         super(ontologyPath, datasetPath);
 
@@ -205,7 +205,7 @@ public class KReasoner extends KeeOwlFile {
             //replace every var in the execute query  by its  value
             for (String key : varNode.keySet()) {
                 sout = this.replaceAllString(sout, key, varNode.get(key));
-                updateq = this.replaceAllString(updateq,key, varNode.get(key));
+                updateq = this.replaceAllString(updateq, key, varNode.get(key));
             }
             //Executes algorithms 
             if (!executeMemory.contains(sout)) {
@@ -232,7 +232,7 @@ public class KReasoner extends KeeOwlFile {
                             out = piString.toString();
                         }
                     }*/
-                    String upOut =this.replaceAllString(updateq,"?out", out);
+                    String upOut = this.replaceAllString(updateq, "?out", out);
                     //update the knowledge base
                     //  System.out.println(upOut);
                     updateQuery.add(upOut);
@@ -344,7 +344,9 @@ public class KReasoner extends KeeOwlFile {
         exp = exp.replaceAll("\\.", "\\\\.");
         return sout.replaceAll(exp, string);
     }
-
+    public PiOnt getPiont() {
+        return piont;
+    }
 }
 
 class TwoVar {
