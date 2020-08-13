@@ -177,13 +177,18 @@ public class SimpleExample {
             MinPatchesDistanceEstimation mde = new MinPatchesDistanceEstimation();
 //            mde.run();
 
+            String selectString = knowdip.selectAsText("SELECT ?c ?z WHERE{ ?c rdf:type knowdip:Patch . ?c knowdip:hasNormalZ ?z . Filter(?z <0.1 )  }");
+            System.out.println(selectString);
             //Select vertical patches 
             ResultSet select = knowdip.select("SELECT ?c WHERE{ ?c rdf:type knowdip:Patch . ?c knowdip:hasNormalZ ?z . Filter(?z <0.1 )  }");
             while (select.hasNext()) {
                 QuerySolution next = select.next();
                 String uri = next.get("c").asResource().getURI();
-                System.out.println(uri);
+               /*
+                Do something with the URI :)
+                */
             }
+
             knowdip.save();
         } catch (IOException ex) {
             Logger.getLogger(SimpleExample.class.getName()).log(Level.SEVERE, null, ex);
