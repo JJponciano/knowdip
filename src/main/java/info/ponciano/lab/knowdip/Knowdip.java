@@ -48,6 +48,10 @@ public class Knowdip {
     private static Knowdip instance;
     private final KReasoner reasoner;
 
+    /**
+    * Get the knowdip memory where pointclouds ands images are dynamically stored.
+    * @return the knowdip memory allowing the access to pointclouds and images instances 
+    **/
     public Memory getMemory() {
         return this.reasoner.getMemory();
     }
