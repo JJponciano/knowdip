@@ -77,6 +77,9 @@ public abstract class Kee {
         this.memoryPath = workingDir + "kmemory";
         if (new File(memoryPath).exists()) {
             this.memory.read(memoryPath);
+            if(this.memory.isEmpty()){
+                System.err.println("Warning, the memory is empty, please check the folder: "+this.memoryPath);
+            }
         }
         this.init();
         this.prefix = "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n";
