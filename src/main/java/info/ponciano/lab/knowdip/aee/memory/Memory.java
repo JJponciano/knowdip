@@ -65,7 +65,7 @@ public class Memory {
      * @return URI of the corresponding individual inside the ontology
      */
     public String alloc(Pointcloud cloud) {
-        String uri = Knowdip.createURI(cloud.getClass().getSimpleName()
+        String uri = Knowdip.createNode(cloud.getClass().getSimpleName()
                 + "_" + UUID.randomUUID().toString()).getURI();
         this.alloc(uri, cloud);
         return uri;
@@ -91,7 +91,6 @@ public class Memory {
 
     public Object access(String addr) {
         WritableResource obj = this.data.get(addr);
-
         //if the object get is null
         if (obj == null) {
             //perhaps it is a patch
@@ -154,14 +153,14 @@ public class Memory {
         ls.forEach(k -> {
             WritablePointcloud writablePointcloud = new WritablePointcloud();
             //read point cloud
-            if (writablePointcloud.hasRightExt(path)) {
+            if (writablePointcloud.hasRightExt(k)) {
                 try {
-                    writablePointcloud.read(path);
+                    writablePointcloud.read(path+k);
                     String[] split = k.split("\\.");
                     if (split == null || split.length == 0) {
                         throw new InternalError("the file " + k + " cannot be load in the memory");
                     }
-                    this.data.put(split[0], writablePointcloud);
+                    this.data.put(Knowdip.createNode(split[0]).getURI(), writablePointcloud);
                 } catch (IOException ex) {
                     Logger.getLogger(Memory.class.getName()).log(Level.SEVERE, null, ex);
                 }
