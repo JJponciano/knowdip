@@ -125,15 +125,6 @@ public class Memory {
      * @throws IOException if something wrong.
      */
     public void write(String path) throws IOException {
-        //Clean the directory if it exists
-        File dir = new File(path);
-        if (dir.exists()) {
-            if (dir.isDirectory()) {
-                FileUtils.cleanDirectory(dir);
-            }
-            FileUtils.forceDelete(dir);
-        }
-        dir.mkdir();
         if (!path.endsWith("/") || !path.endsWith("\\")) {
             path += "/";
             final String filename = path;
