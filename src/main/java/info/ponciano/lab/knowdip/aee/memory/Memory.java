@@ -90,9 +90,10 @@ public class Memory {
     }
 
     public Object access(String addr) {
-        Object get = this.data.get(addr).getData();
+        WritableResource obj = this.data.get(addr);
+
         //if the object get is null
-        if (get == null) {
+        if (obj == null) {
             //perhaps it is a patch
             //extract the patch name from the addr.
             String name = addr.substring(addr.lastIndexOf('#') + 1, addr.length());
@@ -102,15 +103,17 @@ public class Memory {
             for (String c : clouds) {
                 //test if the data is a pointcloud
                 Object get1 = this.data.get(c).getData();
-                if(!get1.getClass().equals(Pointcloud.class)){
-                      throw new InternalError("The method  Knowdip.get().listPointClouds() returns an element that isn't a point cloud.");
+                if (!get1.getClass().equals(Pointcloud.class)) {
+                    throw new InternalError("The method  Knowdip.get().listPointClouds() returns an element that isn't a point cloud.");
                 }
-                Pointcloud pc = (Pointcloud)get1;
+                Pointcloud pc = (Pointcloud) get1;
                 APointCloud patch = pc.get(name);
-                if(patch!=null)return patch;
+                if (patch != null) {
+                    return patch;
+                }
             }
-        }
-        return get;
+            return null;
+        }else return obj.getData();
     }
 
     /**
@@ -137,7 +140,7 @@ public class Memory {
             this.data.forEach((var k, var v) -> {
                 try {
                     var n = k.substring(k.lastIndexOf('#') + 1, k.length());
-                    v.write(filename + n + "."+v.getExt());
+                    v.write(filename + n + "." + v.getExt());
                 } catch (IOException ex) {
                     Logger.getLogger(Memory.class.getName()).log(Level.SEVERE, null, ex);
                 }
