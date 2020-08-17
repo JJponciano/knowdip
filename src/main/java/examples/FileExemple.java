@@ -50,7 +50,7 @@ public class FileExemple {
             args = new String[2];
             args[0] = "src/main/resources/knowdip.owl";
             args[1] = "output/";
-                Knowdip.init(args[0], args[1], true);
+                Knowdip.init(args[0], args[1], false);
 
             Knowdip knowdip = Knowdip.get();
             knowdip.add(LoadCloud.class);
@@ -69,7 +69,7 @@ public class FileExemple {
             knowdip.add(GetPatchNormalZ.class);
             knowdip.add(GetPatchVolume.class);
 
-            //interprets all SPARQL queries contained in the file queries
+            //interprets all SPARQL queries contained in the file
             knowdip.interpretsFile("src/main/resources/queries.txt");
 
             String selectString = knowdip.selectAsText("SELECT ?c ?z WHERE{ ?c rdf:type knowdip:Patch . ?c knowdip:hasNormalZ ?z . Filter(?z <0.1 )  }");
