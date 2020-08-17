@@ -53,7 +53,7 @@ public class SimpleExample {
             args = new String[2];
             args[0] = "src/main/resources/knowdip.owl";
             args[1] = "output/";
-                Knowdip.init(args[0], args[1], false);
+                Knowdip.init(args[0], args[1], true);
 
             Knowdip knowdip = Knowdip.get();
             knowdip.add(LoadCloud.class);
