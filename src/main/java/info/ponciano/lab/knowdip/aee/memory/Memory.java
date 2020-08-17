@@ -151,13 +151,19 @@ public class Memory {
 
     public void read(String path) throws IOException {
         this.data.clear();
+        final String localPath;
+        if (!path.endsWith("/") && !path.endsWith("\\")) {
+            localPath = path + "/";
+        } else {
+            localPath = path;
+        }
         List<String> ls = this.ls(path);
         ls.forEach(k -> {
             WritablePointcloud writablePointcloud = new WritablePointcloud();
             //read point cloud
             if (writablePointcloud.hasRightExt(k)) {
                 try {
-                    writablePointcloud.read(path + k);
+                    writablePointcloud.read(localPath + k);
                     String[] split = k.split("\\.");
                     if (split == null || split.length == 0) {
                         throw new InternalError("the file " + k + " cannot be load in the memory");
