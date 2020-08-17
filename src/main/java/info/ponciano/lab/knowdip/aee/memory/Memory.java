@@ -112,7 +112,9 @@ public class Memory {
                 }
             }
             return null;
-        }else return obj.getData();
+        } else {
+            return obj.getData();
+        }
     }
 
     /**
@@ -155,7 +157,7 @@ public class Memory {
             //read point cloud
             if (writablePointcloud.hasRightExt(k)) {
                 try {
-                    writablePointcloud.read(path+k);
+                    writablePointcloud.read(path + k);
                     String[] split = k.split("\\.");
                     if (split == null || split.length == 0) {
                         throw new InternalError("the file " + k + " cannot be load in the memory");
@@ -185,6 +187,15 @@ public class Memory {
             }
         }
         return result;
+    }
+
+    /**
+     * Returns {@code true} if this memory contains no elements.
+     *
+     * @return {@code true} if this memory contains no elements.
+     */
+    public boolean isEmpty() {
+        return this.data.isEmpty();
     }
 
 }
