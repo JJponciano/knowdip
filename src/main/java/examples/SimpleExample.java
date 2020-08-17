@@ -35,7 +35,6 @@ import info.ponciano.lab.knowdip.aee.algorithm.sparql.getter.GetPatchNormalZ;
 import info.ponciano.lab.knowdip.aee.algorithm.sparql.getter.GetPatchSize;
 import info.ponciano.lab.knowdip.aee.algorithm.sparql.getter.GetPatchVolume;
 import info.ponciano.lab.knowdip.reasoner.PiOntologyException;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -83,7 +82,6 @@ public class SimpleExample {
                     + "FILTER NOT EXISTS { ?something knowdip:comesFrom ?i0 } . "
                     + "?out knowdip:PatchesSegmentation( \"hasInput =\" ?i0)"
                     + "}");
-
             /*
              * Features extraction
              */
