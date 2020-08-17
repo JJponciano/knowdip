@@ -228,12 +228,13 @@ public class Knowdip {
     /**
      * Execute SPARQL select query and return the results as a list
      * <h2>Example:</h2>
-     *  <pre><code> List l=selectAsList("SELECT ?c WHERE{ ?c rdf:type knowdip:PointCloud }","c")</code></pre>
+     * <pre><code> List l=selectAsList("SELECT ?c WHERE{ ?c rdf:type knowdip:PointCloud }","c")</code></pre>
+     *
      * @param query select query to execute.
      * @param variable use in the select query.
      * @return list of URI corresponding to the variable.
      */
-    public List<String> selectAsList(String query,String variable) {
+    public List<String> selectAsList(String query, String variable) {
         List<String> uris = new ArrayList<>();
         ResultSet select = this.select(query);
         while (select.hasNext()) {
@@ -244,6 +245,13 @@ public class Knowdip {
         return uris;
     }
 
-    
+    /**
+     * Get the URI of all point clouds contained in the ontology.
+     *
+     * @return List of URI corresponding to point clouds
+     */
+    public List<String> listPointClouds() {
+        return this.selectAsList("SELECT ?c WHERE{ ?c rdf:type knowdip:PointCloud }", "c");
+    }
 
 }
