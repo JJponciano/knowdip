@@ -193,7 +193,7 @@ public class Knowdip {
         return NodeFactory.createURI(KD.NS + UUID.randomUUID().toString());
     }
 
-    public static Node createURI(String name) {
+    public static Node createNode(String name) {
         if (!name.contains("#")) {
             name = KD.NS + name;
         }
