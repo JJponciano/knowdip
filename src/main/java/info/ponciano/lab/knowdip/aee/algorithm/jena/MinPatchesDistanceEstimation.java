@@ -19,6 +19,7 @@ package info.ponciano.lab.knowdip.aee.algorithm.jena;
 import info.ponciano.lab.jpc.algorithms.segmentation.PatchesDistanceEstimation;
 import info.ponciano.lab.jpc.pointcloud.components.APointCloud;
 import info.ponciano.lab.knowdip.Knowdip;
+import info.ponciano.lab.knowdip.aee.memory.Memory;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -58,8 +59,9 @@ public class MinPatchesDistanceEstimation extends PatchesDistanceEstimation {
             //get URI of the patch
             QuerySolution next = select.next();
             String uri = next.get("p").asResource().getURI();
+            Memory memory = Knowdip.get().getMemory();
             //retrieve the patch in the memory
-            APointCloud access = (APointCloud) Knowdip.get().getMemory().access(uri);
+            APointCloud access = (APointCloud) memory.access(uri);
             patches.put(access, uri);
         }
         return patches;
