@@ -168,7 +168,7 @@ public class SimpleExample {
 
             //Calculate the distance between patches.
             MinPatchesDistanceEstimation mde = new MinPatchesDistanceEstimation();
-//            mde.run();
+            mde.run();
 
             String selectString = knowdip.selectAsText("SELECT ?c ?z WHERE{ ?c rdf:type knowdip:Patch . ?c knowdip:hasNormalZ ?z . Filter(?z <0.1 )  }");
             System.out.println(selectString);
