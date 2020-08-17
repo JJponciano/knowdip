@@ -46,7 +46,7 @@ public class LoadCloud extends Algorithm {
                 cloud.loadASCII(hasSource);
                 System.out.println("Point cloud loaded: " + cloud.size());
             }
-            Node s = Knowdip.createURI(UUID.randomUUID().toString());
+            Node s = Knowdip.createNode(UUID.randomUUID().toString());
             Knowdip.get().getMemory().alloc(s.getURI(), cloud);
             return Collections.singleton(s);
         } catch (IOException e) {
