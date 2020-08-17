@@ -18,7 +18,6 @@ package examples;
 
 import info.ponciano.lab.knowdip.Knowdip;
 import info.ponciano.lab.knowdip.aee.KnowdipException;
-import info.ponciano.lab.knowdip.aee.algorithm.jena.MinPatchesDistanceEstimation;
 import info.ponciano.lab.knowdip.aee.algorithm.sparql.LoadCloud;
 import info.ponciano.lab.knowdip.aee.algorithm.sparql.PatchesSegmentation;
 import info.ponciano.lab.knowdip.aee.algorithm.sparql.getter.GetPatchArea;
@@ -35,12 +34,9 @@ import info.ponciano.lab.knowdip.aee.algorithm.sparql.getter.GetPatchNormalZ;
 import info.ponciano.lab.knowdip.aee.algorithm.sparql.getter.GetPatchSize;
 import info.ponciano.lab.knowdip.aee.algorithm.sparql.getter.GetPatchVolume;
 import info.ponciano.lab.knowdip.reasoner.PiOntologyException;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import org.apache.jena.query.QuerySolution;
-import org.apache.jena.query.ResultSet;
 
 /**
  *
