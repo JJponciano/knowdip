@@ -27,6 +27,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 import java.util.logging.Level;
@@ -34,6 +35,7 @@ import java.util.logging.Logger;
 import org.apache.commons.io.FileUtils;
 import org.apache.jena.graph.Node;
 import org.apache.jena.graph.NodeFactory;
+import org.apache.jena.query.QuerySolution;
 import org.apache.jena.query.ResultSet;
 import org.apache.jena.query.ResultSetFormatter;
 import org.apache.jena.rdf.model.Property;
@@ -49,9 +51,13 @@ public class Knowdip {
     private final KReasoner reasoner;
 
     /**
-    * Get the knowdip memory where pointclouds ands images are dynamically stored.
-    * @return the knowdip memory allowing the access to pointclouds and images instances 
-    **/
+     * Get the knowdip memory where pointclouds ands images are dynamically
+     * stored.
+     *
+     * @return the knowdip memory allowing the access to pointclouds and images
+     * instances
+     *
+     */
     public Memory getMemory() {
         return this.reasoner.getMemory();
     }
@@ -114,7 +120,7 @@ public class Knowdip {
         final StringBuilder buff = new StringBuilder();
         final File fileio = new File(pathfile);
 
-        try ( BufferedReader reader = Files.newBufferedReader(fileio.toPath(), StandardCharsets.UTF_8)) {
+        try (BufferedReader reader = Files.newBufferedReader(fileio.toPath(), StandardCharsets.UTF_8)) {
             String line;
             while ((line = reader.readLine()) != null) {
                 buff.append(line).append("\n");
@@ -220,11 +226,24 @@ public class Knowdip {
     }
 
     /**
-     *  Get the uri of all point clouds contained in the ontology.
-     * @return List of uri correcponding to pointclouds
+     * Execute SPARQL select query and return the results as a list
+     * <h2>Example:</h2>
+     *  <pre><code> List l=selectAsList("SELECT ?c WHERE{ ?c rdf:type knowdip:PointCloud }","c")</code></pre>
+     * @param query select query to execute.
+     * @param variable use in the select query.
+     * @return list of URI corresponding to the variable.
      */
-    public List<String> listPointClouds() {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public List<String> selectAsList(String query,String variable) {
+        List<String> uris = new ArrayList<>();
+        ResultSet select = this.select(query);
+        while (select.hasNext()) {
+            QuerySolution next = select.next();
+            String uri = next.get(variable).asResource().getURI();
+            uris.add(uri);
+        }
+        return uris;
     }
+
+    
 
 }
