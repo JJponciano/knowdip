@@ -114,6 +114,7 @@ public abstract class Kee {
 
         this.algorithmRegistry = new AlgorithmRegistry();
         this.algorithmRegistry.load(model);
+       
     }
 
     /**
