@@ -219,6 +219,10 @@ public class Knowdip {
         return this.reasoner.getModel().getProperty(HAS_VALUE);
     }
 
+    /**
+     *  Get the uri of all point clouds contained in the ontology.
+     * @return List of uri correcponding to pointclouds
+     */
     public List<String> listPointClouds() {
         throw new UnsupportedOperationException("Not supported yet.");
     }
