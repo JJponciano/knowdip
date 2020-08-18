@@ -100,15 +100,18 @@ public class Memory {
             List<String> clouds = Knowdip.get().listPointClouds();
             //Test for each cloud if it contains the name as a patch
             for (String c : clouds) {
-                //test if the data is a pointcloud
-                Object get1 = this.data.get(c).getData();
-                if (!get1.getClass().equals(Pointcloud.class)) {
-                    throw new InternalError("The method  Knowdip.get().listPointClouds() returns an element that isn't a point cloud.");
-                }
-                Pointcloud pc = (Pointcloud) get1;
-                APointCloud patch = pc.get(name);
-                if (patch != null) {
-                    return patch;
+                WritableResource get = this.data.get(c);
+                if (get != null) {
+                    //test if the data is a pointcloud
+                    Object d = get.getData();
+                    if (!d.getClass().equals(Pointcloud.class)) {
+                        throw new InternalError("The method  Knowdip.get().listPointClouds() returns an element that isn't a point cloud.");
+                    }
+                    Pointcloud pc = (Pointcloud) d;
+                    APointCloud patch = pc.get(name);
+                    if (patch != null) {
+                        return patch;
+                    }
                 }
             }
             return null;
