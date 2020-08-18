@@ -21,6 +21,7 @@ import info.ponciano.lab.jpc.pointcloud.components.APointCloud;
 import info.ponciano.lab.knowdip.Knowdip;
 import info.ponciano.lab.knowdip.aee.memory.Memory;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import org.apache.jena.query.QuerySolution;
@@ -36,14 +37,23 @@ import org.apache.jena.query.ResultSet;
 public class MinPatchesDistanceEstimation extends PatchesDistanceEstimation {
 
     @Override
-    protected void postprocessing(List<info.ponciano.lab.jpc.algorithms.MinPatchesDistanceEstimation> workers, Map<APointCloud, String> patches) {
+    protected void postprocessing(List<info.ponciano.lab.jpc.algorithms.segmentation.MinPatchesDistanceEstimation> workers, Map<String,APointCloud> patches) {
         workers.forEach(w -> {
             APointCloud patch1 = w.getPatch1();
             APointCloud patch2 = w.getPatch2();
             Double results = w.getResults();
             //retrieve URI
-            String uri1 = patches.get(patch1);
-            String uri2 = patches.get(patch2);
+            Iterator<String> iterator = patches.keySet().iterator();
+              String uri1="";
+              String uri2="";
+            while ((uri1.isEmpty()||uri2.isEmpty())&&iterator.hasNext()) {
+                String k = iterator.next();
+                if(uri1.isEmpty()&&patches.get(k).equals(patch1)){
+                       uri1 = k;
+                }else if(uri2.isEmpty()&&patches.get(k).equals(patch2)){
+                       uri2 =k;
+                } 
+            }
             String property = getDistanceProperty(results);
             if (!property.isEmpty()) {
                 Knowdip.get().update("INSERT DATA {<" + uri1 + "> knowdip:" + property + " <" + uri2 + "> }");
@@ -52,8 +62,8 @@ public class MinPatchesDistanceEstimation extends PatchesDistanceEstimation {
     }
 
     @Override
-    protected Map<APointCloud, String> getPatches() {
-        Map<APointCloud, String> patches = new HashMap<>();
+    protected Map<String,APointCloud> getPatches() {
+        Map<String,APointCloud> patches = new HashMap<>();
         ResultSet select = Knowdip.get().select("SELECT ?p WHERE{ ?p rdf:type knowdip:Patch}");
         while (select.hasNext()) {
             //get URI of the patch
@@ -62,7 +72,7 @@ public class MinPatchesDistanceEstimation extends PatchesDistanceEstimation {
             Memory memory = Knowdip.get().getMemory();
             //retrieve the patch in the memory
             APointCloud access = (APointCloud) memory.access(uri);
-            patches.put(access, uri);
+            patches.put(uri,access);
         }
         return patches;
     }
