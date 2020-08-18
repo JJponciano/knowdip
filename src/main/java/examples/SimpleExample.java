@@ -53,7 +53,7 @@ public class SimpleExample {
             args = new String[2];
             args[0] = "src/main/resources/knowdip.owl";
             args[1] = "output/";
-                Knowdip.init(args[0], args[1], true);
+                Knowdip.init(args[0], args[1], false);
 
             Knowdip knowdip = Knowdip.get();
             knowdip.add(LoadCloud.class);
@@ -168,7 +168,7 @@ public class SimpleExample {
 
             //Calculate the distance between patches.
             MinPatchesDistanceEstimation mde = new MinPatchesDistanceEstimation();
-           // mde.run();
+            mde.run();
 
             String selectString = knowdip.selectAsText("SELECT ?c ?z WHERE{ ?c rdf:type knowdip:Patch . ?c knowdip:hasNormalZ ?z . Filter(?z <0.1 )  }");
             System.out.println(selectString);
