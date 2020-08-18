@@ -251,7 +251,7 @@ public class Knowdip {
      * @return List of URI corresponding to point clouds
      */
     public List<String> listPointClouds() {
-        return this.selectAsList("SELECT ?c WHERE{ ?c rdf:type knowdip:PointCloud }", "c");
+        return this.selectAsList("SELECT ?c WHERE{ ?c rdf:type knowdip:FullPointCloud }", "c");
     }
 
 }
