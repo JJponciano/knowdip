@@ -380,4 +380,8 @@ public class KReasoner {
     public ResultSet select(String query) {
         return this.kee.select(query);
     }
+
+    public String selectAsText(String query) {
+        return this.kee.selectAsText(query);
+    }
 }
