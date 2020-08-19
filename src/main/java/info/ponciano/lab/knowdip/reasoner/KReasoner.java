@@ -18,6 +18,7 @@ package info.ponciano.lab.knowdip.reasoner;
 
 import info.ponciano.lab.knowdip.KD;
 import info.ponciano.lab.knowdip.aee.KnowdipException;
+import info.ponciano.lab.knowdip.aee.algorithm.sparql.Algorithm;
 import info.ponciano.lab.knowdip.aee.memory.Memory;
 import info.ponciano.lab.knowdip.reasoner.automatic.PiRegex;
 import info.ponciano.lab.knowdip.reasoner.automatic.SemObject;
@@ -358,5 +359,9 @@ public class KReasoner {
 
     public Memory getMemory() {
         return this.kee.getMemory();
+    }
+
+    public void add(Class<? extends Algorithm> algo) throws KnowdipException {
+        this.kee.add(algo);
     }
 }
