@@ -42,7 +42,7 @@ import org.apache.jena.update.UpdateAction;
 import org.apache.jena.util.FileManager;
 
 /**
- * Kee for owl file
+ * {@code Kee} for owl file
  *
  * @author Jean-Jacques Ponciano
  */
@@ -59,7 +59,6 @@ public class KeeOwlFile extends Kee {
         //creates the file if it not exists
         if (!file.exists()) {
             Files.copy(new File(ontologyPath).toPath(), file.toPath(), REPLACE_EXISTING);
-
         }
         this.workingModel = ModelFactory.createOntologyModel(OntModelSpec.OWL_DL_MEM, FileManager.get()
                 .loadModel(this.workingOntPath));
