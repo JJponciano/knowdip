@@ -76,18 +76,7 @@ public class KeeOwlFile extends Kee {
         return queryExecution.execSelect();
     }
 
-    /**
-     * Get a select query in a printable array
-     * @param query SPARQL select query
-     * @return  the query's results formatted in a printable array.
-     */
-    public String selectAsText(String query) {
-        return ResultSetFormatter.asText(this.select(query), new Prologue(this.workingModel));
-    }
-
-    protected synchronized boolean hasNext(ResultSet select) {
-        return select.hasNext();
-    }
+  
 
     @Override
     protected Model execConstruct(String queryString) throws KnowdipException {
