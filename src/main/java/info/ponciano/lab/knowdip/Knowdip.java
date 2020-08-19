@@ -223,7 +223,7 @@ public class Knowdip {
      * the selected variables.
      */
     public String selectAsText(String query) {
-        return ResultSetFormatter.asText(this.select(query), new Prologue(this.reasoner.getWorkingModel()));
+        return this.reasoner.selectAsText(query);
     }
 
     public Property getProperty(String HAS_VALUE) {
