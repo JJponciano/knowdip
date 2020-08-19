@@ -34,6 +34,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.apache.jena.datatypes.RDFDatatype;
 import org.apache.jena.ontology.OntClass;
+import org.apache.jena.ontology.OntModel;
 import org.apache.jena.query.QuerySolution;
 import org.apache.jena.query.ResultSet;
 import org.apache.jena.rdf.model.Literal;
@@ -383,5 +384,9 @@ public class KReasoner {
 
     public String selectAsText(String query) {
         return this.kee.selectAsText(query);
+    }
+
+    public OntModel getModel() {
+        return this.kee.getModel();
     }
 }
