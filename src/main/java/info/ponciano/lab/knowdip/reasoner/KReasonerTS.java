@@ -44,60 +44,9 @@ import org.apache.jena.rdf.model.RDFNode;
  */
 public class KReasonerTS extends KeeTS {
 
-    protected PiOnt piont;
-    protected List<OntClass> objects;
-
     public KReasonerTS(String ontologyPath, String datasetPath) throws IOException, KnowdipException, FileNotFoundException, PiOntologyException {
         super(ontologyPath, datasetPath);
-
-        this.piont = new PiOnt(workingOntPath);
-        //select every subclass of object
-        OntClass objectCl = piont.getOntClass(KD.OBJECT);
-        this.objects = piont.getSubClass(objectCl, true);
-
-    }
-
-    private void inferRoot() throws KnowdipException {
-        this.construct("CONSTRUCT { ?x rdf:type ?sub } WHERE {"
-                + "?x rdf:type ?t . ?t rdfs:subClassOf ?sub . "
-                + "} ");
-    }
-
-    /**
-     * Execute algorithms by translate algorithms information from ontology to
-     * SPARQL queries
-     *
-     * @throws KnowdipException
-     * @deprecated it is more robust to use @code{interprets()}
-     * @see KReasoner.interprets
-     */
-    public void genericExecution() throws KnowdipException {
-        try {
-            //get the algorithm class
-            OntClass algoOC = piont.getOntClass(KD.ALGORITHM);
-            //get all subclass of algorithm
-            List<OntClass> algos = piont.getSubClass(algoOC, true);
-            //for each algorithm's subclass
-            boolean construct = true;
-            while (construct) {
-                this.inferRoot();//infer the ontology with root rules
-                construct = false;
-                for (OntClass algo : algos) {
-                    //build semantically the algorithm
-                    SparqlAlgorithm semAlgo = new SparqlAlgorithm(algo, piont);
-                    //get update if it exists
-                    List<String> updateQuery = getUpdateQuery(semAlgo);
-                    construct |= !updateQuery.isEmpty();
-                    updateQuery.forEach((query) -> {
-
-                        this.update(query);
-                    });
-                }
-            }
-        } catch (PiOntologyException ex) {
-            Logger.getLogger(KReasonerTS.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
+    } 
 
     /**
      * Interpret sparql queries to execute algorithms add enrich the ontology
