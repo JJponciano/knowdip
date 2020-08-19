@@ -61,12 +61,23 @@ import org.apache.jena.vocabulary.RDFS;
  * @author Jean-Jacques Ponciano
  */
 public class PiOnt {
-    public static String NS_SEMANTIC="http://lab.ponciano.info/pisemantic#";
+
+    public static String NS_SEMANTIC = "http://lab.ponciano.info/pisemantic#";
     protected String ns;// default ns
     /**
      * Ontology.
      */
     protected OntModel ont;
+
+    /**
+     * Creates instance of PiOntology
+     *
+     * @param ont ontology model.
+     */
+    public PiOnt(OntModel ont) throws FileNotFoundException {
+        this.ns = NS_SEMANTIC;
+        this.ont = ont;
+    }
 
     /**
      * Creates instance of PiOntology
@@ -105,8 +116,8 @@ public class PiOnt {
      * Creates a <code>OntClass</code> in the ontology if it does not exist.
      *
      * @param name <code>OntClass</code> name with the name space.
-     * @return <code>OntClass</code> created in the ontology or get if it already
-     *         exists.
+     * @return <code>OntClass</code> created in the ontology or get if it
+     * already exists.
      */
     // @Override
     public OntClass createClass(String name) {
@@ -119,7 +130,8 @@ public class PiOnt {
     }
 
     /**
-     * Test if the value contains namespace, if it not contains, add its the value.
+     * Test if the value contains namespace, if it not contains, add its the
+     * value.
      *
      * @param value value to test
      * @return correct formed URI with the default namespace if necessary.
@@ -163,8 +175,8 @@ public class PiOnt {
      * Creates <code>DatatypeProperty</code> if there does not exist.
      *
      * @param name property name .
-     * @return the <code>DatatypeProperty</code> created or the property found if it
-     *         is already existed.
+     * @return the <code>DatatypeProperty</code> created or the property found
+     * if it is already existed.
      */
     // @Override
     public DatatypeProperty createDatatypeProperty(String name) {
@@ -180,8 +192,8 @@ public class PiOnt {
      * Creates <code>ObjectProperty</code> if it does not exist
      *
      * @param name name of the property .
-     * @return the <code>ObjectProperty</code> created or the property found if it
-     *         is already existed.
+     * @return the <code>ObjectProperty</code> created or the property found if
+     * it is already existed.
      */
     // @Override
     public ObjectProperty createObjectProperty(String name) {
@@ -206,12 +218,12 @@ public class PiOnt {
      * Write all RDF data in a file
      *
      * @param path path of the file will be erase or create.
-     * @param ont  model to be written
+     * @param ont model to be written
      * @return true if the file is safe, false otherwise.
      */
     // @Override
     public static boolean write(String path, final OntModel ont) {
-      path = path.substring(path.lastIndexOf('.'), path.length()-1);
+        path = path.substring(path.lastIndexOf('.'), path.length() - 1);
         path += ".owl";
         BufferedOutputStream out = null;
         boolean isOk = true;
@@ -242,8 +254,8 @@ public class PiOnt {
      * Adds a prefix.
      *
      * @param prefix short prefix key ( knowdip)
-     * @param ns     Namespace use for the prefix
-     *               (http://lab.ponciano.info/knowdip#)
+     * @param ns Namespace use for the prefix
+     * (http://lab.ponciano.info/knowdip#)
      */
     public void addNsPrefix(final String prefix, final String ns) {
         this.ont.setNsPrefix(prefix, ns);
@@ -256,8 +268,8 @@ public class PiOnt {
      * * Gets <code>DatatypeProperty</code> from the name and the name space.
      *
      * @param name name of the property .
-     * @return the <code>DatatypeProperty</code> found or null if the property does
-     *         not exist.
+     * @return the <code>DatatypeProperty</code> found or null if the property
+     * does not exist.
      */
     // @Override
     public DatatypeProperty getDataProperty(String name) {
@@ -269,8 +281,8 @@ public class PiOnt {
      * Gets <code>ObjectProperty</code> from the name and the name space
      *
      * @param name name of the property .
-     * @return the <code>ObjectProperty</code> found or null if the property does
-     *         not exist.
+     * @return the <code>ObjectProperty</code> found or null if the property
+     * does not exist.
      */
     // @Override
     public ObjectProperty getObjectProperty(String name) {
@@ -282,8 +294,8 @@ public class PiOnt {
      * Gets <code>OntProperty</code> from the name and the name space.
      *
      * @param name name of the property .
-     * @return the <code>getOntProperty</code> found or null if the property does
-     *         not exist.
+     * @return the <code>getOntProperty</code> found or null if the property
+     * does not exist.
      */
     public OntProperty getOntProperty(String name) {
         name = this.getURI(name);
@@ -294,7 +306,8 @@ public class PiOnt {
      * Gets <code>OntClass</code> from the name.
      *
      * @param name class name with the name space.
-     * @return the <code>OntClass</code> found or null if the class does not exist.
+     * @return the <code>OntClass</code> found or null if the class does not
+     * exist.
      * @see getOntClass( String name).
      */
     // @Override
@@ -307,7 +320,8 @@ public class PiOnt {
      * Gets <code>Resource</code> from the name.
      *
      * @param name <code>Resource</code> name
-     * @return the <code>Resource</code> found or null if the class does not exist.
+     * @return the <code>Resource</code> found or null if the class does not
+     * exist.
      */
     // @Override
     public Resource getResource(String name) {
@@ -320,30 +334,29 @@ public class PiOnt {
      * Adds individual in the own base and add every property with value at this
      * individual.
      *
-     * @param name       name of the individual .
-     * @param model      model used to create the individual.
+     * @param name name of the individual .
+     * @param model model used to create the individual.
      * @param properties properties of the individual.
-     * @param values     list of each value corresponding at each properties.
-     * @throws PiOntologyException if the length of the both list are not equals.
+     * @param values list of each value corresponding at each properties.
+     * @throws PiOntologyException if the length of the both list are not
+     * equals.
      *
-     *                             <h3>Example</h3>
-     *                             <p>
-     *                             PiOntology ont = new PiOntology(); String name =
-     *                             "Chien"; OntClass model = ont.createClass(name);
-     *                             List values = new ArrayList<>(); List properties
-     *                             = new ArrayList<>();
-     *                             properties.add(ont.createDatatypeProperty("hasFamily"));
-     *                             properties.add(ont.getDataProperty("hasFamily"));
-     *                             properties.add(ont.getDataProperty("hasFamily"));
-     *                             properties.add(ont.getDataProperty("hasFamily"));
-     *                             values.add(ont.createResource("Claire"));
-     *                             values.add(ont.createResource("Perle"));
-     *                             values.add(ont.createResource("Plume"));
-     *                             values.add(ont.createResource("JJ")); PiOntology
-     *                             instance = new PiOntology();
-     *                             instance.addIndividualDataPrprt("Dana", model,
-     *                             values, properties);
-     *                             </p>
+     * <h3>Example</h3>
+     * <p>
+     * PiOntology ont = new PiOntology(); String name = "Chien"; OntClass model
+     * = ont.createClass(name); List values = new ArrayList<>(); List properties
+     * = new ArrayList<>();
+     * properties.add(ont.createDatatypeProperty("hasFamily"));
+     * properties.add(ont.getDataProperty("hasFamily"));
+     * properties.add(ont.getDataProperty("hasFamily"));
+     * properties.add(ont.getDataProperty("hasFamily"));
+     * values.add(ont.createResource("Claire"));
+     * values.add(ont.createResource("Perle"));
+     * values.add(ont.createResource("Plume"));
+     * values.add(ont.createResource("JJ")); PiOntology instance = new
+     * PiOntology(); instance.addIndividualDataPrprt("Dana", model, values,
+     * properties);
+     * </p>
      */
     // @Override
     public void addIndividualDataPrprt(final String name, final OntClass model, final List<RDFNode> values,
@@ -366,8 +379,9 @@ public class PiOnt {
     /**
      * Creates restriction class
      *
-     * @param property           property which the restriction will be applied on.
-     * @param restrictionType    type of the restriction applied (<code>OWL</code>).
+     * @param property property which the restriction will be applied on.
+     * @param restrictionType type of the restriction applied
+     * (<code>OWL</code>).
      * @param appliedRestriction class which the restriction will be applied on.
      * @return the restriction class created
      */
@@ -406,15 +420,15 @@ public class PiOnt {
 
     /**
      * Answer a class description defined as the class of those individuals that
-     * have exactly the given number of values for the given property, all values of
-     * which belong to the given class.
+     * have exactly the given number of values for the given property, all
+     * values of which belong to the given class.
      *
-     * @param uri         The optional URI for the restriction, or null for an
-     *                    anonymous restriction (which should be the normal case)
-     * @param prop        The property the restriction applies to
+     * @param uri The optional URI for the restriction, or null for an anonymous
+     * restriction (which should be the normal case)
+     * @param prop The property the restriction applies to
      * @param cardinality The cardinality of the property
-     * @param clas        The class to which all values of the restricted property
-     *                    should belong
+     * @param clas The class to which all values of the restricted property
+     * should belong
      * @return A new resource representing a cardinality-q restriction
      *
      */
@@ -454,9 +468,10 @@ public class PiOnt {
 
     /**
      * Executes SPARQL select and return result as resources
-     * 
-     * @param queryString  SPARQL query to select resources
-     * @param ResourceCode SPARQL variable code to select resources (such as "?s")
+     *
+     * @param queryString SPARQL query to select resources
+     * @param ResourceCode SPARQL variable code to select resources (such as
+     * "?s")
      * @return List of resources found.
      */
     public List<Resource> ask(final String queryString, final String ResourceCode) {
@@ -522,10 +537,10 @@ public class PiOnt {
      * Answer a class description defined as the class of those individuals for
      * which all values of the given property belong to the given class
      *
-     * @param uri  - The optional URI for the restriction, or null for an anonymous
-     *             restriction (which should be the normal case)
+     * @param uri - The optional URI for the restriction, or null for an
+     * anonymous restriction (which should be the normal case)
      * @param prop - The property the restriction applies to
-     * @param cls  - The class to which any value of the property belongs
+     * @param cls - The class to which any value of the property belongs
      *
      * @return A new resource representing an all-values-from restriction
      */
@@ -541,11 +556,11 @@ public class PiOnt {
     /**
      * Say if a class has a restriction all value from
      *
-     * @param subject    class to be tested
+     * @param subject class to be tested
      * @param onProperty property of the all value from restriction.
-     * @param value      value of the all value from restriction.
+     * @param value value of the all value from restriction.
      * @return true if the class subject has the restriction described, false
-     *         otherwise.
+     * otherwise.
      */
     public boolean hasAllValuesFromRestriction(final OntClass subject, final Property onProperty,
             final OntClass value) {
@@ -569,19 +584,18 @@ public class PiOnt {
     }
 
     /**
-     * Gets all subclasses of the class given which has the right property on the
-     * right object.
+     * Gets all subclasses of the class given which has the right property on
+     * the right object.
      *
-     * @param mother     mother class contained subclasses will be used-
+     * @param mother mother class contained subclasses will be used-
      * @param onProperty property that the subclass must to have
-     * @param object     object of the property that the subclass must have or null
-     *                   if it is not necessary.
-     * @param direct     If true, only answer the directly adjacent classes in the
-     *                   super-class relation: i.e. eliminate any class for which
-     *                   there is a longer route to reach that child under the
-     *                   super-class relation.
+     * @param object object of the property that the subclass must have or null
+     * if it is not necessary.
+     * @param direct If true, only answer the directly adjacent classes in the
+     * super-class relation: i.e. eliminate any class for which there is a
+     * longer route to reach that child under the super-class relation.
      * @return subclasses have the property <code>onProperty</code> on the
-     *         object<code>object</code>.
+     * object<code>object</code>.
      */
     // @Override
     public List<OntClass> getSubClass(final OntClass mother, final Property onProperty, final RDFNode object,
@@ -609,8 +623,8 @@ public class PiOnt {
      *
      * @param mother Class used to get subclasses
      * @param direct If true, only answer the directly adjacent classes in the
-     *               sub-class relation: i.e. eliminate any class for which there is
-     *               a longer route to reach that child under the sub-class relation
+     * sub-class relation: i.e. eliminate any class for which there is a longer
+     * route to reach that child under the sub-class relation
      * @return List of all subclasses of the given class
      * @throws info.ponciano.lab.pisemantic.PiOntologyException
      */
@@ -631,15 +645,15 @@ public class PiOnt {
     }
 
     /**
-     * Gets all individuals of a <code>OntClass</code> which have the right property
-     * on the right object.
+     * Gets all individuals of a <code>OntClass</code> which have the right
+     * property on the right object.
      *
-     * @param subject    class contained individuals will be tested or null to test
-     *                   every individuals.
+     * @param subject class contained individuals will be tested or null to test
+     * every individuals.
      * @param onProperty property that individuals must have.
-     * @param object     object of the property that individuals must have.
-     * @return individuals which have the property <code>onProperty</code> on the
-     *         object <code>object</code>.
+     * @param object object of the property that individuals must have.
+     * @return individuals which have the property <code>onProperty</code> on
+     * the object <code>object</code>.
      */
     // @Override
     public List<Individual> getIndividuals(final Resource subject, final ObjectProperty onProperty,
@@ -675,7 +689,8 @@ public class PiOnt {
      * check is the indivual satisfy every own restriction
      *
      * @param individual individual to be checked
-     * @return true of the individual satisfy every restriction, false otherwise.
+     * @return true of the individual satisfy every restriction, false
+     * otherwise.
      */
     // @Override
     public boolean isConsistent(final Individual individual) {
@@ -686,9 +701,10 @@ public class PiOnt {
     /**
      * Check if a individual satisfy every restriction
      *
-     * @param individual  individual to be checked
+     * @param individual individual to be checked
      * @param restriction restrictions to be checked
-     * @return true of the individual satisfy every restriction, false otherwise.
+     * @return true of the individual satisfy every restriction, false
+     * otherwise.
      */
     // @Override
     public boolean checkRestrictions(final Individual individual, final PiRestrictions restriction) {
@@ -699,7 +715,7 @@ public class PiOnt {
     /**
      * Tests if the individual satisfy the restriction given
      *
-     * @param individual  individual to be tested
+     * @param individual individual to be tested
      * @param restriction restriction use to test the individual
      * @return true if the individual satisfy the restriction, false otherwise.
      */
@@ -723,9 +739,11 @@ public class PiOnt {
     /**
      * Gets all restrictions of a subject which have the right property.
      *
-     * @param subject    subject used. it corresponds to the restricted class
-     * @param onProperty Property that the subject must have of null to not filter
-     * @return list of all restrictions of the subject with have the right property.
+     * @param subject subject used. it corresponds to the restricted class
+     * @param onProperty Property that the subject must have of null to not
+     * filter
+     * @return list of all restrictions of the subject with have the right
+     * property.
      */
     // @Override
     public PiRestrictions getRestrictions(final OntClass subject, final Property onProperty) {
@@ -733,7 +751,7 @@ public class PiOnt {
                                      * If true, only answer the directly adjacent classes in the super-class
                                      * relation: i.e. eliminate any class for which there is a longer route to reach
                                      * that child under the super-class relation.
-                                     */
+         */
         final PiRestrictions res = new PiRestrictions();
         final PiRestrictions parentsRest = new PiRestrictions();
         // adds superclass restriction
@@ -754,15 +772,15 @@ public class PiOnt {
         });
         // add all parents restrictions if there was not overrided
         parentsRest.toList().stream().filter((pir) -> (!res.containsSameProperty(pir))).forEachOrdered((pir) -> {// if
-                                                                                                                 // some
-                                                                                                                 // super
-                                                                                                                 // class
-                                                                                                                 // restriction
-                                                                                                                 // are
-                                                                                                                 // overide
-                                                                                                                 // by
-                                                                                                                 // the
-                                                                                                                 // class
+            // some
+            // super
+            // class
+            // restriction
+            // are
+            // overide
+            // by
+            // the
+            // class
             res.add(pir);
         });
         return res;
@@ -797,15 +815,15 @@ public class PiOnt {
     }
 
     /**
-     * Creates individual of <code>subject</code> class in order to populate this
-     * class with the property <code>onProperty</code> or update individual of the
-     * class if it already existes.
+     * Creates individual of <code>subject</code> class in order to populate
+     * this class with the property <code>onProperty</code> or update individual
+     * of the class if it already existes.
      *
-     * @param subject        class will be populated
-     * @param onProperty     property added to the individual created or updated
+     * @param subject class will be populated
+     * @param onProperty property added to the individual created or updated
      * @param objectProperty object of the property.
      * @return true if the individual is create or update, false if it already
-     *         existe a individual with the property <code>onProperty</code>.
+     * existe a individual with the property <code>onProperty</code>.
      */
     public boolean populate(final OntClass subject, final ObjectProperty onProperty, final Individual objectProperty) {
         boolean update = false;
@@ -837,9 +855,9 @@ public class PiOnt {
     /**
      * List all individuals which are a value of the specified property .
      *
-     * @param subjectClassProperty Class contained individuals that are subject of
-     *                             the property
-     * @param onProperty           property used to select individuals
+     * @param subjectClassProperty Class contained individuals that are subject
+     * of the property
+     * @param onProperty property used to select individuals
      * @return list of property values with a instance of the class as subject.
      */
     public List<Individual> listPropertyValuesFromClass(final OntClass subjectClassProperty,
@@ -858,8 +876,8 @@ public class PiOnt {
     }
 
     /**
-     * Lists every @code{OntClass} contained inside the model including owl and rdf
-     * classes
+     * Lists every @code{OntClass} contained inside the model including owl and
+     * rdf classes
      *
      * @return @code{List} of every @code{OntClass}
      */
@@ -900,9 +918,9 @@ public class PiOnt {
     /**
      * List all individuals which are a value of the specified property .
      *
-     * @param subjectClassProperty Class contained individuals that are subject of
-     *                             the property
-     * @param onProperty           property used to select individuals
+     * @param subjectClassProperty Class contained individuals that are subject
+     * of the property
+     * @param onProperty property used to select individuals
      * @return list of property values with a instance of the class as subject.
      */
     // @Override
@@ -944,7 +962,7 @@ public class PiOnt {
     /**
      * Creates a individual of a model.
      *
-     * @param name  Individual name .
+     * @param name Individual name .
      * @param model Class used to create the individual.
      * @return the individual created.
      */
@@ -957,11 +975,11 @@ public class PiOnt {
     /**
      * Gets <code>ObjectProperty</code> from the name.
      *
-     * @param name   name of the property with namespace.
-     * @param create <code>true</code> if the ontology create the ObjectProperty if
-     *               its no exist,<code>false </code>otherwise.
-     * @return the <code>ObjectProperty</code> found or null if the property does
-     *         not exist.
+     * @param name name of the property with namespace.
+     * @param create <code>true</code> if the ontology create the ObjectProperty
+     * if its no exist,<code>false </code>otherwise.
+     * @return the <code>ObjectProperty</code> found or null if the property
+     * does not exist.
      * @see getDataProperty( String name)
      */
     public ObjectProperty getObjectProperty(final String name, final boolean create) {
@@ -1017,10 +1035,10 @@ public class PiOnt {
     /**
      * Test if the property is created with the specific ontology name space.
      *
-     * @param property  property to be tested
+     * @param property property to be tested
      * @param namespace namespace to be tested
      * @return true if the property is created with the specific ontology name
-     *         space, false otherwise.
+     * space, false otherwise.
      */
     public boolean isOwnProperty(final Statement property, final String namespace) {
         final String propString = property.getPredicate().toString();
@@ -1032,8 +1050,8 @@ public class PiOnt {
      * Get the object of the restriction property
      *
      * @param restriction restriction contained the object searched
-     * @return the object of the restriction or null if the restriction is not yet
-     *         supported.
+     * @return the object of the restriction or null if the restriction is not
+     * yet supported.
      */
     public RDFNode getObjectRestriction(final Restriction restriction) {
         RDFNode res = null;
@@ -1065,11 +1083,11 @@ public class PiOnt {
      * Test if a class has a specific restriction about a property and a object
      *
      * @param subjectClass class that the restriction is researched
-     * @param onProperty   property researched
-     * @param res          object value of the property restriction or null if the
-     *                     property has not a specific value restriction.
+     * @param onProperty property researched
+     * @param res object value of the property restriction or null if the
+     * property has not a specific value restriction.
      * @return true if the class subject has the restriction described, false
-     *         otherwise.
+     * otherwise.
      */
     public boolean hasRestriction(final OntClass subjectClass, final Property onProperty, final RDFNode res) {
         // gets all super classes
@@ -1099,9 +1117,9 @@ public class PiOnt {
      * Test if a class has a specific restriction about a property and a object
      *
      * @param subjectClass class that the restriction is researched
-     * @param onProperty   property researched
+     * @param onProperty property researched
      * @return true if the class subject has the restriction described, false
-     *         otherwise.
+     * otherwise.
      */
     public boolean hasRestriction(final OntClass subjectClass, final Property onProperty) {
         // gets all super classes
@@ -1154,27 +1172,27 @@ public class PiOnt {
     }
 
     /**
-     * Add property and value if it does not already exist at every individual of
-     * the class that has not yet the property property.
+     * Add property and value if it does not already exist at every individual
+     * of the class that has not yet the property property.
      *
-     * @param ontclass   class contained individuals.
+     * @param ontclass class contained individuals.
      * @param onProperty on property added to individuals.
-     * @param value      value of the property.
+     * @param value value of the property.
      * @param dupliPrprt true if individual can have duplicate property with
-     *                   different object,false otherwise.
+     * different object,false otherwise.
      * @return true if the property is added to at least one of the individual,
-     *         false otherwise.
-     *         <h3>Example</h3>
-     *         <p>
-     *         PiOntology ont = new PiOntology();
+     * false otherwise.
+     * <h3>Example</h3>
+     * <p>
+     * PiOntology ont = new PiOntology();
      *
-     *         OntClass ontclass = ont.createClass("testClasse");
+     * OntClass ontclass = ont.createClass("testClasse");
      *
      *
-     *         OntProperty onProperty = ont.createObjectProperty("hasDummy");
-     *         Resource object = ont.createClass("classOB"); boolean dupliPrprt =
-     *         true; ont.addProperty(ontclass, onProperty, object, dupliPrprt);
-     *         </p>
+     * OntProperty onProperty = ont.createObjectProperty("hasDummy"); Resource
+     * object = ont.createClass("classOB"); boolean dupliPrprt = true;
+     * ont.addProperty(ontclass, onProperty, object, dupliPrprt);
+     * </p>
      */
     public boolean addProperty(final OntClass ontclass, final Property onProperty, final RDFNode value,
             final boolean dupliPrprt) {
@@ -1205,9 +1223,9 @@ public class PiOnt {
     /**
      * Creates <code>SomeValuesFromRestriction</code>
      *
-     * @param name                name of the restriction
+     * @param name name of the restriction
      * @param propertyRestriction property on the restriction is applied
-     * @param objectRestriction   object of the property
+     * @param objectRestriction object of the property
      * @return the <code>SomeValuesFromRestriction</code> created.
      */
     public SomeValuesFromRestriction createSomeValuesFromRestriction(final String name,
@@ -1225,12 +1243,13 @@ public class PiOnt {
      *
      * @param restricted <code>ontClass</code> restricted
      * @param onProperty property of the restriction
-     * @param value      value of the restriction property.
-     * @see createAllValuesFromRestriction(String uri, Property prop, Resource cls).
-     *      <h3>Example</h3>
-     *      <p>
-     *      PiOntology ont = new PiOntology();
-     *      </p>
+     * @param value value of the restriction property.
+     * @see createAllValuesFromRestriction(String uri, Property prop, Resource
+     * cls).
+     * <h3>Example</h3>
+     * <p>
+     * PiOntology ont = new PiOntology();
+     * </p>
      */
     public void addAllValuesFromRestriction(final OntClass restricted, final Property onProperty,
             final Resource value) {
@@ -1247,15 +1266,15 @@ public class PiOnt {
      *
      * @param restricted <code>ontClass</code> restricted
      * @param onProperty property of the restriction
-     * @param value      value of the restriction property.
+     * @param value value of the restriction property.
      * @see createHasValueRestriction(Property onProperty, RDFNode value)
-     *      <h3>Example</h3>
-     *      <p>
-     *      PiOntology ont = new PiOntology(); Literal lit =
-     *      ont.getOnt().createLiteral("Dana"); DatatypeProperty property =
-     *      ont.getDataProperty("hasName", true);
-     *      ont.addHasValueRestriction(ont.getOntClass("Dana", true),property, lit);
-     *      </p>
+     * <h3>Example</h3>
+     * <p>
+     * PiOntology ont = new PiOntology(); Literal lit =
+     * ont.getOnt().createLiteral("Dana"); DatatypeProperty property =
+     * ont.getDataProperty("hasName", true);
+     * ont.addHasValueRestriction(ont.getOntClass("Dana", true),property, lit);
+     * </p>
      */
     public void addHasValueRestriction(final OntClass restricted, final Property onProperty, final RDFNode value) {
         final HasValueRestriction createHasValueRestriction = this.createHasValueRestriction(onProperty, value);
@@ -1267,17 +1286,16 @@ public class PiOnt {
      * <code>onProperty</code> with value is <code>value</code>
      *
      * @param onProperty property of the restriction
-     * @param value      value of the restriction property.
+     * @param value value of the restriction property.
      * @return the restriction creates.
      *
-     *         <h3>Example</h3>
-     *         <p>
-     *         PiOntology ont = new PiOntology(); Literal lit =
-     *         ont.getOnt().createLiteral("Dana"); DatatypeProperty property =
-     *         ont.getDataProperty("hasName", true); HasValueRestriction
-     *         createHasValueRestriction = ont.createHasValueRestriction(property,
-     *         lit);
-     *         </p>
+     * <h3>Example</h3>
+     * <p>
+     * PiOntology ont = new PiOntology(); Literal lit =
+     * ont.getOnt().createLiteral("Dana"); DatatypeProperty property =
+     * ont.getDataProperty("hasName", true); HasValueRestriction
+     * createHasValueRestriction = ont.createHasValueRestriction(property, lit);
+     * </p>
      */
     public HasValueRestriction createHasValueRestriction(final Property onProperty, final RDFNode value) {
         return this.createHasValueRestriction(null, onProperty, value);
@@ -1287,19 +1305,19 @@ public class PiOnt {
      * Creates <code>hasValueRestiction</code> on the property
      * <code>onProperty</code> with value is <code>value</code>
      *
-     * @param uri        URI of the restriction
+     * @param uri URI of the restriction
      * @param onProperty property of the restriction
-     * @param value      value of the restriction property.
+     * @param value value of the restriction property.
      * @return the restriction creates.
      *
-     *         <h3>Example</h3>
-     *         <p>
-     *         PiOntology ont = new PiOntology(); Literal lit =
-     *         ont.getOnt().createLiteral("Dana"); DatatypeProperty property =
-     *         ont.getDataProperty("hasName", true); HasValueRestriction
-     *         createHasValueRestriction =
-     *         ont.createHasValueRestriction("rest1",property, lit);
-     *         </p>
+     * <h3>Example</h3>
+     * <p>
+     * PiOntology ont = new PiOntology(); Literal lit =
+     * ont.getOnt().createLiteral("Dana"); DatatypeProperty property =
+     * ont.getDataProperty("hasName", true); HasValueRestriction
+     * createHasValueRestriction =
+     * ont.createHasValueRestriction("rest1",property, lit);
+     * </p>
      */
     public HasValueRestriction createHasValueRestriction(final String uri, final Property onProperty,
             final RDFNode value) {
@@ -1344,7 +1362,8 @@ public class PiOnt {
      * Convert resource to individual if it possible
      *
      * @param resource resource to convert in individual.
-     * @return the individual converted of null if the conversion it not possible.
+     * @return the individual converted of null if the conversion it not
+     * possible.
      */
     public Individual convert2Individual(final Resource resource) {
         final Individual individual = this.ont.getIndividual(resource.getURI());
@@ -1368,10 +1387,10 @@ public class PiOnt {
     /**
      * Adds <code>CardinalityRestriction</code> to the given class
      *
-     * @param restricted          class to be restricted
+     * @param restricted class to be restricted
      * @param restrictionProperty property of the
-     *                            <code>CardinalityRestriction</code>
-     * @param value               value for the cardinality.
+     * <code>CardinalityRestriction</code>
+     * @param value value for the cardinality.
      * @return the restriction created.
      */
     public CardinalityRestriction addCardinalityRestriction(final OntClass restricted,
@@ -1398,5 +1417,4 @@ String ns = "https://lab.ponciano.info/pisemantic#";
             myDT.createLiteral("2.2"));
     m.write(System.out, "ttl");
      */
-
 }
