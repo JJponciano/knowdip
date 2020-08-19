@@ -109,7 +109,7 @@ public class Knowdip {
         this.reasoner.add(algo);
     }
 
-    public void update(String query) {
+    public void update(String query) throws KnowdipException {
         this.reasoner.update(query);
     }
 
