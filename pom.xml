@@ -34,6 +34,12 @@
             <version>0.9.11</version>
             <type>jar</type>
         </dependency>
+        <dependency>
+            <groupId>org.apache.jena</groupId>
+            <artifactId>jena-tdb</artifactId>
+            <version>3.14.0</version>
+            <type>jar</type>
+        </dependency>
     </dependencies>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
