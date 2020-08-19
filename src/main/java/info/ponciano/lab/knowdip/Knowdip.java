@@ -62,9 +62,9 @@ public class Knowdip {
         return this.reasoner.getMemory();
     }
 
-    public static void init(String ontologyPath, String outDir, boolean reset) throws IOException, KnowdipException, FileNotFoundException, PiOntologyException {
+    public static void init(String ontologyPath, String outDir, boolean reset, boolean useTS) throws IOException, KnowdipException, FileNotFoundException, PiOntologyException {
         if (instance == null) {
-            instance = new Knowdip(ontologyPath, outDir, reset,true);
+            instance = new Knowdip(ontologyPath, outDir, reset,useTS);
         }
     }
 
