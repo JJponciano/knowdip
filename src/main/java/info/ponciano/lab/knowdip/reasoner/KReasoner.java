@@ -20,6 +20,6 @@ package info.ponciano.lab.knowdip.reasoner;
  *
  * @author Dr Jean-Jacques Ponciano <jean-jacques@ponciano.info>
  */
-public class KReasoner {
+public abstract class KReasoner {
     
 }
