@@ -94,6 +94,11 @@ public abstract class Kee {
     public Memory getMemory() {
         return this.memory;
     }
+     
+
+    protected synchronized boolean hasNext(ResultSet select) {
+        return select.hasNext();
+    }
  /**
      * Get a select query in a printable array
      * @param query SPARQL select query
