@@ -181,7 +181,6 @@ public class SimpleExample {
                 Do something with the URI :)
                 */
             }
-
             knowdip.save();
         } catch (IOException | KnowdipException | PiOntologyException ex) {
             Logger.getLogger(SimpleExample.class.getName()).log(Level.SEVERE, null, ex);
