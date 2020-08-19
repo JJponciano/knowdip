@@ -15,6 +15,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 package info.ponciano.lab.knowdip.reasoner;
+
 import info.ponciano.lab.knowdip.KD;
 import info.ponciano.lab.knowdip.aee.KnowdipException;
 import java.io.File;
@@ -22,6 +23,8 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import org.apache.jena.ontology.OntModel;
+import org.apache.jena.ontology.OntModelSpec;
 import org.apache.jena.query.Dataset;
 import org.apache.jena.query.Query;
 import org.apache.jena.query.QueryExecution;
@@ -30,6 +33,7 @@ import org.apache.jena.query.QueryFactory;
 import org.apache.jena.query.ReadWrite;
 import org.apache.jena.query.ResultSet;
 import org.apache.jena.rdf.model.Model;
+import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.jena.tdb.TDBFactory;
 import org.apache.jena.update.UpdateAction;
 
@@ -58,8 +62,9 @@ public class KeeTS extends Kee {
     }
 
     @Override
-    protected Model getWorkingModel() {
-        return dataset.getNamedModel(KD.URI);
+    protected OntModel getWorkingModel() {
+       return ModelFactory.createOntologyModel(
+                OntModelSpec.OWL_MEM, dataset.getNamedModel(KD.URI));
     }
 
     @Override
@@ -81,7 +86,7 @@ public class KeeTS extends Kee {
 
     @Override
     public ResultSet select(String queryString) {
-        queryString=this.prefix+queryString;
+        queryString = this.prefix + queryString;
         dataset.begin(ReadWrite.READ);
         Query query = QueryFactory.create(queryString);
         QueryExecution queryExecution = QueryExecutionFactory.create(query, getWorkingModel());
@@ -89,13 +94,15 @@ public class KeeTS extends Kee {
         dataset.end();
         return resultSet;
     }
+
     @Override
     protected Model execConstruct(String queryString) throws KnowdipException {
         queryString = this.prefix + queryString;
         Query query = QueryFactory.create(queryString);
         QueryExecution queryExecution = QueryExecutionFactory.create(query, this.getWorkingModel());
-       return queryExecution.execConstruct();
+        return queryExecution.execConstruct();
     }
+
     /**
      * Execute a update query on the dataset
      *
@@ -103,7 +110,7 @@ public class KeeTS extends Kee {
      */
     @Override
     public void update(String query) {
-        query=this.prefix+query;
+        query = this.prefix + query;
         dataset.begin(ReadWrite.WRITE);
         UpdateAction.parseExecute(query, dataset);
         dataset.commit();
