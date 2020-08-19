@@ -20,6 +20,8 @@ import info.ponciano.lab.knowdip.aee.KnowdipException;
 import info.ponciano.lab.knowdip.aee.algorithm.sparql.Algorithm;
 import info.ponciano.lab.knowdip.aee.memory.Memory;
 import info.ponciano.lab.knowdip.reasoner.KReasoner;
+import info.ponciano.lab.knowdip.reasoner.KeeOwlFile;
+import info.ponciano.lab.knowdip.reasoner.KeeTS;
 import info.ponciano.lab.knowdip.reasoner.PiOntologyException;
 import java.io.BufferedReader;
 import java.io.File;
@@ -64,7 +66,7 @@ public class Knowdip {
 
     public static void init(String ontologyPath, String outDir, boolean reset) throws IOException, KnowdipException, FileNotFoundException, PiOntologyException {
         if (instance == null) {
-            instance = new Knowdip(ontologyPath, outDir, reset);
+            instance = new Knowdip(ontologyPath, outDir, reset,true);
         }
     }
 
@@ -72,12 +74,15 @@ public class Knowdip {
         return instance;
     }
 
-    Knowdip(String ontologyPath, String outDir, boolean reset) throws IOException, KnowdipException, FileNotFoundException, PiOntologyException {
-
+    Knowdip(String ontologyPath, String outDir, boolean reset, boolean useTS) throws IOException, KnowdipException, FileNotFoundException, PiOntologyException {
         if (reset) {
             clearAll(outDir);
         }
-        this.reasoner = new KReasoner(ontologyPath, outDir);
+        if (useTS) {
+            this.reasoner = new KReasoner(new KeeTS(ontologyPath, outDir));
+        } else {
+            this.reasoner = new KReasoner(new KeeOwlFile(ontologyPath, outDir));
+        }
     }
 
     public static void clearAll(String outDir) {
