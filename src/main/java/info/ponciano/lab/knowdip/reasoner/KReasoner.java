@@ -22,7 +22,6 @@ import info.ponciano.lab.knowdip.reasoner.automatic.PiRegex;
 import info.ponciano.lab.knowdip.reasoner.automatic.SemObject;
 import info.ponciano.lab.knowdip.reasoner.automatic.algorithms.SparqlAlgorithm;
 import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -55,7 +54,6 @@ public class KReasoner   {
         OntClass objectCl = piont.getOntClass(KD.OBJECT);
         this.objects = piont.getSubClass(objectCl, true);
     }
-
     private void inferRoot() throws KnowdipException {
         this.kee.construct("CONSTRUCT { ?x rdf:type ?sub } WHERE {"
                 + "?x rdf:type ?t . ?t rdfs:subClassOf ?sub . "
