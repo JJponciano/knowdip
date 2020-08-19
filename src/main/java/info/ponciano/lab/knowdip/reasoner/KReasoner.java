@@ -364,4 +364,8 @@ public class KReasoner {
     public void add(Class<? extends Algorithm> algo) throws KnowdipException {
         this.kee.add(algo);
     }
+
+    public void update(String query) throws KnowdipException {
+        this.kee.update(query);
+    }
 }
