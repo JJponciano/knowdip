@@ -18,6 +18,7 @@ package examples;
 
 import info.ponciano.lab.knowdip.Knowdip;
 import info.ponciano.lab.knowdip.aee.KnowdipException;
+import info.ponciano.lab.knowdip.aee.algorithm.jena.MinPatchesDistanceEstimation;
 import info.ponciano.lab.knowdip.aee.algorithm.sparql.LoadCloud;
 import info.ponciano.lab.knowdip.aee.algorithm.sparql.PatchesSegmentation;
 import info.ponciano.lab.knowdip.aee.algorithm.sparql.getter.GetPatchArea;
@@ -72,6 +73,13 @@ public class FileExemple {
             //interprets all SPARQL queries contained in the file
             knowdip.interpretsFile("src/main/resources/queries.txt");
 
+             /**
+             * If no distance is found, perhaps they are not calculated.
+             */
+            if (!knowdip.select("SELECT ?c WHERE{ ?c rdf:type knowdip:Patch . ?c2 rdf:type knowdip:Patch . ?c1 knowdip:has2m ?c2  }").hasNext()) {//Calculate the distance between patches.
+                MinPatchesDistanceEstimation mde = new MinPatchesDistanceEstimation();
+                mde.run();
+            }
             String selectString = knowdip.selectAsText("SELECT ?c ?z WHERE{ ?c rdf:type knowdip:Patch . ?c knowdip:hasNormalZ ?z . Filter(?z <0.1 )  }");
             System.out.println(selectString);
 
