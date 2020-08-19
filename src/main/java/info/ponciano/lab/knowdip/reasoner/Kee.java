@@ -30,6 +30,7 @@ import org.apache.jena.ontology.OntModel;
 import org.apache.jena.ontology.OntModelSpec;
 import org.apache.jena.query.QuerySolution;
 import org.apache.jena.query.ResultSet;
+import org.apache.jena.query.ResultSetFormatter;
 import org.apache.jena.rdf.model.InfModel;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
@@ -37,6 +38,7 @@ import org.apache.jena.rdf.model.Resource;
 import org.apache.jena.reasoner.Reasoner;
 import org.apache.jena.reasoner.ReasonerRegistry;
 import org.apache.jena.reasoner.ValidityReport;
+import org.apache.jena.sparql.core.Prologue;
 import org.apache.jena.util.FileManager;
 
 /**
@@ -92,7 +94,14 @@ public abstract class Kee {
     public Memory getMemory() {
         return this.memory;
     }
-
+ /**
+     * Get a select query in a printable array
+     * @param query SPARQL select query
+     * @return  the query's results formatted in a printable array.
+     */
+    public String selectAsText(String query) {
+        return ResultSetFormatter.asText(this.select(query), new Prologue(this.getWorkingModel()));
+    }
     /**
      * Add new algorithm to be registered
      *
