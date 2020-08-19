@@ -19,11 +19,14 @@ package info.ponciano.lab.knowdip.aee.algorithm.jena;
 import info.ponciano.lab.jpc.algorithms.segmentation.PatchesDistanceEstimation;
 import info.ponciano.lab.jpc.pointcloud.components.APointCloud;
 import info.ponciano.lab.knowdip.Knowdip;
+import info.ponciano.lab.knowdip.aee.KnowdipException;
 import info.ponciano.lab.knowdip.aee.memory.Memory;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.apache.jena.query.QuerySolution;
 import org.apache.jena.query.ResultSet;
 
@@ -56,7 +59,11 @@ public class MinPatchesDistanceEstimation extends PatchesDistanceEstimation {
             }
             String property = getDistanceProperty(results);
             if (!property.isEmpty()) {
-                Knowdip.get().update("INSERT DATA {<" + uri1 + "> knowdip:" + property + " <" + uri2 + "> }");
+                try {
+                    Knowdip.get().update("INSERT DATA {<" + uri1 + "> knowdip:" + property + " <" + uri2 + "> }");
+                } catch (KnowdipException ex) {
+                    Logger.getLogger(MinPatchesDistanceEstimation.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
