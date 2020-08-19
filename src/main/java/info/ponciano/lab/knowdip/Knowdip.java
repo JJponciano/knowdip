@@ -185,7 +185,7 @@ public class Knowdip {
      *
      * @param query Query to be interpreted
      */
-    public void remove(String query) {
+    public void remove(String query) throws KnowdipException {
         this.reasoner.remove(query);
     }
 
