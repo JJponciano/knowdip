@@ -18,6 +18,7 @@ package info.ponciano.lab.knowdip.reasoner;
 
 import info.ponciano.lab.knowdip.KD;
 import info.ponciano.lab.knowdip.aee.KnowdipException;
+import info.ponciano.lab.knowdip.aee.memory.Memory;
 import info.ponciano.lab.knowdip.reasoner.automatic.PiRegex;
 import info.ponciano.lab.knowdip.reasoner.automatic.SemObject;
 import info.ponciano.lab.knowdip.reasoner.automatic.algorithms.SparqlAlgorithm;
@@ -41,19 +42,20 @@ import org.apache.jena.rdf.model.RDFNode;
  *
  * @author Jean-Jacques Ponciano
  */
-public class KReasoner   {
+public class KReasoner {
 
     protected PiOnt piont;
     protected List<OntClass> objects;
     protected Kee kee;
 
-    public KReasoner( Kee kee) throws FileNotFoundException, PiOntologyException {
-        this.kee=kee;
+    public KReasoner(Kee kee) throws FileNotFoundException, PiOntologyException {
+        this.kee = kee;
         this.piont = new PiOnt(this.kee.getWorkingModel());
         //select every subclass of object
         OntClass objectCl = piont.getOntClass(KD.OBJECT);
         this.objects = piont.getSubClass(objectCl, true);
     }
+
     private void inferRoot() throws KnowdipException {
         this.kee.construct("CONSTRUCT { ?x rdf:type ?sub } WHERE {"
                 + "?x rdf:type ?t . ?t rdfs:subClassOf ?sub . "
@@ -349,7 +351,12 @@ public class KReasoner   {
         exp = exp.replaceAll("\\.", "\\\\.");
         return sout.replaceAll(exp, string);
     }
+
     public PiOnt getPiont() {
         return piont;
+    }
+
+    public Memory getMemory() {
+        return this.kee.getMemory();
     }
 }
