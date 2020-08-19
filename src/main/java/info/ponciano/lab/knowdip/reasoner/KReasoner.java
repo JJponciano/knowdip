@@ -376,4 +376,8 @@ public class KReasoner {
     public void close() {
         this.kee.close();
     }
+
+    public ResultSet select(String query) {
+        return this.kee.select(query);
+    }
 }
