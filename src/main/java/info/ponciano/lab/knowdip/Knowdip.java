@@ -19,7 +19,7 @@ package info.ponciano.lab.knowdip;
 import info.ponciano.lab.knowdip.aee.KnowdipException;
 import info.ponciano.lab.knowdip.aee.algorithm.sparql.Algorithm;
 import info.ponciano.lab.knowdip.aee.memory.Memory;
-import info.ponciano.lab.knowdip.reasoner.KReasonerOWLFile;
+import info.ponciano.lab.knowdip.reasoner.KReasoner;
 import info.ponciano.lab.knowdip.reasoner.PiOntologyException;
 import java.io.BufferedReader;
 import java.io.File;
@@ -48,7 +48,7 @@ import org.apache.jena.sparql.core.Prologue;
 public class Knowdip {
 
     private static Knowdip instance;
-    private final KReasonerOWLFile reasoner;
+    private final KReasoner reasoner;
 
     /**
      * Get the knowdip memory where pointclouds ands images are dynamically
@@ -77,7 +77,7 @@ public class Knowdip {
         if (reset) {
             clearAll(outDir);
         }
-        this.reasoner = new KReasonerOWLFile(ontologyPath, outDir);
+        this.reasoner = new KReasoner(ontologyPath, outDir);
     }
 
     public static void clearAll(String outDir) {
