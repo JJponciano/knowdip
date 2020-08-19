@@ -220,7 +220,7 @@ public abstract class Kee {
      *
      * @return the actual working model.
      */
-    protected abstract Model getWorkingModel();
+    protected abstract OntModel getWorkingModel();
 
     /**
      * Parse <code>ResultSet</code> into <code> List</code>
