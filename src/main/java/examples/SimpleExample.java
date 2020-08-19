@@ -166,11 +166,10 @@ public class SimpleExample {
                     + "?out knowdip:GetPatchVolume( \"hasInput =\" ?i0 \"patchID =\" ?p)"
                     + "}");
 
-            ResultSet selectdistance = knowdip.select("SELECT ?c WHERE{ ?c rdf:type knowdip:Patch . ?c2 rdf:type knowdip:Patch . ?c1 knowdip:has2m ?c2  }");
             /**
              * If no distance is found, perhaps they are not calculated.
              */
-            if (!selectdistance.hasNext()) {//Calculate the distance between patches.
+            if (!knowdip.select("SELECT ?c WHERE{ ?c rdf:type knowdip:Patch . ?c2 rdf:type knowdip:Patch . ?c1 knowdip:has2m ?c2  }").hasNext()) {//Calculate the distance between patches.
                 MinPatchesDistanceEstimation mde = new MinPatchesDistanceEstimation();
                 mde.run();
             }
