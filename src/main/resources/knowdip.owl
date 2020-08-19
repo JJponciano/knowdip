@@ -56,7 +56,7 @@
     <!-- http://lab.ponciano.info/knowdip#DistanceProperty -->
 
     <owl:ObjectProperty rdf:about="http://lab.ponciano.info/knowdip#DistanceProperty">
-        <rdfs:comment xml:lang="en">If the two elements have a minimum distance of less than 1m</rdfs:comment>
+        <rdfs:comment xml:lang="en">If the two elements have a minimum distance of less than a specific meter distance</rdfs:comment>
     </owl:ObjectProperty>
     
 
@@ -220,6 +220,14 @@
     <!-- http://lab.ponciano.info/knowdip#has19m -->
 
     <owl:ObjectProperty rdf:about="http://lab.ponciano.info/knowdip#has19m">
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#DistanceProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#has1m -->
+
+    <owl:ObjectProperty rdf:about="http://lab.ponciano.info/knowdip#has1m">
         <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#DistanceProperty"/>
     </owl:ObjectProperty>
     
