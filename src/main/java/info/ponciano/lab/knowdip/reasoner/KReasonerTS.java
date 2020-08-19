@@ -42,7 +42,7 @@ import org.apache.jena.rdf.model.RDFNode;
  *
  * @author Jean-Jacques Ponciano
  */
-public class KReasonerTS extends KeeOwlFile {
+public class KReasonerTS extends KeeTS {
 
     protected PiOnt piont;
     protected List<OntClass> objects;
