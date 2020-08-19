@@ -16,9 +16,7 @@
  */
 package info.ponciano.lab.knowdip.reasoner;
 
-import info.ponciano.lab.knowdip.Knowdip;
 import info.ponciano.lab.knowdip.aee.KnowdipException;
-import info.ponciano.lab.knowdip.aee.memory.Memory;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
@@ -78,6 +76,11 @@ public class KeeOwlFile extends Kee {
         return queryExecution.execSelect();
     }
 
+    /**
+     * Get a select query in a printable array
+     * @param query SPARQL select query
+     * @return  the query's results formatted in a printable array.
+     */
     public String selectAsText(String query) {
         return ResultSetFormatter.asText(this.select(query), new Prologue(this.workingModel));
     }
