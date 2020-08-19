@@ -76,8 +76,6 @@ public class KeeOwlFile extends Kee {
         return queryExecution.execSelect();
     }
 
-  
-
     @Override
     protected Model execConstruct(String queryString) throws KnowdipException {
 
@@ -119,15 +117,11 @@ public class KeeOwlFile extends Kee {
     @Override
     public synchronized void close() {
         try {
-            saveOntology();
+            this.workingModel.write(new FileWriter(this.workingOntPath));
             this.memory.write(this.memoryPath);
         } catch (IOException ex) {
             Logger.getLogger(KeeOwlFile.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }
-
-    protected void saveOntology() throws IOException {
-        this.workingModel.write(new FileWriter(this.workingOntPath));
     }
 
     @Override
