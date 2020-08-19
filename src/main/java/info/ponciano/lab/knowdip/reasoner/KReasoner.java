@@ -372,4 +372,8 @@ public class KReasoner {
     public boolean construct(String queryString) throws KnowdipException {
         return this.kee.construct(queryString);
     }
+
+    public void close() {
+        this.kee.close();
+    }
 }
