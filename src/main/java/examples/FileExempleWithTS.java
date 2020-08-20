@@ -35,6 +35,7 @@ import info.ponciano.lab.knowdip.aee.algorithm.sparql.getter.GetPatchNormalZ;
 import info.ponciano.lab.knowdip.aee.algorithm.sparql.getter.GetPatchSize;
 import info.ponciano.lab.knowdip.aee.algorithm.sparql.getter.GetPatchVolume;
 import info.ponciano.lab.knowdip.reasoner.PiOntologyException;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -51,7 +52,7 @@ public class FileExempleWithTS {
             args = new String[2];
             args[0] = "src/main/resources/knowdip.owl";
             args[1] = "output/";
-                Knowdip.init(args[0], args[1], false);
+            Knowdip.init(args[0], args[1], false, false);
 
             Knowdip knowdip = Knowdip.get();
             knowdip.add(LoadCloud.class);
@@ -73,7 +74,7 @@ public class FileExempleWithTS {
             //interprets all SPARQL queries contained in the file
             knowdip.interpretsFile("src/main/resources/queries.txt");
 
-             /**
+            /**
              * If no distance is found, perhaps they are not calculated.
              */
             if (!knowdip.select("SELECT ?c WHERE{ ?c rdf:type knowdip:Patch . ?c2 rdf:type knowdip:Patch . ?c1 knowdip:has2m ?c2  }").hasNext()) {//Calculate the distance between patches.
@@ -83,9 +84,12 @@ public class FileExempleWithTS {
             String selectString = knowdip.selectAsText("SELECT ?c ?z WHERE{ ?c rdf:type knowdip:Patch . ?c knowdip:hasNormalZ ?z . Filter(?z <0.1 )  }");
             System.out.println(selectString);
 
-
             knowdip.save();
-        } catch (IOException | KnowdipException | PiOntologyException ex) {
+        } catch (IOException | KnowdipException ex) {
+            Logger.getLogger(FileExempleWithTS.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(FileExempleWithTS.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (PiOntologyException ex) {
             Logger.getLogger(FileExempleWithTS.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
