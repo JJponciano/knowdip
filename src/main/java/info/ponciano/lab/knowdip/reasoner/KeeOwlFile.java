@@ -24,7 +24,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import static java.nio.file.StandardCopyOption.REPLACE_EXISTING;
-import java.util.Iterator;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.apache.jena.ontology.OntModel;
@@ -69,13 +69,13 @@ public class KeeOwlFile extends Kee {
     }
 
     @Override
-    public synchronized Iterator<RDFNode> select(String queryString) {
+    public synchronized Map<String,RDFNode> select(String queryString) {
         queryString = this.prefix + queryString;
         Query query = QueryFactory.create(queryString);
         QueryExecution queryExecution = QueryExecutionFactory.create(query, this.getWorkingModel());
         queryExecution.getContext().set(ARQ.symLogExec, Explain.InfoLevel.NONE);
         ResultSet execSelect = queryExecution.execSelect();
-        return Knowdip.getIterator(queryString, execSelect);
+        return Knowdip.getMap(queryString, execSelect);
     }
 
     @Override
