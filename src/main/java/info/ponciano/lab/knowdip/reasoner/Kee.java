@@ -27,6 +27,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import org.apache.jena.ontology.OntModel;
 import org.apache.jena.ontology.OntModelSpec;
 import org.apache.jena.query.QuerySolution;
@@ -157,9 +158,9 @@ public abstract class Kee {
      * Execute a select query on the dataset
      *
      * @param queryString query to be executed
-     * @return the resultset of the query
+     * @return the Map of variable and node found
      */
-    public abstract Iterator<RDFNode> select(String queryString);
+    public abstract Map<String,RDFNode> select(String queryString);
 
     /**
      * Execute a update query on the dataset
