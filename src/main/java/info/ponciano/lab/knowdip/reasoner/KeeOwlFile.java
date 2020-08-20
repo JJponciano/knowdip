@@ -16,6 +16,7 @@
  */
 package info.ponciano.lab.knowdip.reasoner;
 
+import info.ponciano.lab.knowdip.Knowdip;
 import info.ponciano.lab.knowdip.aee.KnowdipException;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -23,6 +24,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import static java.nio.file.StandardCopyOption.REPLACE_EXISTING;
+import java.util.Iterator;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.apache.jena.ontology.OntModel;
@@ -36,6 +38,7 @@ import org.apache.jena.query.ResultSet;
 import org.apache.jena.query.ResultSetFormatter;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
+import org.apache.jena.rdf.model.RDFNode;
 import org.apache.jena.sparql.core.Prologue;
 import org.apache.jena.sparql.mgt.Explain;
 import org.apache.jena.update.UpdateAction;
@@ -66,14 +69,13 @@ public class KeeOwlFile extends Kee {
     }
 
     @Override
-    public synchronized ResultSet select(String queryString) {
+    public synchronized Iterator<RDFNode> select(String queryString) {
         queryString = this.prefix + queryString;
         Query query = QueryFactory.create(queryString);
         QueryExecution queryExecution = QueryExecutionFactory.create(query, this.getWorkingModel());
         queryExecution.getContext().set(ARQ.symLogExec, Explain.InfoLevel.NONE);
         ResultSet execSelect = queryExecution.execSelect();
-
-        return execSelect;
+        return Knowdip.getIterator(queryString, execSelect);
     }
 
     @Override
@@ -132,11 +134,12 @@ public class KeeOwlFile extends Kee {
     @Override
     /**
      * Get a select query in a printable array
+     *
      * @param query SPARQL select query
-     * @return  the query's results formatted in a printable array.
+     * @return the query's results formatted in a printable array.
      */
     public String selectAsText(String queryString) {
-          queryString = this.prefix + queryString;
+        queryString = this.prefix + queryString;
         Query query = QueryFactory.create(queryString);
         QueryExecution queryExecution = QueryExecutionFactory.create(query, this.getWorkingModel());
         queryExecution.getContext().set(ARQ.symLogExec, Explain.InfoLevel.NONE);
