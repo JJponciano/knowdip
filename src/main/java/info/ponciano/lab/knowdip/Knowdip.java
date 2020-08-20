@@ -55,14 +55,20 @@ public class Knowdip {
 
     private static Knowdip instance;
 
-    public static Map<String, RDFNode> getMap(String queryString, ResultSet resultSet) {
-    //select var
+    public static Map<String, List<RDFNode>> getMap(String queryString, ResultSet resultSet) {
+        //select var
         List<String> vars = Knowdip.getSparqlVar(queryString);
-        Map<String,RDFNode> rdfnode = new HashMap<>();
+        Map<String, List<RDFNode>> rdfnode = new HashMap<>();
         while (resultSet.hasNext()) {
             QuerySolution next = resultSet.next();
             vars.forEach(v -> {
-                rdfnode.put(v,next.get(v));
+                if (rdfnode.containsKey(v)) {
+                    rdfnode.get(v).add(next.get(v));
+                } else {
+                    ArrayList<RDFNode> arrayList = new ArrayList<RDFNode>();
+                    arrayList.add(next.get(v));
+                    rdfnode.put(v, arrayList);
+                }
             });
         }
         return rdfnode;
@@ -275,6 +281,7 @@ public class Knowdip {
     public List<String> listPointClouds() {
         return this.selectAsList("SELECT ?c WHERE{ ?c rdf:type knowdip:FullPointCloud }", "c");
     }
+
     public static Iterator<RDFNode> getIterator(String queryString, ResultSet resultSet) {
         //select var
         List<String> vars = Knowdip.getSparqlVar(queryString);
@@ -288,6 +295,7 @@ public class Knowdip {
         Iterator<RDFNode> iterator = rdfnode.iterator();
         return iterator;
     }
+
     public static List<String> getSparqlVar(String select) {
         String expression = "(\\?\\S+)";
         Pattern pattern = Pattern.compile(expression);

@@ -17,12 +17,10 @@
 package info.ponciano.lab.knowdip.reasoner;
 
 import info.ponciano.lab.knowdip.KD;
-import info.ponciano.lab.knowdip.Knowdip;
 import info.ponciano.lab.knowdip.aee.KnowdipException;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.apache.jena.ontology.OntModel;
@@ -36,7 +34,6 @@ import org.apache.jena.query.ReadWrite;
 import org.apache.jena.query.ResultSet;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
-import org.apache.jena.rdf.model.RDFNode;
 import org.apache.jena.tdb.TDBFactory;
 import org.apache.jena.update.UpdateAction;
 
@@ -89,18 +86,15 @@ public class KeeTS extends Kee {
     }
 
     @Override
-    public Map<String,RDFNode> select(String queryString) {
+    public ResultSet select(String queryString) {
         queryString = this.prefix + queryString;
         dataset.begin(ReadWrite.READ);
         Query query = QueryFactory.create(queryString);
         QueryExecution queryExecution = QueryExecutionFactory.create(query, getWorkingModel());
         ResultSet resultSet = queryExecution.execSelect();
-        Map<String, RDFNode> map = Knowdip.getMap(queryString, resultSet);
         dataset.end();
-        return map;
+        return resultSet;
     }
-
-
 
     @Override
     protected Model execConstruct(String queryString) throws KnowdipException {
@@ -132,10 +126,5 @@ public class KeeTS extends Kee {
         } catch (IOException ex) {
             Logger.getLogger(KeeTS.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }
-
-    @Override
-    public String selectAsText(String query) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

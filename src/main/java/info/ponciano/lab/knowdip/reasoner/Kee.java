@@ -25,9 +25,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 import org.apache.jena.ontology.OntModel;
 import org.apache.jena.ontology.OntModelSpec;
 import org.apache.jena.query.QuerySolution;
@@ -36,7 +34,6 @@ import org.apache.jena.query.ResultSetFormatter;
 import org.apache.jena.rdf.model.InfModel;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
-import org.apache.jena.rdf.model.RDFNode;
 import org.apache.jena.rdf.model.Resource;
 import org.apache.jena.reasoner.Reasoner;
 import org.apache.jena.reasoner.ReasonerRegistry;
@@ -107,7 +104,9 @@ public abstract class Kee {
      * @param query SPARQL select query
      * @return  the query's results formatted in a printable array.
      */
-    public abstract String selectAsText(String query);
+    public String selectAsText(String query) {
+        return ResultSetFormatter.asText(this.select(query), new Prologue(this.getWorkingModel()));
+    }
     /**
      * Add new algorithm to be registered
      *
@@ -158,9 +157,9 @@ public abstract class Kee {
      * Execute a select query on the dataset
      *
      * @param queryString query to be executed
-     * @return the Map of variable and node found
+     * @return the resultset of the query
      */
-    public abstract Map<String,RDFNode> select(String queryString);
+    public abstract ResultSet select(String queryString);
 
     /**
      * Execute a update query on the dataset
