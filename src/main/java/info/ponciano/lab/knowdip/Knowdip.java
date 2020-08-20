@@ -34,6 +34,8 @@ import java.util.List;
 import java.util.UUID;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import org.apache.commons.io.FileUtils;
 import org.apache.jena.graph.Node;
 import org.apache.jena.graph.NodeFactory;
@@ -64,7 +66,7 @@ public class Knowdip {
 
     public static void init(String ontologyPath, String outDir, boolean reset, boolean useTS) throws IOException, KnowdipException, FileNotFoundException, PiOntologyException {
         if (instance == null) {
-            instance = new Knowdip(ontologyPath, outDir, reset,useTS);
+            instance = new Knowdip(ontologyPath, outDir, reset, useTS);
         }
     }
 
@@ -257,4 +259,17 @@ public class Knowdip {
         return this.selectAsList("SELECT ?c WHERE{ ?c rdf:type knowdip:FullPointCloud }", "c");
     }
 
+    public static List<String> getSparqlVar(String select) {
+        String expression = "(\\?\\S+)";
+        Pattern pattern = Pattern.compile(expression);
+        List<String> res = new ArrayList<>();
+        Matcher matcher = pattern.matcher(select);
+        while (matcher.find()) {
+            final String group = matcher.group();
+            if (!res.contains(group)) {
+                res.add(group);
+            }
+        }
+        return res;
+    }
 }
