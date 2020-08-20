@@ -23,6 +23,7 @@ import info.ponciano.lab.knowdip.aee.memory.Memory;
 import info.ponciano.lab.knowdip.reasoner.automatic.PiRegex;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.logging.Level;
@@ -78,13 +79,13 @@ public abstract class KReasoner {
 
     protected List<String> getInsert(String selectQuery, List<String> vars, String selectOut, String maj) {
         List<String> updateQuery = new LinkedList<>();
-        ResultSet select = this. getKee().select(selectQuery);
+        Iterator<KSolution> select = this. getKee().select(selectQuery);
         //select all the variables needed
 
         List<String> executeMemory = new LinkedList<>();
         //get every elements
         while (select.hasNext()) {
-            QuerySolution next = select.next();
+            KSolution next = select.next();
             //build var values
             /// List<VarRDFNode> values = new ArrayList<>();
             HashMap<String, String> varNode = new HashMap<>();
@@ -104,10 +105,10 @@ public abstract class KReasoner {
             //Executes algorithms 
             if (!executeMemory.contains(sout)) {
                 executeMemory.add(sout);
-                ResultSet selectOutrs = this. getKee().select(sout);
+                Iterator<KSolution> selectOutrs = this. getKee().select(sout);
                 //retrieve the result.
                 while (selectOutrs.hasNext()) {
-                    QuerySolution nextOut = selectOutrs.nextSolution();
+                    KSolution nextOut = selectOutrs.next();
                     String out = getV(nextOut.get("?out"));
 
                     /*if the data to be added is not a string
@@ -219,10 +220,10 @@ public abstract class KReasoner {
         String var = reg.getGroup(1).get(0);
         query = query.replaceFirst("REMOVE|remove", "SELECT");
 
-        ResultSet select = this. getKee().select(query);
+        Iterator<KSolution> select = this. getKee().select(query);
         List<String> uris = new ArrayList();
         while (select.hasNext()) {
-            QuerySolution next = select.next();
+            KSolution next = select.next();
             var get = next.get(var);
             uris.add(get.asResource().getURI());
         }
@@ -259,7 +260,7 @@ public abstract class KReasoner {
         this. getKee().close();
     }
 
-    public ResultSet select(String query) {
+    public Iterator<KSolution> select(String query) {
         return this. getKee().select(query);
     }
 
