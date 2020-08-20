@@ -100,18 +100,12 @@ public class KeeTS extends Kee {
         Query query = QueryFactory.create(queryString);
         QueryExecution queryExecution = QueryExecutionFactory.create(query, getWorkingModel());
         ResultSet resultSet = queryExecution.execSelect();
-        //select var
-        List<String> vars = Knowdip.getSparqlVar(queryString);
-        List<RDFNode> rdfnode = new ArrayList<>();
-        while (resultSet.hasNext()) {
-            QuerySolution next = resultSet.next();
-            vars.forEach(v -> {
-                rdfnode.add(next.get(v));
-            });
-        }
+        Iterator<RDFNode> iterator = Knowdip.getIterator(queryString, resultSet);
         dataset.end();
-        return rdfnode.iterator();
+        return iterator;
     }
+
+
 
     @Override
     protected Model execConstruct(String queryString) throws KnowdipException {
