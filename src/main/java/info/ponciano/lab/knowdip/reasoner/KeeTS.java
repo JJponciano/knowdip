@@ -22,13 +22,9 @@ import info.ponciano.lab.knowdip.aee.KnowdipException;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 import org.apache.jena.ontology.OntModel;
 import org.apache.jena.ontology.OntModelSpec;
 import org.apache.jena.query.Dataset;
@@ -36,7 +32,6 @@ import org.apache.jena.query.Query;
 import org.apache.jena.query.QueryExecution;
 import org.apache.jena.query.QueryExecutionFactory;
 import org.apache.jena.query.QueryFactory;
-import org.apache.jena.query.QuerySolution;
 import org.apache.jena.query.ReadWrite;
 import org.apache.jena.query.ResultSet;
 import org.apache.jena.rdf.model.Model;
@@ -94,15 +89,15 @@ public class KeeTS extends Kee {
     }
 
     @Override
-    public Iterator<RDFNode> select(String queryString) {
+    public Map<String,RDFNode> select(String queryString) {
         queryString = this.prefix + queryString;
         dataset.begin(ReadWrite.READ);
         Query query = QueryFactory.create(queryString);
         QueryExecution queryExecution = QueryExecutionFactory.create(query, getWorkingModel());
         ResultSet resultSet = queryExecution.execSelect();
-        Iterator<RDFNode> iterator = Knowdip.getIterator(queryString, resultSet);
+        Map<String, RDFNode> map = Knowdip.getMap(queryString, resultSet);
         dataset.end();
-        return iterator;
+        return map;
     }
 
 
