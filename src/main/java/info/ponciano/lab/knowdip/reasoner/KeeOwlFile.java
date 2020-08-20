@@ -33,8 +33,10 @@ import org.apache.jena.query.QueryExecution;
 import org.apache.jena.query.QueryExecutionFactory;
 import org.apache.jena.query.QueryFactory;
 import org.apache.jena.query.ResultSet;
+import org.apache.jena.query.ResultSetFormatter;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
+import org.apache.jena.sparql.core.Prologue;
 import org.apache.jena.sparql.mgt.Explain;
 import org.apache.jena.update.UpdateAction;
 import org.apache.jena.util.FileManager;
@@ -69,8 +71,9 @@ public class KeeOwlFile extends Kee {
         Query query = QueryFactory.create(queryString);
         QueryExecution queryExecution = QueryExecutionFactory.create(query, this.getWorkingModel());
         queryExecution.getContext().set(ARQ.symLogExec, Explain.InfoLevel.NONE);
+        ResultSet execSelect = queryExecution.execSelect();
 
-        return queryExecution.execSelect();
+        return execSelect;
     }
 
     @Override
@@ -124,6 +127,21 @@ public class KeeOwlFile extends Kee {
     @Override
     public OntModel getWorkingModel() {
         return workingModel;
+    }
+
+    @Override
+    /**
+     * Get a select query in a printable array
+     * @param query SPARQL select query
+     * @return  the query's results formatted in a printable array.
+     */
+    public String selectAsText(String queryString) {
+          queryString = this.prefix + queryString;
+        Query query = QueryFactory.create(queryString);
+        QueryExecution queryExecution = QueryExecutionFactory.create(query, this.getWorkingModel());
+        queryExecution.getContext().set(ARQ.symLogExec, Explain.InfoLevel.NONE);
+        ResultSet execSelect = queryExecution.execSelect();
+        return ResultSetFormatter.asText(execSelect, new Prologue(this.getWorkingModel()));
     }
 
 }
