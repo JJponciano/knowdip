@@ -52,7 +52,7 @@ public class FileExempleWithTS {
             args = new String[2];
             args[0] = "src/main/resources/knowdip.owl";
             args[1] = "output/";
-            Knowdip.init(args[0], args[1], false, false);
+            Knowdip.init(args[0], args[1], true, true);
 
             Knowdip knowdip = Knowdip.get();
             knowdip.add(LoadCloud.class);
@@ -76,11 +76,11 @@ public class FileExempleWithTS {
 
             /**
              * If no distance is found, perhaps they are not calculated.
-             */
+             
             if (!knowdip.select("SELECT ?c WHERE{ ?c rdf:type knowdip:Patch . ?c2 rdf:type knowdip:Patch . ?c1 knowdip:has2m ?c2  }").hasNext()) {//Calculate the distance between patches.
                 MinPatchesDistanceEstimation mde = new MinPatchesDistanceEstimation();
                 mde.run();
-            }
+            }*/
             String selectString = knowdip.selectAsText("SELECT ?c ?z WHERE{ ?c rdf:type knowdip:Patch . ?c knowdip:hasNormalZ ?z . Filter(?z <0.1 )  }");
             System.out.println(selectString);
 
