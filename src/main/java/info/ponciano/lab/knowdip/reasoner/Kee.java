@@ -25,6 +25,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import org.apache.jena.ontology.OntModel;
 import org.apache.jena.ontology.OntModelSpec;
@@ -104,9 +105,7 @@ public abstract class Kee {
      * @param query SPARQL select query
      * @return  the query's results formatted in a printable array.
      */
-    public String selectAsText(String query) {
-        return ResultSetFormatter.asText(this.select(query), new Prologue(this.getWorkingModel()));
-    }
+    public abstract  String selectAsText(String query);
     /**
      * Add new algorithm to be registered
      *
@@ -157,9 +156,9 @@ public abstract class Kee {
      * Execute a select query on the dataset
      *
      * @param queryString query to be executed
-     * @return the resultset of the query
+     * @return the  Iterator of the query
      */
-    public abstract ResultSet select(String queryString);
+    public abstract  Iterator<KSolution> select(String queryString);
 
     /**
      * Execute a update query on the dataset
