@@ -170,18 +170,18 @@ public class SimpleExample {
 
             /**
              * If no distance is found, perhaps they are not calculated.
-             */
+           
             if (!knowdip.select("SELECT ?c WHERE{ ?c rdf:type knowdip:Patch . ?c2 rdf:type knowdip:Patch . ?c1 knowdip:has2m ?c2  }").hasNext()) {//Calculate the distance between patches.
                 MinPatchesDistanceEstimation mde = new MinPatchesDistanceEstimation();
                 mde.run();
-            }
+            }  */
             String selectString = knowdip.selectAsText("SELECT ?c ?z WHERE{ ?c rdf:type knowdip:Patch . ?c knowdip:hasNormalZ ?z . Filter(?z <0.1 )  }");
             System.out.println(selectString);
             //Select vertical patches 
             Iterator<KSolution> select = knowdip.select("SELECT ?c WHERE{ ?c rdf:type knowdip:Patch . ?c knowdip:hasNormalZ ?z . Filter(?z <0.1 )  }");
             while (select.hasNext()) {
                 KSolution next = select.next();
-                String uri = next.get("c").asResource().getURI();
+                String uri = next.get("?c").asResource().getURI();
                 /*
                 Do something with the URI :)
                  */
