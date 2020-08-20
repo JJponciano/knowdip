@@ -90,7 +90,7 @@ public abstract class KReasoner {
         return res;
     }
 
-    private List<String> getInsert(String selectQuery, List<String> vars, String selectOut, String maj) {
+    protected List<String> getInsert(String selectQuery, List<String> vars, String selectOut, String maj) {
         List<String> updateQuery = new LinkedList<>();
         ResultSet select = this. getKee().select(selectQuery);
         //select all the variables needed
@@ -150,7 +150,7 @@ public abstract class KReasoner {
         return updateQuery;
     }
 
-    private String getV(RDFNode get) {
+    protected String getV(RDFNode get) {
         String result;
         if (get.isResource()) {
             result = "<" + get.asResource().getURI() + ">";
@@ -246,7 +246,7 @@ public abstract class KReasoner {
 
     }
 
-    private String replaceAllString(String sout, String exp, String string) {
+    protected String replaceAllString(String sout, String exp, String string) {
         exp = exp.replaceAll("\\?", "\\\\?");
         exp = exp.replaceAll("\\*", "\\\\*");
         exp = exp.replaceAll("\\.", "\\\\.");
