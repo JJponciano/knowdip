@@ -21,6 +21,7 @@ import info.ponciano.lab.jpc.pointcloud.components.APointCloud;
 import info.ponciano.lab.knowdip.Knowdip;
 import info.ponciano.lab.knowdip.aee.KnowdipException;
 import info.ponciano.lab.knowdip.aee.memory.Memory;
+import info.ponciano.lab.knowdip.reasoner.KSolution;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -71,10 +72,10 @@ public class MinPatchesDistanceEstimation extends PatchesDistanceEstimation {
     @Override
     protected Map<String,APointCloud> getPatches() {
         Map<String,APointCloud> patches = new HashMap<>();
-        ResultSet select = Knowdip.get().select("SELECT ?p WHERE{ ?p rdf:type knowdip:Patch}");
+        Iterator<KSolution> select = Knowdip.get().select("SELECT ?p WHERE{ ?p rdf:type knowdip:Patch}");
         while (select.hasNext()) {
             //get URI of the patch
-            QuerySolution next = select.next();
+            KSolution next = select.next();
             String uri = next.get("p").asResource().getURI();
             Memory memory = Knowdip.get().getMemory();
             //retrieve the patch in the memory
