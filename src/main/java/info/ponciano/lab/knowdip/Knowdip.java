@@ -19,7 +19,7 @@ package info.ponciano.lab.knowdip;
 import info.ponciano.lab.knowdip.aee.KnowdipException;
 import info.ponciano.lab.knowdip.aee.algorithm.sparql.Algorithm;
 import info.ponciano.lab.knowdip.aee.memory.Memory;
-import info.ponciano.lab.knowdip.reasoner.KReasoner;
+import info.ponciano.lab.knowdip.reasoner.KReasonerOwlFile;
 import info.ponciano.lab.knowdip.reasoner.KeeOwlFile;
 import info.ponciano.lab.knowdip.reasoner.KeeTS;
 import info.ponciano.lab.knowdip.reasoner.PiOntologyException;
@@ -48,7 +48,7 @@ import org.apache.jena.rdf.model.Property;
 public class Knowdip {
 
     private static Knowdip instance;
-    private final KReasoner reasoner;
+    private final KReasonerOwlFile reasoner;
 
     /**
      * Get the knowdip memory where pointclouds ands images are dynamically
@@ -77,9 +77,9 @@ public class Knowdip {
             clearAll(outDir);
         }
         if (useTS) {
-            this.reasoner = new KReasoner(new KeeTS(ontologyPath, outDir));
+            this.reasoner = new KReasonerOwlFile(new KeeTS(ontologyPath, outDir));
         } else {
-            this.reasoner = new KReasoner(new KeeOwlFile(ontologyPath, outDir));
+            this.reasoner = new KReasonerOwlFile(new KeeOwlFile(ontologyPath, outDir));
         }
     }
 
