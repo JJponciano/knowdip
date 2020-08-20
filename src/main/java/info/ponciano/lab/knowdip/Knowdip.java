@@ -22,6 +22,7 @@ import info.ponciano.lab.knowdip.aee.memory.Memory;
 import info.ponciano.lab.knowdip.reasoner.KReasoner;
 import info.ponciano.lab.knowdip.reasoner.KReasonerOwlFile;
 import info.ponciano.lab.knowdip.reasoner.KReasonerTS;
+import info.ponciano.lab.knowdip.reasoner.KSolution;
 import info.ponciano.lab.knowdip.reasoner.PiOntologyException;
 import java.io.BufferedReader;
 import java.io.File;
@@ -234,7 +235,7 @@ public class Knowdip {
      * @param queryString query to be executed
      * @return the resultset of the query
      */
-    public ResultSet select(String query) {
+    public Iterator<KSolution> select(String query) {
         return this.reasoner.select(query);
     }
 
@@ -264,9 +265,9 @@ public class Knowdip {
      */
     public List<String> selectAsList(String query, String variable) {
         List<String> uris = new ArrayList<>();
-        ResultSet select = this.select(query);
+        Iterator<KSolution> select = this.select(query);
         while (select.hasNext()) {
-            QuerySolution next = select.next();
+            KSolution next = select.next();
             String uri = next.get(variable).asResource().getURI();
             uris.add(uri);
         }
@@ -282,18 +283,19 @@ public class Knowdip {
         return this.selectAsList("SELECT ?c WHERE{ ?c rdf:type knowdip:FullPointCloud }", "c");
     }
 
-    public static Iterator<RDFNode> getIterator(String queryString, ResultSet resultSet) {
-        //select var
-        List<String> vars = Knowdip.getSparqlVar(queryString);
-        List<RDFNode> rdfnode = new ArrayList<>();
+    public static Iterator<KSolution> getIterator(String queryString, ResultSet resultSet) {
+       List<String> vars = Knowdip.getSparqlVar(queryString);
+        List<KSolution> lks = new ArrayList<>();
+
         while (resultSet.hasNext()) {
             QuerySolution next = resultSet.next();
+            KSolution ks = new KSolution();
             vars.forEach(v -> {
-                rdfnode.add(next.get(v));
+                ks.put(v, next.get(v));
             });
-        }
-        Iterator<RDFNode> iterator = rdfnode.iterator();
-        return iterator;
+            lks.add(ks);
+           
+        } return lks.iterator();
     }
 
     public static List<String> getSparqlVar(String select) {
