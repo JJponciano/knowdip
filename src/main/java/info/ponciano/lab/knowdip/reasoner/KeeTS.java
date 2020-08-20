@@ -17,11 +17,13 @@
 package info.ponciano.lab.knowdip.reasoner;
 
 import info.ponciano.lab.knowdip.KD;
+import info.ponciano.lab.knowdip.Knowdip;
 import info.ponciano.lab.knowdip.aee.KnowdipException;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -34,10 +36,12 @@ import org.apache.jena.query.Query;
 import org.apache.jena.query.QueryExecution;
 import org.apache.jena.query.QueryExecutionFactory;
 import org.apache.jena.query.QueryFactory;
+import org.apache.jena.query.QuerySolution;
 import org.apache.jena.query.ReadWrite;
 import org.apache.jena.query.ResultSet;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
+import org.apache.jena.rdf.model.RDFNode;
 import org.apache.jena.tdb.TDBFactory;
 import org.apache.jena.update.UpdateAction;
 
@@ -90,14 +94,23 @@ public class KeeTS extends Kee {
     }
 
     @Override
-    public ResultSet select(String queryString) {
+    public Iterator<RDFNode> select(String queryString) {
         queryString = this.prefix + queryString;
         dataset.begin(ReadWrite.READ);
         Query query = QueryFactory.create(queryString);
         QueryExecution queryExecution = QueryExecutionFactory.create(query, getWorkingModel());
         ResultSet resultSet = queryExecution.execSelect();
+        //select var
+        List<String> vars = Knowdip.getSparqlVar(queryString);
+        List<RDFNode> rdfnode = new ArrayList<>();
+        while (resultSet.hasNext()) {
+            QuerySolution next = resultSet.next();
+            vars.forEach(v -> {
+                rdfnode.add(next.get(v));
+            });
+        }
         dataset.end();
-        return resultSet;
+        return rdfnode.iterator();
     }
 
     @Override
@@ -130,5 +143,10 @@ public class KeeTS extends Kee {
         } catch (IOException ex) {
             Logger.getLogger(KeeTS.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    @Override
+    public String selectAsText(String query) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
