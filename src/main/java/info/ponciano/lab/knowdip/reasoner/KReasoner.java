@@ -16,6 +16,7 @@
  */
 package info.ponciano.lab.knowdip.reasoner;
 
+import info.ponciano.lab.knowdip.Knowdip;
 import info.ponciano.lab.knowdip.aee.KnowdipException;
 import info.ponciano.lab.knowdip.aee.algorithm.sparql.Algorithm;
 import info.ponciano.lab.knowdip.aee.memory.Memory;
@@ -60,7 +61,7 @@ public abstract class KReasoner {
      * @return True if queries produces results, false otherwise
      */
     public boolean interprets(String select, String out, String insert) {
-        List<String> vars = getSparqlVar(select);
+        List<String> vars = Knowdip.getSparqlVar(select);
         List<String> updateQuery = this.getInsert(select, vars, out, insert);
         if (updateQuery.isEmpty()) {
             return false;
@@ -76,19 +77,6 @@ public abstract class KReasoner {
         return true;
     }
 
-    public static List<String> getSparqlVar(String select) {
-        String expression = "(\\?\\S+)";
-        Pattern pattern = Pattern.compile(expression);
-        List<String> res = new ArrayList<>();
-        Matcher matcher = pattern.matcher(select);
-        while (matcher.find()) {
-            final String group = matcher.group();
-            if (!res.contains(group)) {
-                res.add(group);
-            }
-        }
-        return res;
-    }
 
     protected List<String> getInsert(String selectQuery, List<String> vars, String selectOut, String maj) {
         List<String> updateQuery = new LinkedList<>();
@@ -189,7 +177,7 @@ public abstract class KReasoner {
         String first = reg.getFirst();
         select[0] = first.substring(0, first.length() - 4) + "}";
         String temp = select[0].replaceAll("FILTER NOT EXISTS\\s*\\{.*?\\}", " ");
-        List<String> vars = getSparqlVar(temp);
+        List<String> vars = Knowdip.getSparqlVar(temp);
 
         vars.forEach((var) -> {
             select[0] = var + " " + select[0];
