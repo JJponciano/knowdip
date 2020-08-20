@@ -63,10 +63,8 @@ public class KeeTS extends Kee {
 
     @Override
     protected OntModel getWorkingModel() {
-        dataset.begin(ReadWrite.READ);
         OntModel createOntologyModel = ModelFactory.createOntologyModel(
                 OntModelSpec.OWL_MEM, dataset.getNamedModel(KD.URI));
-        dataset.end();
         return createOntologyModel;
     }
 
