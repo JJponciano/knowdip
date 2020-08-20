@@ -24,6 +24,7 @@ import info.ponciano.lab.knowdip.reasoner.automatic.PiRegex;
 import info.ponciano.lab.knowdip.reasoner.automatic.SemObject;
 import info.ponciano.lab.knowdip.reasoner.automatic.algorithms.SparqlAlgorithm;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -44,25 +45,20 @@ import org.apache.jena.rdf.model.RDFNode;
  *
  * @author Jean-Jacques Ponciano
  */
-public class KReasonerOwlFile {
+public class KReasonerOwlFile extends KReasoner{
 
     protected PiOnt piont;
     protected List<OntClass> objects;
     protected Kee kee;
 
-    public KReasonerOwlFile(Kee kee) throws FileNotFoundException, PiOntologyException {
-        this.kee = kee;
+    public KReasonerOwlFile(String ontologyPath, String workingDir) throws FileNotFoundException, PiOntologyException, IOException, KnowdipException {
+        this.kee = new KeeOwlFile(ontologyPath, workingDir);
         this.piont = new PiOnt(this.kee.getWorkingModel());
         //select every subclass of object
         OntClass objectCl = piont.getOntClass(KD.OBJECT);
         this.objects = piont.getSubClass(objectCl, true);
     }
 
-    private void inferRoot() throws KnowdipException {
-        this.kee.construct("CONSTRUCT { ?x rdf:type ?sub } WHERE {"
-                + "?x rdf:type ?t . ?t rdfs:subClassOf ?sub . "
-                + "} ");
-    }
 
     /**
      * Execute algorithms by translate algorithms information from ontology to
@@ -388,5 +384,10 @@ public class KReasonerOwlFile {
 
     public OntModel getModel() {
         return this.kee.getModel();
+    }
+
+    @Override
+    protected Kee getKee() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
