@@ -87,8 +87,6 @@ public class FileExempleWithTS {
             knowdip.save();
         } catch (IOException | KnowdipException ex) {
             Logger.getLogger(FileExempleWithTS.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(FileExempleWithTS.class.getName()).log(Level.SEVERE, null, ex);
         } catch (PiOntologyException ex) {
             Logger.getLogger(FileExempleWithTS.class.getName()).log(Level.SEVERE, null, ex);
         }
