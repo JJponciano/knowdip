@@ -17,10 +17,14 @@
 package info.ponciano.lab.knowdip.reasoner;
 
 import info.ponciano.lab.knowdip.KD;
+import info.ponciano.lab.knowdip.Knowdip;
 import info.ponciano.lab.knowdip.aee.KnowdipException;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.apache.jena.ontology.OntModel;
@@ -30,10 +34,14 @@ import org.apache.jena.query.Query;
 import org.apache.jena.query.QueryExecution;
 import org.apache.jena.query.QueryExecutionFactory;
 import org.apache.jena.query.QueryFactory;
+import org.apache.jena.query.QuerySolution;
 import org.apache.jena.query.ReadWrite;
 import org.apache.jena.query.ResultSet;
+import org.apache.jena.query.ResultSetFormatter;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
+import org.apache.jena.rdf.model.RDFNode;
+import org.apache.jena.sparql.core.Prologue;
 import org.apache.jena.tdb.TDBFactory;
 import org.apache.jena.update.UpdateAction;
 
@@ -86,14 +94,15 @@ public class KeeTS extends Kee {
     }
 
     @Override
-    public ResultSet select(String queryString) {
-        queryString = this.prefix + queryString;
+    public Iterator<KSolution> select(String queryString) {
         dataset.begin(ReadWrite.READ);
+        queryString = this.prefix + queryString;
         Query query = QueryFactory.create(queryString);
         QueryExecution queryExecution = QueryExecutionFactory.create(query, getWorkingModel());
         ResultSet resultSet = queryExecution.execSelect();
+        Iterator<KSolution> iterator = Knowdip.getIterator(queryString, resultSet);
         dataset.end();
-        return resultSet;
+        return iterator;
     }
 
     @Override
@@ -110,7 +119,8 @@ public class KeeTS extends Kee {
      * @param query query to be executed
      */
     @Override
-    public void update(String query) {
+    public void update(String query
+    ) {
         query = this.prefix + query;
         dataset.begin(ReadWrite.WRITE);
         UpdateAction.parseExecute(query, dataset);
@@ -124,7 +134,21 @@ public class KeeTS extends Kee {
             this.dataset.close();
             this.saveMemory();
         } catch (IOException ex) {
-            Logger.getLogger(KeeTS.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(KeeTS.class
+                    .getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    @Override
+    public String selectAsText(String queryString) {
+        dataset.begin(ReadWrite.READ);
+        queryString = this.prefix + queryString;
+        Query query = QueryFactory.create(queryString);
+        QueryExecution queryExecution = QueryExecutionFactory.create(query, getWorkingModel());
+        ResultSet resultSet = queryExecution.execSelect();
+        String asText = ResultSetFormatter.asText(resultSet, new Prologue(this.getWorkingModel()));
+        dataset.end();
+        return asText;
+
     }
 }
