@@ -30,8 +30,10 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -52,6 +54,19 @@ import org.apache.jena.rdf.model.RDFNode;
 public class Knowdip {
 
     private static Knowdip instance;
+
+    public static Map<String, RDFNode> getMap(String queryString, ResultSet resultSet) {
+    //select var
+        List<String> vars = Knowdip.getSparqlVar(queryString);
+        Map<String,RDFNode> rdfnode = new HashMap<>();
+        while (resultSet.hasNext()) {
+            QuerySolution next = resultSet.next();
+            vars.forEach(v -> {
+                rdfnode.put(v,next.get(v));
+            });
+        }
+        return rdfnode;
+    }
     private final KReasoner reasoner;
 
     /**
