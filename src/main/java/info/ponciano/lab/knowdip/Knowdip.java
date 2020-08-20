@@ -30,6 +30,7 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.UUID;
 import java.util.logging.Level;
@@ -42,6 +43,7 @@ import org.apache.jena.graph.NodeFactory;
 import org.apache.jena.query.QuerySolution;
 import org.apache.jena.query.ResultSet;
 import org.apache.jena.rdf.model.Property;
+import org.apache.jena.rdf.model.RDFNode;
 
 /**
  *
@@ -258,7 +260,19 @@ public class Knowdip {
     public List<String> listPointClouds() {
         return this.selectAsList("SELECT ?c WHERE{ ?c rdf:type knowdip:FullPointCloud }", "c");
     }
-
+    public static Iterator<RDFNode> getIterator(String queryString, ResultSet resultSet) {
+        //select var
+        List<String> vars = Knowdip.getSparqlVar(queryString);
+        List<RDFNode> rdfnode = new ArrayList<>();
+        while (resultSet.hasNext()) {
+            QuerySolution next = resultSet.next();
+            vars.forEach(v -> {
+                rdfnode.add(next.get(v));
+            });
+        }
+        Iterator<RDFNode> iterator = rdfnode.iterator();
+        return iterator;
+    }
     public static List<String> getSparqlVar(String select) {
         String expression = "(\\?\\S+)";
         Pattern pattern = Pattern.compile(expression);
