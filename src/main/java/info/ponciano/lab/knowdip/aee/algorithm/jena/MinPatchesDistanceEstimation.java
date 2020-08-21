@@ -22,6 +22,7 @@ import info.ponciano.lab.knowdip.Knowdip;
 import info.ponciano.lab.knowdip.aee.KnowdipException;
 import info.ponciano.lab.knowdip.aee.memory.Memory;
 import info.ponciano.lab.knowdip.reasoner.KSolution;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -41,37 +42,40 @@ import org.apache.jena.query.ResultSet;
 public class MinPatchesDistanceEstimation extends PatchesDistanceEstimation {
 
     @Override
-    protected void postprocessing(List<info.ponciano.lab.jpc.algorithms.segmentation.MinPatchesDistanceEstimation> workers, Map<String,APointCloud> patches) {
+    protected void postprocessing(List<info.ponciano.lab.jpc.algorithms.segmentation.MinPatchesDistanceEstimation> workers, Map<String, APointCloud> patches) {
+        List<String> updateQueries = new ArrayList<>();
         workers.forEach(w -> {
             APointCloud patch1 = w.getPatch1();
             APointCloud patch2 = w.getPatch2();
             Double results = w.getResults();
             //retrieve URI
             Iterator<String> iterator = patches.keySet().iterator();
-              String uri1="";
-              String uri2="";
-            while ((uri1.isEmpty()||uri2.isEmpty())&&iterator.hasNext()) {
+            String uri1 = "";
+            String uri2 = "";
+            while ((uri1.isEmpty() || uri2.isEmpty()) && iterator.hasNext()) {
                 String k = iterator.next();
-                if(uri1.isEmpty()&&patches.get(k).equals(patch1)){
-                       uri1 = k;
-                }else if(uri2.isEmpty()&&patches.get(k).equals(patch2)){
-                       uri2 =k;
-                } 
+                if (uri1.isEmpty() && patches.get(k).equals(patch1)) {
+                    uri1 = k;
+                } else if (uri2.isEmpty() && patches.get(k).equals(patch2)) {
+                    uri2 = k;
+                }
             }
             String property = getDistanceProperty(results);
             if (!property.isEmpty()) {
                 try {
-                    Knowdip.get().update("INSERT DATA {<" + uri1 + "> knowdip:" + property + " <" + uri2 + "> }");
+                    updateQueries.add("INSERT DATA {<" + uri1 + "> knowdip:" + property + " <" + uri2 + "> }");
                 } catch (KnowdipException ex) {
                     Logger.getLogger(MinPatchesDistanceEstimation.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
         });
+        Knowdip.get().update(updateQueries);
+
     }
 
     @Override
-    protected Map<String,APointCloud> getPatches() {
-        Map<String,APointCloud> patches = new HashMap<>();
+    protected Map<String, APointCloud> getPatches() {
+        Map<String, APointCloud> patches = new HashMap<>();
         Iterator<KSolution> select = Knowdip.get().select("SELECT ?p WHERE{ ?p rdf:type knowdip:Patch}");
         while (select.hasNext()) {
             //get URI of the patch
@@ -80,7 +84,7 @@ public class MinPatchesDistanceEstimation extends PatchesDistanceEstimation {
             Memory memory = Knowdip.get().getMemory();
             //retrieve the patch in the memory
             APointCloud access = (APointCloud) memory.access(uri);
-            patches.put(uri,access);
+            patches.put(uri, access);
         }
         return patches;
     }
@@ -92,13 +96,13 @@ public class MinPatchesDistanceEstimation extends PatchesDistanceEstimation {
             return "isClose";
         } else if (results < 1) {
             return "isInTheVicinityOf ";
-        }else if (results <=20) {
+        } else if (results <= 20) {
             return "has" + Math.round(results) + "m";
-        }  else if (results < 100) {
+        } else if (results < 100) {
             return "has" + Math.round(results / 10.0) + "0m";
         } else if (results < 1001) {
             return "has" + Math.round(results / 100.0) + "00m";
-        } 
+        }
         return "";
     }
 
