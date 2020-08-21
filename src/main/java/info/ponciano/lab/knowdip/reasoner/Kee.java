@@ -177,7 +177,7 @@ public abstract class Kee {
         wm.add(execConstruct);
         return true;
     }
-
+ public abstract void update(List<String> queries) ;
     /**
      * Export all point cloud in txt file format.
      *
