@@ -119,8 +119,7 @@ public class KeeTS extends Kee {
      * @param query query to be executed
      */
     @Override
-    public void update(String query
-    ) {
+    public void update(String query) {
         query = this.prefix + query;
         dataset.begin(ReadWrite.WRITE);
         UpdateAction.parseExecute(query, dataset);
