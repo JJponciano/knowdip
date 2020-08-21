@@ -16,6 +16,7 @@
  */
 package info.ponciano.lab.knowdip.reasoner;
 
+import info.ponciano.lab.knowdip.KD;
 import info.ponciano.lab.knowdip.Knowdip;
 import info.ponciano.lab.knowdip.aee.KnowdipException;
 import java.io.File;
@@ -25,6 +26,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import static java.nio.file.StandardCopyOption.REPLACE_EXISTING;
 import java.util.Iterator;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.apache.jena.ontology.OntModel;
@@ -69,13 +71,13 @@ public class KeeOwlFile extends Kee {
     }
 
     @Override
-    public synchronized  Iterator<KSolution> select(String queryString) {
+    public synchronized Iterator<KSolution> select(String queryString) {
         queryString = this.prefix + queryString;
         Query query = QueryFactory.create(queryString);
         QueryExecution queryExecution = QueryExecutionFactory.create(query, this.getWorkingModel());
         queryExecution.getContext().set(ARQ.symLogExec, Explain.InfoLevel.NONE);
 
-        return  Knowdip.getIterator(queryString, queryExecution.execSelect());
+        return Knowdip.getIterator(queryString, queryExecution.execSelect());
     }
 
     @Override
@@ -88,6 +90,12 @@ public class KeeOwlFile extends Kee {
         queryExecution.getContext().set(ARQ.symLogExec, Explain.InfoLevel.NONE);
 
         return queryExecution.execConstruct();
+    }
+
+    public void update(List<String> queries) {
+        queries.forEach(query -> {
+            this.update(query);
+        });
     }
 
     @Override
