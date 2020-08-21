@@ -18,26 +18,14 @@ package info.ponciano.lab.knowdip.reasoner;
 
 import info.ponciano.lab.knowdip.KD;
 import info.ponciano.lab.knowdip.aee.KnowdipException;
-import info.ponciano.lab.knowdip.aee.algorithm.sparql.Algorithm;
-import info.ponciano.lab.knowdip.aee.memory.Memory;
-import info.ponciano.lab.knowdip.reasoner.automatic.PiRegex;
 import info.ponciano.lab.knowdip.reasoner.automatic.SemObject;
 import info.ponciano.lab.knowdip.reasoner.automatic.algorithms.SparqlAlgorithm;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import org.apache.jena.datatypes.RDFDatatype;
 import org.apache.jena.ontology.OntClass;
-import org.apache.jena.ontology.OntModel;
-import org.apache.jena.query.QuerySolution;
-import org.apache.jena.query.ResultSet;
-import org.apache.jena.rdf.model.Literal;
-import org.apache.jena.rdf.model.RDFNode;
 
 /**
  *
