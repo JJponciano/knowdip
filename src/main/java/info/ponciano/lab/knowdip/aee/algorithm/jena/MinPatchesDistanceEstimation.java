@@ -71,7 +71,7 @@ public class MinPatchesDistanceEstimation extends PatchesDistanceEstimation {
         while (select.hasNext()) {
             //get URI of the patch
             KSolution next = select.next();
-            String uri = next.get("p").asResource().getURI();
+            String uri = next.get("?p").asResource().getURI();
             Memory memory = Knowdip.get().getMemory();
             //retrieve the patch in the memory
             APointCloud access = (APointCloud) memory.access(uri);
