@@ -120,6 +120,8 @@ public class KeeTS extends Kee {
      */
     @Override
     public void update(String query) {
+        int insertPart = query.indexOf('{');
+        query = query.substring(0, insertPart) + "GRAPH <" + KD.URI + "> {\n" + query.substring(insertPart, query.length()) + "}";
         query = this.prefix + query;
         dataset.begin(ReadWrite.WRITE);
         UpdateAction.parseExecute(query, dataset);
