@@ -120,7 +120,7 @@ public class KeeTS extends Kee {
      */
     @Override
     public void update(String query) {
-        int insertPart = query.indexOf('{')-1;
+        int insertPart = query.indexOf('{')+1;
         query = query.substring(0, insertPart) + "\nGRAPH <" + KD.URI + "> {\n" + query.substring(insertPart, query.length()) + "}";
         query = this.prefix + query;
         dataset.begin(ReadWrite.WRITE);
