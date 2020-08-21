@@ -136,6 +136,9 @@ public class Knowdip {
     public void update(String query) throws KnowdipException {
         this.reasoner.update(query);
     }
+    public void update(List<String> queries){
+        this.reasoner.update(queries);
+    }
 
     /**
      * Interprets every SPARQL query contained in a file
