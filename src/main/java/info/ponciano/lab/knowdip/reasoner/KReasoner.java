@@ -65,14 +65,15 @@ public abstract class KReasoner {
         if (updateQuery.isEmpty()) {
             return false;
         }
-        updateQuery.forEach((query) -> {
-            try {
-                //                 System.out.println(query);
-                this. getKee().update(query);
-            } catch (KnowdipException ex) {
-                Logger.getLogger(KReasoner.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        });
+        this. getKee().update(updateQuery);
+//        updateQuery.forEach((query) -> {
+//            try {
+//                //                 System.out.println(query);
+//                this. getKee().update(query);
+//            } catch (KnowdipException ex) {
+//                Logger.getLogger(KReasoner.class.getName()).log(Level.SEVERE, null, ex);
+//            }
+//        });
         return true;
     }
 
