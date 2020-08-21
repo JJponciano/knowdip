@@ -64,7 +64,10 @@ public class KeeTS extends Kee {
         datasetDirectory.mkdir();
         dataset = TDBFactory.createDataset(datasetDirectory.getAbsolutePath());
         dataset.begin(ReadWrite.WRITE);
-        dataset.addNamedModel(KD.URI, model);
+//        Model namedModel = dataset.getNamedModel(KD.URI);
+//        if (namedModel == null) {
+            dataset.addNamedModel(KD.URI, model);
+//        }
         dataset.commit();
         dataset.end();
     }
@@ -120,13 +123,31 @@ public class KeeTS extends Kee {
      */
     @Override
     public void update(String query) {
-        int insertPart = query.indexOf('{')+1;
-        query = query.substring(0, insertPart) + "\nGRAPH <" + KD.URI + "> {\n" + query.substring(insertPart, query.length()) + "}";
-        query = this.prefix + query;
+        try {
+            int insertPart = query.indexOf('{') + 1;
+            query = query.substring(0, insertPart) + "\nGRAPH <" + KD.URI + "> {\n" + query.substring(insertPart, query.length()) + "}";
+            query = this.prefix + query;
+            dataset.begin(ReadWrite.WRITE);
+            UpdateAction.parseExecute(query, dataset);
+            dataset.commit();
+        } finally {
+            dataset.end();
+        }
+    }
+
+    public void update(List<String> queries) {
         dataset.begin(ReadWrite.WRITE);
-        UpdateAction.parseExecute(query, dataset);
-        dataset.commit();
-        dataset.end();
+        try {
+            queries.forEach(query -> {
+                int insertPart = query.indexOf('{') + 1;
+                query = query.substring(0, insertPart) + "\nGRAPH <" + KD.URI + "> {\n" + query.substring(insertPart, query.length()) + "}";
+                query = this.prefix + query;
+                UpdateAction.parseExecute(query, dataset);
+            });
+             dataset.commit();
+        } finally {
+            dataset.end();
+        }
     }
 
     @Override
