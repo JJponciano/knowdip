@@ -65,7 +65,7 @@ public abstract class KReasoner {
         if (updateQuery.isEmpty()) {
             return false;
         }
-        this. getKee().update(updateQuery);
+        this.getKee().update(updateQuery);
 //        updateQuery.forEach((query) -> {
 //            try {
 //                //                 System.out.println(query);
@@ -77,10 +77,9 @@ public abstract class KReasoner {
         return true;
     }
 
-
     protected List<String> getInsert(String selectQuery, List<String> vars, String selectOut, String maj) {
         List<String> updateQuery = new LinkedList<>();
-        Iterator<KSolution> select = this. getKee().select(selectQuery);
+        Iterator<KSolution> select = this.getKee().select(selectQuery);
         //select all the variables needed
 
         List<String> executeMemory = new LinkedList<>();
@@ -106,7 +105,7 @@ public abstract class KReasoner {
             //Executes algorithms 
             if (!executeMemory.contains(sout)) {
                 executeMemory.add(sout);
-                Iterator<KSolution> selectOutrs = this. getKee().select(sout);
+                Iterator<KSolution> selectOutrs = this.getKee().select(sout);
                 //retrieve the result.
                 while (selectOutrs.hasNext()) {
                     KSolution nextOut = selectOutrs.next();
@@ -221,7 +220,7 @@ public abstract class KReasoner {
         String var = reg.getGroup(1).get(0);
         query = query.replaceFirst("REMOVE|remove", "SELECT");
 
-        Iterator<KSolution> select = this. getKee().select(query);
+        Iterator<KSolution> select = this.getKee().select(query);
         List<String> uris = new ArrayList();
         while (select.hasNext()) {
             KSolution next = select.next();
@@ -229,7 +228,7 @@ public abstract class KReasoner {
             uris.add(get.asResource().getURI());
         }
         for (String uri : uris) {
-            this. getKee().update("DELETE WHERE {<" + uri + "> ?p ?o}");
+            this.getKee().update("DELETE WHERE {<" + uri + "> ?p ?o}");
         }
 
     }
@@ -242,34 +241,38 @@ public abstract class KReasoner {
     }
 
     public Memory getMemory() {
-        return this. getKee().getMemory();
+        return this.getKee().getMemory();
     }
 
     public void add(Class<? extends Algorithm> algo) throws KnowdipException {
-        this. getKee().add(algo);
+        this.getKee().add(algo);
     }
 
     public void update(String query) throws KnowdipException {
-        this. getKee().update(query);
+        this.getKee().update(query);
+    }
+
+    public void update(List<String> queries) {
+        this.getKee().update(queries);
     }
 
     public boolean construct(String queryString) throws KnowdipException {
-        return this. getKee().construct(queryString);
+        return this.getKee().construct(queryString);
     }
 
     public void close() {
-        this. getKee().close();
+        this.getKee().close();
     }
 
     public Iterator<KSolution> select(String query) {
-        return this. getKee().select(query);
+        return this.getKee().select(query);
     }
 
     public String selectAsText(String query) {
-        return this. getKee().selectAsText(query);
+        return this.getKee().selectAsText(query);
     }
 
     public OntModel getModel() {
-        return this. getKee().getModel();
+        return this.getKee().getModel();
     }
 }
