@@ -184,7 +184,7 @@ public abstract class Kee {
      * @throws IOException
      */
     public void saveMemory() throws IOException {
-        this.memory.write(memoryPath);
+         this.memory.write(this.memoryPath);
     }
 
     /**
