@@ -18,6 +18,7 @@ package examples;
 
 import info.ponciano.lab.knowdip.Knowdip;
 import info.ponciano.lab.knowdip.aee.KnowdipException;
+import info.ponciano.lab.knowdip.aee.algorithm.jena.MinPatchesDistanceEstimation;
 import info.ponciano.lab.knowdip.aee.algorithm.sparql.LoadCloud;
 import info.ponciano.lab.knowdip.aee.algorithm.sparql.PatchesSegmentation;
 import info.ponciano.lab.knowdip.aee.algorithm.sparql.getter.GetPatchArea;
@@ -50,7 +51,10 @@ public class FileExempleWithTS {
             args = new String[2];
             args[0] = "src/main/resources/knowdip.owl";
             args[1] = "output/";
-            Knowdip.init(args[0], args[1], true, true);
+            /**
+             *  ontologyPath,output directory, reset the output directory, using a triple store
+             */
+            Knowdip.init(args[0], args[1], false, true);
 
             Knowdip knowdip = Knowdip.get();
             knowdip.add(LoadCloud.class);
@@ -74,11 +78,12 @@ public class FileExempleWithTS {
 
             /**
              * If no distance is found, perhaps they are not calculated.
-             
-            if (!knowdip.select("SELECT ?c WHERE{ ?c rdf:type knowdip:Patch . ?c2 rdf:type knowdip:Patch . ?c1 knowdip:has2m ?c2  }").hasNext()) {//Calculate the distance between patches.
+            */
+            System.out.println("Calculate distance between patches");
+            if (!knowdip.select("SELECT ?c WHERE{ ?c rdf:type knowdip:Patch . ?c knowdip:has2m ?c2  }").hasNext()) {//Calculate the distance between patches.
                 MinPatchesDistanceEstimation mde = new MinPatchesDistanceEstimation();
                 mde.run();
-            }*/
+            } 
             String selectString = knowdip.selectAsText("SELECT ?c ?z WHERE{ ?c rdf:type knowdip:Patch . ?c knowdip:hasNormalZ ?z . Filter(?z <0.1 )  }");
             System.out.println(selectString);
 
