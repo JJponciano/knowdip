@@ -59,14 +59,13 @@ public class KeeTS extends Kee {
     }
 
     private void init() throws FileNotFoundException, IOException {
-        System.out.println("- Creating the dataset...");
         File datasetDirectory = new File(datasetPath);
         datasetDirectory.mkdir();
         dataset = TDBFactory.createDataset(datasetDirectory.getAbsolutePath());
         dataset.begin(ReadWrite.WRITE);
 //        Model namedModel = dataset.getNamedModel(KD.URI);
 //        if (namedModel == null) {
-            dataset.addNamedModel(KD.URI, model);
+        dataset.addNamedModel(KD.URI, model);
 //        }
         dataset.commit();
         dataset.end();
@@ -144,7 +143,7 @@ public class KeeTS extends Kee {
                 query = this.prefix + query;
                 UpdateAction.parseExecute(query, dataset);
             });
-             dataset.commit();
+            dataset.commit();
         } finally {
             dataset.end();
         }
@@ -154,7 +153,7 @@ public class KeeTS extends Kee {
     public void close() {
         try {
             this.dataset.close();
-            this.saveMemory();
+            this.memory.write(this.memoryPath);
         } catch (IOException ex) {
             Logger.getLogger(KeeTS.class
                     .getName()).log(Level.SEVERE, null, ex);
