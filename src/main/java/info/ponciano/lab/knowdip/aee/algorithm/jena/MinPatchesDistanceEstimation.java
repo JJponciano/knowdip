@@ -22,6 +22,7 @@ import info.ponciano.lab.knowdip.Knowdip;
 import info.ponciano.lab.knowdip.aee.memory.Memory;
 import info.ponciano.lab.knowdip.reasoner.KSolution;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -38,6 +39,8 @@ public class MinPatchesDistanceEstimation extends PatchesDistanceEstimation {
 
     @Override
     protected void postprocessing(List<info.ponciano.lab.jpc.algorithms.segmentation.MinPatchesDistanceEstimation> workers, Map<String, APointCloud> patches) {
+        System.out.println(new Date(System.currentTimeMillis()).toLocaleString() + " postprocessing " + this.getClass().getName());
+
         List<String> updateQueries = new ArrayList<>();
         workers.forEach(w -> {
             APointCloud patch1 = w.getPatch1();
@@ -60,6 +63,8 @@ public class MinPatchesDistanceEstimation extends PatchesDistanceEstimation {
                 updateQueries.add("INSERT DATA {<" + uri1 + "> knowdip:" + property + " <" + uri2 + "> }");
             }
         });
+        System.out.println(new Date(System.currentTimeMillis()).toLocaleString() + " Update knowledge base " + this.getClass().getName());
+
         Knowdip.get().update(updateQueries);
 
     }
