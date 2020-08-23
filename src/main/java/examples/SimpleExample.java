@@ -18,7 +18,6 @@ package examples;
 
 import info.ponciano.lab.knowdip.Knowdip;
 import info.ponciano.lab.knowdip.aee.KnowdipException;
-import info.ponciano.lab.knowdip.aee.algorithm.jena.MinPatchesDistanceEstimation;
 import info.ponciano.lab.knowdip.aee.algorithm.sparql.LoadCloud;
 import info.ponciano.lab.knowdip.aee.algorithm.sparql.PatchesSegmentation;
 import info.ponciano.lab.knowdip.aee.algorithm.sparql.getter.GetPatchArea;
@@ -40,8 +39,6 @@ import java.io.IOException;
 import java.util.Iterator;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import org.apache.jena.query.QuerySolution;
-import org.apache.jena.query.ResultSet;
 
 /**
  *
