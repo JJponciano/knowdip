@@ -20,7 +20,6 @@ import info.ponciano.lab.jpc.pointcloud.Pointcloud;
 import info.ponciano.lab.jpc.pointcloud.components.APointCloud;
 import info.ponciano.lab.knowdip.aee.KnowdipException;
 import info.ponciano.lab.knowdip.aee.algorithm.sparql.Algorithm;
-import info.ponciano.lab.knowdip.aee.memory.WritableResource;
 import java.util.Collections;
 import org.apache.jena.datatypes.xsd.XSDDatatype;
 import org.apache.jena.graph.Node;
