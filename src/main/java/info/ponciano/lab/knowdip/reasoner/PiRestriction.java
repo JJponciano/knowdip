@@ -119,10 +119,7 @@ public class PiRestriction {
         if (!Objects.equals(this.pprt, other.pprt)) {
             return false;
         }
-        if (!Objects.equals(this.type, other.type)) {
-            return false;
-        }
-        return true;
+        return Objects.equals(this.type, other.type);
     }
 
 }
