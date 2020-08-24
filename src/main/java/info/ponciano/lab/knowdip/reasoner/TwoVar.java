@@ -16,6 +16,8 @@
  */
 package info.ponciano.lab.knowdip.reasoner;
 
+import java.util.Objects;
+
 /**
  *
  * @author Dr Jean-Jacques Ponciano <jean-jacques@ponciano.info>
@@ -55,6 +57,14 @@ public class TwoVar {
         } catch (Exception e) {
             return false;
         }
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 59 * hash + Objects.hashCode(this.v1);
+        hash = 59 * hash + Objects.hashCode(this.v2);
+        return hash;
     }
 
 }
