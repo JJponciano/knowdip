@@ -66,7 +66,7 @@ public class Knowdip {
                 if (rdfnode.containsKey(v)) {
                     rdfnode.get(v).add(next.get(v));
                 } else {
-                    ArrayList<RDFNode> arrayList = new ArrayList<RDFNode>();
+                    ArrayList<RDFNode> arrayList = new ArrayList<>();
                     arrayList.add(next.get(v));
                     rdfnode.put(v, arrayList);
                 }
