@@ -77,7 +77,7 @@ public class PiRestrictions {
      *
      * @param res restrictions to be added.
      */
-    public void addAll(PiRestrictions res) {
+    public final void addAll(PiRestrictions res) {
         res.toList().forEach((re) -> {
             this.add(re);
         });
