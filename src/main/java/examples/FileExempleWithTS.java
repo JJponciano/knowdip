@@ -34,10 +34,13 @@ import info.ponciano.lab.knowdip.aee.algorithm.sparql.getter.GetPatchNormalY;
 import info.ponciano.lab.knowdip.aee.algorithm.sparql.getter.GetPatchNormalZ;
 import info.ponciano.lab.knowdip.aee.algorithm.sparql.getter.GetPatchSize;
 import info.ponciano.lab.knowdip.aee.algorithm.sparql.getter.GetPatchVolume;
+import info.ponciano.lab.knowdip.reasoner.KSolution;
 import info.ponciano.lab.knowdip.reasoner.PiOntologyException;
 import java.io.IOException;
+import java.util.Iterator;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import org.apache.jena.rdf.model.RDFNode;
 
 /**
  *
@@ -54,7 +57,7 @@ public class FileExempleWithTS {
             /**
              *  ontologyPath,output directory, reset the output directory, using a triple store
              */
-            Knowdip.init(args[0], args[1], false, true);
+            Knowdip.init(args[0], args[1], true, true);
 
             Knowdip knowdip = Knowdip.get();
             knowdip.add(LoadCloud.class);
@@ -84,9 +87,19 @@ public class FileExempleWithTS {
                 MinPatchesDistanceEstimation mde = new MinPatchesDistanceEstimation();
                 mde.run();
             } 
-            String selectString = knowdip.selectAsText("SELECT ?c ?z WHERE{ ?c rdf:type knowdip:Patch . ?c knowdip:hasNormalZ ?z . Filter(?z <0.1 )  }");
+            
+            
+            Iterator<KSolution> selectString = knowdip.select("SELECT ?c ?z WHERE{ ?c rdf:type knowdip:Patch . ?c knowdip:hasNormalZ ?z . Filter(?z <0.1 ) }");
+           if(!selectString.hasNext())System.out.println("No element selected");
+           else            {
+                //get uri
+                String patchuri = selectString.next().get("?c").asResource().getURI();
+                //select and display all other cloud that as close to the patch
+                System.out.println(knowdip.selectAsText("SELECT ?c2 WHERE {<"+patchuri+"> knowdip:inContact ?c2}"));
+           }
             System.out.println(selectString);
 
+            
             knowdip.save();
         } catch (IOException | KnowdipException | PiOntologyException ex) {
             Logger.getLogger(FileExempleWithTS.class.getName()).log(Level.SEVERE, null, ex);
