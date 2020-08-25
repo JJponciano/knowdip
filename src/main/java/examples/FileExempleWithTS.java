@@ -55,9 +55,10 @@ public class FileExempleWithTS {
             args[0] = "src/main/resources/knowdip.owl";
             args[1] = "output/";
             /**
-             *  ontologyPath,output directory, reset the output directory, using a triple store
+             * ontologyPath,output directory, reset the output directory, using
+             * a triple store
              */
-            Knowdip.init(args[0], args[1], true, true);
+            Knowdip.init(args[0], args[1], false, true);
 
             Knowdip knowdip = Knowdip.get();
             knowdip.add(LoadCloud.class);
@@ -81,25 +82,15 @@ public class FileExempleWithTS {
 
             /**
              * If no distance is found, perhaps they are not calculated.
-            */
+             */
             System.out.println("Calculate distance between patches");
             if (!knowdip.select("SELECT ?c WHERE{ ?c rdf:type knowdip:Patch . ?c knowdip:has2m ?c2  }").hasNext()) {//Calculate the distance between patches.
                 MinPatchesDistanceEstimation mde = new MinPatchesDistanceEstimation();
                 mde.run();
-            } 
-            
-            
-            Iterator<KSolution> selectString = knowdip.select("SELECT ?c ?z WHERE{ ?c rdf:type knowdip:Patch . ?c knowdip:hasNormalZ ?z . Filter(?z <0.1 ) }");
-           if(!selectString.hasNext())System.out.println("No element selected");
-           else            {
-                //get uri
-                String patchuri = selectString.next().get("?c").asResource().getURI();
-                //select and display all other cloud that as close to the patch
-                System.out.println(knowdip.selectAsText("SELECT ?c2 WHERE {<"+patchuri+"> knowdip:inContact ?c2}"));
-           }
-            System.out.println(selectString);
+            }
 
-            
+            System.out.println(knowdip.selectAsText("SELECT ?c WHERE{ ?c rdf:type knowdip:Patch . ?c knowdip:has2m ?c2  }"));
+
             knowdip.save();
         } catch (IOException | KnowdipException | PiOntologyException ex) {
             Logger.getLogger(FileExempleWithTS.class.getName()).log(Level.SEVERE, null, ex);
