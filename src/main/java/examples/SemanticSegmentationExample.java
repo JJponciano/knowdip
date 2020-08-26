@@ -86,22 +86,20 @@ public class SemanticSegmentationExample {
             knowdip.add(GetPatchNormalZ.class);
             knowdip.add(GetPatchVolume.class);
 
+            System.out.println("Step 1");
             //Step 1: interprets all SPARQL queries contained in the file to segment the point cloud
             knowdip.interpretsFile("src/main/resources/queries.txt");
 
+            System.out.println("Step 2");
             //Step 2: Groups patches in segments.
             //get patches
             Map<String, APointCloud> patches = knowdip.getPatches();
-
-            Map<String, Segment> segments = new LinkedHashMap();
-
             patches.forEach((k, v) -> {
                 String seguri;
                 Iterator<KSolution> segSelect = knowdip.select("SELECT ?s WHERE {?s knowdip:isComposedOf  <" + k + ">}");
                 //test if it not exists a segment that is composed of the patch k
                 if (!segSelect.hasNext()) {
-
-                    //creates the segment in the triplestore and specify  it is composed of the patch k
+                    //creates the segment in the triplestore and specify it is composed of the patch k
                     seguri = Knowdip.createURI().getURI();
                     try {
                         knowdip.update("INSERT DATA {<" + seguri + "> rdf:type knowdip:Segment . <" + seguri + "> knowdip:isComposedOf  <" + k + "> }");
@@ -114,6 +112,9 @@ public class SemanticSegmentationExample {
                 mergingPatch(knowdip, k, seguri);
             });
 
+            System.out.println("Display:");
+            //select segments
+            System.out.println(knowdip.selectAsText("SELECT ?segment ?p WHERE{ ?segment rdf:type knowdip:Segment . ?segment knowdip:isComposedOf ?p  }"));
         } catch (IOException | KnowdipException | PiOntologyException ex) {
             Logger.getLogger(SemanticSegmentationExample.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -121,7 +122,7 @@ public class SemanticSegmentationExample {
 
     protected static void mergingPatch(Knowdip knowdip, String k, String seguri) {
         //for each patch, select  other patches that is in contact with it and not yet in a segment.
-        Iterator<KSolution> patchesInContact = knowdip.select("SELECT ?p WHERE{ <" + k + "> knowdip:inContact ?p. FILTER NOT EXITS (?s knowdip:isComposedOf ?p) }");
+        Iterator<KSolution> patchesInContact = knowdip.select("SELECT ?p WHERE{ <" + k + "> knowdip:inContact ?p. FILTER NOT EXISTS {?s knowdip:isComposedOf ?p} }");
         List<String> recursivPatch = new LinkedList<>();
         while (patchesInContact.hasNext()) {
             KSolution next = patchesInContact.next();
