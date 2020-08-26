@@ -34,13 +34,10 @@ import info.ponciano.lab.knowdip.aee.algorithm.sparql.getter.GetPatchNormalY;
 import info.ponciano.lab.knowdip.aee.algorithm.sparql.getter.GetPatchNormalZ;
 import info.ponciano.lab.knowdip.aee.algorithm.sparql.getter.GetPatchSize;
 import info.ponciano.lab.knowdip.aee.algorithm.sparql.getter.GetPatchVolume;
-import info.ponciano.lab.knowdip.reasoner.KSolution;
 import info.ponciano.lab.knowdip.reasoner.PiOntologyException;
 import java.io.IOException;
-import java.util.Iterator;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import org.apache.jena.rdf.model.RDFNode;
 
 /**
  *
