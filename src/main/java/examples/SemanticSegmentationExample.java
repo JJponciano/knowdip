@@ -16,6 +16,7 @@
  */
 package examples;
 
+import info.ponciano.lab.jpc.pointcloud.components.APointCloud;
 import info.ponciano.lab.knowdip.Knowdip;
 import info.ponciano.lab.knowdip.aee.KnowdipException;
 import info.ponciano.lab.knowdip.aee.algorithm.sparql.LoadCloud;
@@ -35,6 +36,7 @@ import info.ponciano.lab.knowdip.aee.algorithm.sparql.getter.GetPatchSize;
 import info.ponciano.lab.knowdip.aee.algorithm.sparql.getter.GetPatchVolume;
 import info.ponciano.lab.knowdip.reasoner.PiOntologyException;
 import java.io.IOException;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -52,9 +54,12 @@ public class SemanticSegmentationExample {
             args = new String[2];
             args[0] = "src/main/resources/knowdip.owl";
             args[1] = "output/";
+            
             /**
-             * ontologyPath,output directory, reset the output directory, using
-             * a triple store
+             * 0:ontologyPath
+             * 1:output directory
+             * 2:reset the output directory
+             * 3:using a triple store
              */
             Knowdip.init(args[0], args[1], false, true);
 
@@ -75,8 +80,13 @@ public class SemanticSegmentationExample {
             knowdip.add(GetPatchNormalZ.class);
             knowdip.add(GetPatchVolume.class);
 
-            //interprets all SPARQL queries contained in the file
+            //Step 1: interprets all SPARQL queries contained in the file to segment the point cloud
             knowdip.interpretsFile("src/main/resources/queries.txt");
+            
+            //Step 2: Groups patches in segments.
+            //get patches
+            Map<String, APointCloud> patches = knowdip.getPatches();
+            
         } catch (IOException | KnowdipException | PiOntologyException ex) {
             Logger.getLogger(SemanticSegmentationExample.class.getName()).log(Level.SEVERE, null, ex);
         }
