@@ -71,18 +71,7 @@ public class MinPatchesDistanceEstimation extends PatchesDistanceEstimation {
 
     @Override
     protected Map<String, APointCloud> getPatches() {
-        Map<String, APointCloud> patches = new HashMap<>();
-        Iterator<KSolution> select = Knowdip.get().select("SELECT ?p WHERE{ ?p rdf:type knowdip:Patch}");
-        while (select.hasNext()) {
-            //get URI of the patch
-            KSolution next = select.next();
-            String uri = next.get("?p").asResource().getURI();
-            Memory memory = Knowdip.get().getMemory();
-            //retrieve the patch in the memory
-            APointCloud access = (APointCloud) memory.access(uri);
-            patches.put(uri, access);
-        }
-        return patches;
+        return Knowdip.get().getPatches();
     }
 
     private String getDistanceProperty(Double results) {
