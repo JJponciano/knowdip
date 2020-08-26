@@ -16,6 +16,7 @@
  */
 package examples;
 
+import info.ponciano.lab.jpc.pointcloud.Segment;
 import info.ponciano.lab.jpc.pointcloud.components.APointCloud;
 import info.ponciano.lab.knowdip.Knowdip;
 import info.ponciano.lab.knowdip.aee.KnowdipException;
@@ -90,21 +91,56 @@ public class SemanticSegmentationExample {
             //get patches
             Map<String, APointCloud> patches = knowdip.getPatches();
 
-            Map<String, List<String>> segments = new LinkedHashMap();
-            //for each patch, select  other patches that is in contact with it
-            patches.forEach((k, v) -> {
-                Iterator<KSolution> patchesInContact = knowdip.select("SELECT ?p WHERE{ <" + k + "> knowdip:inContact ?p}");
-               //Transitif in contact.
-                while (patchesInContact.hasNext()) {
-                    KSolution next = patchesInContact.next();
-                    Iterator<KSolution> patchesInContact2 = knowdip.select("SELECT ?p WHERE{ <" + next.get("?p").asResource().getURI() + "> knowdip:inContact ?p}");
+            Map<String, Segment> segments = new LinkedHashMap();
 
+            patches.forEach((k, v) -> {
+                String seguri;
+                Iterator<KSolution> segSelect = knowdip.select("SELECT ?s WHERE {?s knowdip:isComposedOf  <" + k + ">}");
+                //test if it not exists a segment that is composed of the patch k
+                if (!segSelect.hasNext()) {
+
+                    //creates the segment in the triplestore and specify  it is composed of the patch k
+                    seguri = Knowdip.createURI().getURI();
+                    try {
+                        knowdip.update("INSERT DATA {<" + seguri + "> rdf:type knowdip:Segment . <" + seguri + "> knowdip:isComposedOf  <" + k + "> }");
+                    } catch (KnowdipException ex) {
+                        Logger.getLogger(SemanticSegmentationExample.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                } else {
+                    seguri = segSelect.next().get("?s").asResource().getURI();
                 }
+                mergingPatch(knowdip, k, seguri);
             });
 
         } catch (IOException | KnowdipException | PiOntologyException ex) {
             Logger.getLogger(SemanticSegmentationExample.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    protected static void mergingPatch(Knowdip knowdip, String k, String seguri) {
+        //for each patch, select  other patches that is in contact with it and not yet in a segment.
+        Iterator<KSolution> patchesInContact = knowdip.select("SELECT ?p WHERE{ <" + k + "> knowdip:inContact ?p. FILTER NOT EXITS (?s knowdip:isComposedOf ?p) }");
+        List<String>recursivPatch=new LinkedList<>();
+        while (patchesInContact.hasNext()) {
+            KSolution next = patchesInContact.next();
+            String patchURI = next.get("?p").asResource().getURI();
+            //if the patch is similar to the k, it is added to the segment.
+            boolean similar = isSimilar(patchURI, k);
+            if (similar) {
+                try {
+                    knowdip.update("INSERT DATA { <" + seguri + "> knowdip:isComposedOf  <" + patchURI + "> }");
+                    //if it is similar, the merging is applied recursively.
+                    recursivPatch.add(patchURI);
+                } catch (KnowdipException ex) {
+                    Logger.getLogger(SemanticSegmentationExample.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }// if it is not similar, no recursivity.
+        }
+        recursivPatch.forEach(patchURI->mergingPatch(knowdip, patchURI, seguri));
+    }
+
+    private static boolean isSimilar(String patchURI, String k) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }
