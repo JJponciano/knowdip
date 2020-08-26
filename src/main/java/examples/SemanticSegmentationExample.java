@@ -16,6 +16,8 @@
  */
 package examples;
 
+import info.ponciano.lab.jpc.math.Coord3D;
+import info.ponciano.lab.jpc.math.Point;
 import info.ponciano.lab.jpc.pointcloud.Segment;
 import info.ponciano.lab.jpc.pointcloud.components.APointCloud;
 import info.ponciano.lab.knowdip.Knowdip;
@@ -120,12 +122,12 @@ public class SemanticSegmentationExample {
     protected static void mergingPatch(Knowdip knowdip, String k, String seguri) {
         //for each patch, select  other patches that is in contact with it and not yet in a segment.
         Iterator<KSolution> patchesInContact = knowdip.select("SELECT ?p WHERE{ <" + k + "> knowdip:inContact ?p. FILTER NOT EXITS (?s knowdip:isComposedOf ?p) }");
-        List<String>recursivPatch=new LinkedList<>();
+        List<String> recursivPatch = new LinkedList<>();
         while (patchesInContact.hasNext()) {
             KSolution next = patchesInContact.next();
             String patchURI = next.get("?p").asResource().getURI();
             //if the patch is similar to the k, it is added to the segment.
-            boolean similar = isSimilar(patchURI, k);
+            boolean similar = isSimilar(knowdip, patchURI, k, 0.5);
             if (similar) {
                 try {
                     knowdip.update("INSERT DATA { <" + seguri + "> knowdip:isComposedOf  <" + patchURI + "> }");
@@ -136,11 +138,31 @@ public class SemanticSegmentationExample {
                 }
             }// if it is not similar, no recursivity.
         }
-        recursivPatch.forEach(patchURI->mergingPatch(knowdip, patchURI, seguri));
+        recursivPatch.forEach(patchURI -> mergingPatch(knowdip, patchURI, seguri));
     }
 
-    private static boolean isSimilar(String patchURI, String k) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    private static boolean isSimilar(Knowdip knowdip, String patchURI, String k, double d) {
+        double x1 = 0, x2 = 0, y1 = 0, y2 = 0, z1 = 0, z2 = 0;
+        //to patches are similar if their have the same normal.
+        Iterator<KSolution> select = knowdip.select("SELECT ?x ?y ?z WHERE {<" + patchURI + "> knowdip:hasNormalX ?x . "
+                + "<" + patchURI + "> knowdip:hasNormalY ?y . "
+                + "<" + patchURI + "> knowdip:hasNormalZ ?z . }");
+        while (select.hasNext()) {
+            KSolution next = select.next();
+            x1 = next.get("?x").asLiteral().getDouble();
+            y1 = next.get("?y").asLiteral().getDouble();
+            z1 = next.get("?z").asLiteral().getDouble();
+        }
+        select = knowdip.select("SELECT ?x ?y ?z WHERE {<" + k + "> knowdip:hasNormalX ?x . "
+                + "<" + patchURI + "> knowdip:hasNormalY ?y . "
+                + "<" + patchURI + "> knowdip:hasNormalZ ?z . }");
+        while (select.hasNext()) {
+            KSolution next = select.next();
+            x2 = next.get("?x").asLiteral().getDouble();
+            y2 = next.get("?y").asLiteral().getDouble();
+            z2 = next.get("?z").asLiteral().getDouble();
+        }
+        return new Coord3D(x2, y2, z2).distance(new Coord3D(x1, y1, z1)) < d;
     }
 
 }
