@@ -34,8 +34,13 @@ import info.ponciano.lab.knowdip.aee.algorithm.sparql.getter.GetPatchNormalY;
 import info.ponciano.lab.knowdip.aee.algorithm.sparql.getter.GetPatchNormalZ;
 import info.ponciano.lab.knowdip.aee.algorithm.sparql.getter.GetPatchSize;
 import info.ponciano.lab.knowdip.aee.algorithm.sparql.getter.GetPatchVolume;
+import info.ponciano.lab.knowdip.reasoner.KSolution;
 import info.ponciano.lab.knowdip.reasoner.PiOntologyException;
 import java.io.IOException;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -54,11 +59,9 @@ public class SemanticSegmentationExample {
             args = new String[2];
             args[0] = "src/main/resources/knowdip.owl";
             args[1] = "output/";
-            
+
             /**
-             * 0:ontologyPath
-             * 1:output directory
-             * 2:reset the output directory
+             * 0:ontologyPath 1:output directory 2:reset the output directory
              * 3:using a triple store
              */
             Knowdip.init(args[0], args[1], false, true);
@@ -82,11 +85,23 @@ public class SemanticSegmentationExample {
 
             //Step 1: interprets all SPARQL queries contained in the file to segment the point cloud
             knowdip.interpretsFile("src/main/resources/queries.txt");
-            
+
             //Step 2: Groups patches in segments.
             //get patches
             Map<String, APointCloud> patches = knowdip.getPatches();
-            
+
+            Map<String, List<String>> segments = new LinkedHashMap();
+            //for each patch, select  other patches that is in contact with it
+            patches.forEach((k, v) -> {
+                Iterator<KSolution> patchesInContact = knowdip.select("SELECT ?p WHERE{ <" + k + "> knowdip:inContact ?p}");
+               //Transitif in contact.
+                while (patchesInContact.hasNext()) {
+                    KSolution next = patchesInContact.next();
+                    Iterator<KSolution> patchesInContact2 = knowdip.select("SELECT ?p WHERE{ <" + next.get("?p").asResource().getURI() + "> knowdip:inContact ?p}");
+
+                }
+            });
+
         } catch (IOException | KnowdipException | PiOntologyException ex) {
             Logger.getLogger(SemanticSegmentationExample.class.getName()).log(Level.SEVERE, null, ex);
         }
