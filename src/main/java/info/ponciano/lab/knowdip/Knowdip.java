@@ -16,6 +16,7 @@
  */
 package info.ponciano.lab.knowdip;
 
+import info.ponciano.lab.jpc.pointcloud.components.APointCloud;
 import info.ponciano.lab.knowdip.aee.KnowdipException;
 import info.ponciano.lab.knowdip.aee.algorithm.sparql.Algorithm;
 import info.ponciano.lab.knowdip.aee.memory.Memory;
@@ -136,7 +137,8 @@ public class Knowdip {
     public void update(String query) throws KnowdipException {
         this.reasoner.update(query);
     }
-    public void update(List<String> queries){
+
+    public void update(List<String> queries) {
         this.reasoner.update(queries);
     }
 
@@ -287,7 +289,7 @@ public class Knowdip {
     }
 
     public static Iterator<KSolution> getIterator(String queryString, ResultSet resultSet) {
-       List<String> vars = Knowdip.getSparqlVar(queryString);
+        List<String> vars = Knowdip.getSparqlVar(queryString);
         List<KSolution> lks = new ArrayList<>();
 
         while (resultSet.hasNext()) {
@@ -297,8 +299,9 @@ public class Knowdip {
                 ks.put(v, next.get(v));
             });
             lks.add(ks);
-           
-        } return lks.iterator();
+
+        }
+        return lks.iterator();
     }
 
     public static List<String> getSparqlVar(String select) {
@@ -313,5 +316,20 @@ public class Knowdip {
             }
         }
         return res;
+    }
+
+    public Map<String, APointCloud> getPatches() {
+        Map<String, APointCloud> patches = new HashMap<>();
+        Iterator<KSolution> select = Knowdip.get().select("SELECT ?p WHERE{ ?p rdf:type knowdip:Patch}");
+        while (select.hasNext()) {
+            //get URI of the patch
+            KSolution next = select.next();
+            String uri = next.get("?p").asResource().getURI();
+            Memory memory = Knowdip.get().getMemory();
+            //retrieve the patch in the memory
+            APointCloud access = (APointCloud) memory.access(uri);
+            patches.put(uri, access);
+        }
+        return patches;
     }
 }
