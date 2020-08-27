@@ -17,8 +17,6 @@
 package examples;
 
 import info.ponciano.lab.jpc.math.Coord3D;
-import info.ponciano.lab.jpc.math.Point;
-import info.ponciano.lab.jpc.pointcloud.Segment;
 import info.ponciano.lab.jpc.pointcloud.components.APointCloud;
 import info.ponciano.lab.knowdip.Knowdip;
 import info.ponciano.lab.knowdip.aee.KnowdipException;
@@ -41,7 +39,6 @@ import info.ponciano.lab.knowdip.reasoner.KSolution;
 import info.ponciano.lab.knowdip.reasoner.PiOntologyException;
 import java.io.IOException;
 import java.util.Iterator;
-import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
