@@ -17,10 +17,8 @@
 package info.ponciano.lab.knowdip;
 
 import info.ponciano.lab.jpc.algorithms.ShowPointcloud;
-import info.ponciano.lab.jpc.math.RandomColor;
 import info.ponciano.lab.jpc.pointcloud.Pointcloud;
 import info.ponciano.lab.jpc.pointcloud.components.APointCloud;
-import info.ponciano.lab.jpc.pointcloud.components.PointCloudMap;
 import info.ponciano.lab.knowdip.aee.KnowdipException;
 import info.ponciano.lab.knowdip.aee.algorithm.sparql.Algorithm;
 import info.ponciano.lab.knowdip.aee.memory.Memory;
@@ -340,7 +338,7 @@ public class Knowdip {
     public void display(String selectquery, String var, boolean randomcolor) {
         Memory memory = Knowdip.get().getMemory();
         List<APointCloud> pcm = new ArrayList<>();
-        Iterator<KSolution> select = Knowdip.get().select(selectquery);
+        Iterator<KSolution> select = this.select(selectquery);
         while (select.hasNext()) {
             //get URI of the patch
             KSolution next = select.next();
@@ -349,7 +347,28 @@ public class Knowdip {
             APointCloud access = (APointCloud) memory.access(uri);
             pcm.add(access);
         }
-        ShowPointcloud spc = new ShowPointcloud(null, false, pcm, var, false,randomcolor);
+        ShowPointcloud spc = new ShowPointcloud(null, false, pcm, var, false, randomcolor);
+        spc.setVisible(true);
+    }
+
+    public void displaySegment(String selectquery, String segmentVar, boolean randomcolor) {
+        Memory memory = Knowdip.get().getMemory();
+        Iterator<KSolution> select = this.select(selectquery);
+        List<APointCloud> pcm = new ArrayList<>();
+        while (select.hasNext()) {
+            //get URI of the patch
+            KSolution next = select.next();
+            String uri = next.get(segmentVar).asResource().getURI();
+            //select patches that composed the segment
+            Iterator<KSolution> patches = this.select("SELECT ?p WHERE{<" + uri + "> knowdip:isComposedOf ?p}");
+            Pointcloud cloud = new Pointcloud();
+            while (patches.hasNext()) {
+                APointCloud access = (APointCloud) memory.access(patches.next().get("?p").asResource().getURI());
+                cloud.add(access);
+            }
+            pcm.add(cloud.getPoints());
+        }
+        ShowPointcloud spc = new ShowPointcloud(null, false, pcm, segmentVar, false, randomcolor);
         spc.setVisible(true);
     }
 }
