@@ -85,8 +85,10 @@ public class FileExempleWithTS {
                 MinPatchesDistanceEstimation mde = new MinPatchesDistanceEstimation();
                 mde.run();
             }
+            System.out.println("Display");
 
-           knowdip.display("SELECT ?c WHERE{?c rdf:type knowdip:Patch . ?c knowdip:has2m ?c2  }","?c",true);
+            knowdip.display("SELECT ?c WHERE{?c rdf:type knowdip:Patch . ?c knowdip:hasNormalZ ?z FILTER (?z<0.1)  }", "?c", true);
+            System.out.println(knowdip.selectAsText("SELECT ?c WHERE{ ?c rdf:type knowdip:Patch . ?c knowdip:has2m ?c2  }"));
 
             knowdip.save();
         } catch (IOException | KnowdipException | PiOntologyException ex) {
