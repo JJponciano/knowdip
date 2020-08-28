@@ -64,7 +64,7 @@ public class SemanticSegmentationExample {
              * 0:ontologyPath 1:output directory 2:reset the output directory
              * 3:using a triple store
              */
-            Knowdip.init(args[0], args[1], false, true);
+            Knowdip.init(args[0], args[1], true, true);
 
             Knowdip knowdip = Knowdip.get();
             knowdip.add(LoadCloud.class);
@@ -119,7 +119,7 @@ public class SemanticSegmentationExample {
 
     protected static void mergingPatch(Knowdip knowdip, String k, String seguri) {
         //for each patch, select  other patches that is in contact with it and not yet in a segment.
-        Iterator<KSolution> patchesInContact = knowdip.select("SELECT ?p WHERE{ <" + k + "> knowdip:inContact ?p. FILTER NOT EXISTS {?s knowdip:isComposedOf ?p} }");
+        Iterator<KSolution> patchesInContact = knowdip.select("SELECT ?p WHERE{ <" + k + "> knowdip:isClose ?p. FILTER NOT EXISTS {?s knowdip:isComposedOf ?p} }");
         List<String> recursivPatch = new LinkedList<>();
         while (patchesInContact.hasNext()) {
             KSolution next = patchesInContact.next();
