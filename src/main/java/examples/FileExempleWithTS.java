@@ -86,7 +86,7 @@ public class FileExempleWithTS {
                 mde.run();
             }
 
-            System.out.println(knowdip.selectAsText("SELECT ?c WHERE{ ?c rdf:type knowdip:Patch . ?c knowdip:has2m ?c2  }"));
+           knowdip.display("SELECT ?c WHERE{?c rdf:type knowdip:Patch . ?c knowdip:has2m ?c2  }","?c",true);
 
             knowdip.save();
         } catch (IOException | KnowdipException | PiOntologyException ex) {
