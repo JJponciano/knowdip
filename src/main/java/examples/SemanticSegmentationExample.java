@@ -111,7 +111,7 @@ public class SemanticSegmentationExample {
 
             System.out.println("Display:");
             //select segments
-            System.out.println(knowdip.selectAsText("SELECT ?segment ?p WHERE{ ?segment rdf:type knowdip:Segment . ?segment knowdip:isComposedOf ?p  }"));
+           knowdip.displaySegment("SELECT ?segment WHERE{ ?segment rdf:type knowdip:Segment}", "?segment", true);
         } catch (IOException | KnowdipException | PiOntologyException ex) {
             Logger.getLogger(SemanticSegmentationExample.class.getName()).log(Level.SEVERE, null, ex);
         }
