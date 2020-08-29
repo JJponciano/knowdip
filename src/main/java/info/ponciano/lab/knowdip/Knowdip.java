@@ -320,6 +320,10 @@ public class Knowdip {
         return res;
     }
 
+    /**
+     * Get patches stored in the knowledge base.
+     * @return  {@code Map} with patches URI as key and Point clouds as value
+     */
     public Map<String, APointCloud> getPatches() {
         Map<String, APointCloud> patches = new HashMap<>();
         Iterator<KSolution> select = Knowdip.get().select("SELECT ?p WHERE{ ?p rdf:type knowdip:Patch}");
