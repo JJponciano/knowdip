@@ -290,6 +290,12 @@ public class Knowdip {
         return this.selectAsList("SELECT ?c WHERE{ ?c rdf:type knowdip:FullPointCloud }", "?c");
     }
 
+    /**
+     * Get iterator from a SPARQL query and a result set
+     * @param queryString SPARQL query
+     * @param resultSet result of the SPARQL query
+     * @return  iterator of {@code Ksolution}.
+     */
     public static Iterator<KSolution> getIterator(String queryString, ResultSet resultSet) {
         List<String> vars = Knowdip.getSparqlVar(queryString);
         List<KSolution> lks = new ArrayList<>();
