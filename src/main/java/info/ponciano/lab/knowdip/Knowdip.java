@@ -351,6 +351,14 @@ public class Knowdip {
         spc.setVisible(true);
     }
 
+    /**
+     * Displays in an openGL window the segments selected by the SPARQL query.
+     *
+     * @param selectquery SPARQL select query
+     * @param segmentVar Variable corresponding to the SPARQL query (Example:
+     * ?c)
+     * @param randomcolor true to assign a random color to each segment.
+     */
     public void displaySegment(String selectquery, String segmentVar, boolean randomcolor) {
         Memory memory = Knowdip.get().getMemory();
         Iterator<KSolution> select = this.select(selectquery);
