@@ -257,6 +257,12 @@ public class Knowdip {
         return this.reasoner.selectAsText(query);
     }
 
+    /**
+     * Get property from a uri
+     *
+     * @param HAS_VALUE uri of the property
+     * @return the jena property.
+     */
     public Property getProperty(String HAS_VALUE) {
         return this.reasoner.getModel().getProperty(HAS_VALUE);
     }
@@ -292,9 +298,10 @@ public class Knowdip {
 
     /**
      * Get iterator from a SPARQL query and a result set
+     *
      * @param queryString SPARQL query
      * @param resultSet result of the SPARQL query
-     * @return  iterator of {@code Ksolution}.
+     * @return iterator of {@code Ksolution}.
      */
     public static Iterator<KSolution> getIterator(String queryString, ResultSet resultSet) {
         List<String> vars = Knowdip.getSparqlVar(queryString);
@@ -314,8 +321,9 @@ public class Knowdip {
 
     /**
      * Extract variables from select query
+     *
      * @param select SPARQL select query
-     * @return  list of variable.
+     * @return list of variable.
      */
     public static List<String> getSparqlVar(String select) {
         String expression = "(\\?\\S+)";
@@ -333,7 +341,8 @@ public class Knowdip {
 
     /**
      * Get patches stored in the knowledge base.
-     * @return  {@code Map} with patches URI as key and Point clouds as value
+     *
+     * @return {@code Map} with patches URI as key and Point clouds as value
      */
     public Map<String, APointCloud> getPatches() {
         Map<String, APointCloud> patches = new HashMap<>();
