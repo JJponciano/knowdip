@@ -260,11 +260,11 @@ public class Knowdip {
     /**
      * Get property from a uri
      *
-     * @param HAS_VALUE uri of the property
+     * @param uri uri of the property
      * @return the jena property.
      */
-    public Property getProperty(String HAS_VALUE) {
-        return this.reasoner.getModel().getProperty(HAS_VALUE);
+    public Property getProperty(String uri) {
+        return this.reasoner.getModel().getProperty(uri);
     }
 
     /**
