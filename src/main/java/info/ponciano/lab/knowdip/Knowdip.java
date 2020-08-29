@@ -335,6 +335,14 @@ public class Knowdip {
         return patches;
     }
 
+    /**
+     * Displays in an openGL window the point clouds or patches selected by the
+     * SPARQL query.
+     *
+     * @param selectquery SPARQL select query
+     * @param var Variable corresponding to the SPARQL query (Example: ?c)
+     * @param randomcolor true to assign a random colour to each segment.
+     */
     public void display(String selectquery, String var, boolean randomcolor) {
         Memory memory = Knowdip.get().getMemory();
         List<APointCloud> pcm = new ArrayList<>();
@@ -357,7 +365,7 @@ public class Knowdip {
      * @param selectquery SPARQL select query
      * @param segmentVar Variable corresponding to the SPARQL query (Example:
      * ?c)
-     * @param randomcolor true to assign a random color to each segment.
+     * @param randomcolor true to assign a random colour to each segment.
      */
     public void displaySegment(String selectquery, String segmentVar, boolean randomcolor) {
         Memory memory = Knowdip.get().getMemory();
