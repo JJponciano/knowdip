@@ -306,6 +306,11 @@ public class Knowdip {
         return lks.iterator();
     }
 
+    /**
+     * Extract variables from select query
+     * @param select SPARQL select query
+     * @return  list of variable.
+     */
     public static List<String> getSparqlVar(String select) {
         String expression = "(\\?\\S+)";
         Pattern pattern = Pattern.compile(expression);
