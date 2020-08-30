@@ -225,6 +225,10 @@ public class Knowdip {
 
     }
 
+    /**
+     * Creates a node with a random URI with the Knowdip namespace
+     * @return  Node with random URI
+     */
     public static Node createURI() {
         return NodeFactory.createURI(KD.NS + UUID.randomUUID().toString());
     }
