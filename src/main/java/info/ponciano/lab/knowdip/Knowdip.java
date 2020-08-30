@@ -112,6 +112,11 @@ public class Knowdip {
         }
     }
 
+    /**
+     * Remove directory
+     *
+     * @param outDir path of the directory to remove.
+     */
     public static void clearAll(String outDir) {
         File dir = new File(outDir);
         if (dir.exists()) {
