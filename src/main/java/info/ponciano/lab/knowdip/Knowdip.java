@@ -136,6 +136,12 @@ public class Knowdip {
         this.reasoner.add(algo);
     }
 
+    /**
+     * Executes update SPARQL query
+     *
+     * @param query query to be executed
+     * @throws KnowdipException if the query is wrong.
+     */
     public void update(String query) throws KnowdipException {
         this.reasoner.update(query);
     }
