@@ -140,6 +140,12 @@ public class Knowdip {
         this.reasoner.update(query);
     }
 
+    /**
+     * Executes update SPARQL queries. This function is more efficient than
+     * {@code knowdip.update(String query)} for several queries.
+     *
+     * @param queries update queries to be executed.
+     */
     public void update(List<String> queries) {
         this.reasoner.update(queries);
     }
@@ -227,7 +233,8 @@ public class Knowdip {
 
     /**
      * Creates a node with a random URI with the Knowdip namespace
-     * @return  Node with random URI
+     *
+     * @return Node with random URI
      */
     public static Node createURI() {
         return NodeFactory.createURI(KD.NS + UUID.randomUUID().toString());
