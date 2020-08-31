@@ -55,42 +55,10 @@ public class RequestExamples {
              * ontologyPath,output directory, reset the output directory, using
              * a triple store
              */
-            Knowdip.init(args[0], args[1], false, true);
+            Knowdip knowdip= Knowdip.init(args[0], args[1], false, true);
+          
+            knowdip.display("SELECT ?c WHERE{?c rdf:type knowdip:Patch . ?c knowdip:hasNormalZ ?z FILTER (?z>0.8)  }", "?c", true);
 
-            Knowdip knowdip = Knowdip.get();
-            knowdip.add(LoadCloud.class);
-            knowdip.add(PatchesSegmentation.class);
-            knowdip.add(GetPatchSize.class);
-            knowdip.add(GetPatchColor.class);
-            knowdip.add(GetPatchArea.class);
-            knowdip.add(GetPatchDensity.class);
-            knowdip.add(GetPatchDistanceX.class);
-            knowdip.add(GetPatchDistanceY.class);
-            knowdip.add(GetPatchDistanceZ.class);
-            knowdip.add(GetPatchMaxZ.class);
-            knowdip.add(GetPatchMinZ.class);
-            knowdip.add(GetPatchNormalX.class);
-            knowdip.add(GetPatchNormalY.class);
-            knowdip.add(GetPatchNormalZ.class);
-            knowdip.add(GetPatchVolume.class);
-
-            //interprets all SPARQL queries contained in the file
-            knowdip.interpretsFile("src/main/resources/queries.txt");
-
-            /**
-             * If no distance is found, they must be calculated.
-             */
-            System.out.println("Calculate distance between patches");
-            if (!knowdip.select("SELECT ?c WHERE{ ?c rdf:type knowdip:Patch . ?c knowdip:has2m ?c2  }").hasNext()) {//Calculate the distance between patches.
-                MinPatchesDistanceEstimation mde = new MinPatchesDistanceEstimation();
-                mde.run();
-            }
-            System.out.println("Display");
-
-//            knowdip.display("SELECT ?c WHERE{?c rdf:type knowdip:Patch . ?c knowdip:hasNormalZ ?z FILTER (?z<0.1)  }", "?c", true);
-            System.out.println(knowdip.selectAsText("SELECT ?c WHERE{ ?c rdf:type knowdip:Patch . ?c knowdip:has2m ?c2  }"));
-
-            knowdip.save();
         } catch (IOException | KnowdipException | PiOntologyException ex) {
             Logger.getLogger(RequestExamples.class.getName()).log(Level.SEVERE, null, ex);
         }
