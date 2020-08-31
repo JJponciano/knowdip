@@ -349,15 +349,27 @@ public class Knowdip {
      * Extract variables from select query
      *
      * @param select SPARQL select query
+     * @param beforeWhere true to select variable only before the "WHERE" part.
+     * False otherwise.
      * @return list of variable.
      */
-    public static List<String> getSparqlVar(String select) {
-        String expression = "(SELECT|select)\\s*(\\?\\S+)\\s*(WHERE|where)";
+    public static List<String> getSparqlVar(String select, boolean beforeWhere) {
+        String expression;
+        if (beforeWhere) {
+            expression = "(SELECT|select)\\s*(\\?\\S+)\\s*(WHERE|where)";
+        } else {
+            expression = "(\\?\\S+)";
+        }
         Pattern pattern = Pattern.compile(expression);
         List<String> res = new ArrayList<>();
         Matcher matcher = pattern.matcher(select);
         while (matcher.find()) {
-            final String group = matcher.group(2);
+            String group;
+            if (beforeWhere) {
+                group = matcher.group(2);
+            } else {
+                group = matcher.group();
+            }
             if (!res.contains(group)) {
                 res.add(group);
             }
@@ -441,13 +453,13 @@ public class Knowdip {
     }
 
     /**
-     * * Displays in an openGL window the point cloud represented with the URI
+     * Displays in an openGL window a single point cloud represented by the URI
      *
      * @param uri URI of the point cloud
      */
     public void displayCloud(String uri) {
         APointCloud access = (APointCloud) Knowdip.get().getMemory().access(uri);
-        Pointcloud pc=new Pointcloud();
+        Pointcloud pc = new Pointcloud();
         pc.add(access);
         ShowPointcloud spc = new ShowPointcloud(null, false, pc, uri, false);
         spc.setVisible(true);
