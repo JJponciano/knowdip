@@ -61,7 +61,7 @@ public class Knowdip {
 
     public static Map<String, List<RDFNode>> getMap(String queryString, ResultSet resultSet) {
         //select var
-        List<String> vars = Knowdip.getSparqlVar(queryString);
+        List<String> vars = Knowdip.getSparqlVar(queryString,true);
         Map<String, List<RDFNode>> rdfnode = new HashMap<>();
         while (resultSet.hasNext()) {
             QuerySolution next = resultSet.next();
@@ -330,7 +330,7 @@ public class Knowdip {
      * @return iterator of {@code Ksolution}.
      */
     public static Iterator<KSolution> getIterator(String queryString, ResultSet resultSet) {
-        List<String> vars = Knowdip.getSparqlVar(queryString);
+        List<String> vars = Knowdip.getSparqlVar(queryString,true);
         List<KSolution> lks = new ArrayList<>();
 
         while (resultSet.hasNext()) {
@@ -354,22 +354,19 @@ public class Knowdip {
      * @return list of variable.
      */
     public static List<String> getSparqlVar(String select, boolean beforeWhere) {
-        String expression;
-        if (beforeWhere) {
-            expression = "(SELECT|select)\\s*(\\?\\S+)\\s*(WHERE|where)";
-        } else {
-            expression = "(\\?\\S+)";
+        
+        if(beforeWhere){
+               Matcher matcher = Pattern.compile("SELECT\\s*(.*?)\\s*WHERE").matcher(select);
+               if (matcher.find()) {
+                   select= matcher.group();
+               }
         }
+        String expression = "(\\?\\S+)";
         Pattern pattern = Pattern.compile(expression);
         List<String> res = new ArrayList<>();
         Matcher matcher = pattern.matcher(select);
         while (matcher.find()) {
-            String group;
-            if (beforeWhere) {
-                group = matcher.group(2);
-            } else {
-                group = matcher.group();
-            }
+            String group= matcher.group();
             if (!res.contains(group)) {
                 res.add(group);
             }
@@ -405,7 +402,7 @@ public class Knowdip {
      * @param randomcolor true to assign a random colour to each segment.
      */
     public void display(String selectquery, boolean randomcolor) {
-        List<String> sparqlVar = Knowdip.getSparqlVar(selectquery);
+        List<String> sparqlVar = Knowdip.getSparqlVar(selectquery,true);
         Memory memory = Knowdip.get().getMemory();
         List<APointCloud> pcm = new ArrayList<>();
         Iterator<KSolution> select = this.select(selectquery);
