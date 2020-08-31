@@ -14,7 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package examples;
+package examples.process;
 
 import info.ponciano.lab.jpc.math.Coord3D;
 import info.ponciano.lab.jpc.pointcloud.components.APointCloud;
@@ -64,7 +64,7 @@ public class SemanticSegmentationExample {
              * 0:ontologyPath 1:output directory 2:reset the output directory
              * 3:using a triple store
              */
-            Knowdip.init(args[0], args[1], true, true);
+            Knowdip.init(args[0], args[1], false, true);
 
             Knowdip knowdip = Knowdip.get();
             knowdip.add(LoadCloud.class);
