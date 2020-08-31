@@ -56,8 +56,10 @@ public class RequestExamples {
              * a triple store
              */
             Knowdip knowdip= Knowdip.init(args[0], args[1], false, true);
-          
-            knowdip.display("SELECT ?c WHERE{?c rdf:type knowdip:Patch . ?c knowdip:hasNormalZ ?z FILTER (?z>0.8)  }", true);
+            String horizontalPatchQuery = "SELECT ?c WHERE{?c rdf:type knowdip:Patch . ?c knowdip:hasNormalZ ?z FILTER (?z>0.8)  }";
+            String uri = knowdip.select(horizontalPatchQuery).next().get("?c").asResource().getURI();
+            System.out.println(knowdip.selectAsText("SELECT ?c ?p WHERE{?c ?p <"+uri+">}"));
+            knowdip.display("SELECT ?c WHERE{?c knowdip:has9m <"+uri+">}", true);
 
         } catch (IOException | KnowdipException | PiOntologyException ex) {
             Logger.getLogger(RequestExamples.class.getName()).log(Level.SEVERE, null, ex);
