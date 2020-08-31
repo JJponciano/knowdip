@@ -91,13 +91,17 @@ public class Knowdip {
         return this.reasoner.getMemory();
     }
 
-    public static void init(String ontologyPath, String outDir, boolean reset, boolean useTS) throws IOException, KnowdipException, FileNotFoundException, PiOntologyException {
+    public static Knowdip init(String ontologyPath, String outDir, boolean reset, boolean useTS) throws IOException, KnowdipException, FileNotFoundException, PiOntologyException {
         if (instance == null) {
             instance = new Knowdip(ontologyPath, outDir, reset, useTS);
         }
+        return instance;
     }
 
     public static Knowdip get() {
+        if (instance == null) {
+            throw new InternalError("Knowdip is not initialized with the 'Knowdip.init' function");
+        }
         return instance;
     }
 
