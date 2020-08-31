@@ -439,4 +439,17 @@ public class Knowdip {
         ShowPointcloud spc = new ShowPointcloud(null, false, pcm, segmentVar, false, randomcolor);
         spc.setVisible(true);
     }
+
+    /**
+     * * Displays in an openGL window the point cloud represented with the URI
+     *
+     * @param uri URI of the point cloud
+     */
+    public void displayCloud(String uri) {
+        APointCloud access = (APointCloud) Knowdip.get().getMemory().access(uri);
+        Pointcloud pc=new Pointcloud();
+        pc.add(access);
+        ShowPointcloud spc = new ShowPointcloud(null, false, pc, uri, false);
+        spc.setVisible(true);
+    }
 }
