@@ -60,7 +60,7 @@ public abstract class KReasoner {
      * @return True if queries produces results, false otherwise
      */
     public boolean interprets(String select, String out, String insert) {
-        List<String> vars = Knowdip.getSparqlVar(select);
+        List<String> vars = Knowdip.getSparqlVar(select, false);
         List<String> updateQuery = this.getInsert(select, vars, out, insert);
         if (updateQuery.isEmpty()) {
             return false;
@@ -176,7 +176,7 @@ public abstract class KReasoner {
         String first = reg.getFirst();
         select[0] = first.substring(0, first.length() - 4) + "}";
         String temp = select[0].replaceAll("FILTER NOT EXISTS\\s*\\{.*?\\}", " ");
-        List<String> vars = Knowdip.getSparqlVar(temp);
+        List<String> vars = Knowdip.getSparqlVar(temp, false);
 
         vars.forEach((var) -> {
             select[0] = var + " " + select[0];
