@@ -352,12 +352,12 @@ public class Knowdip {
      * @return list of variable.
      */
     public static List<String> getSparqlVar(String select) {
-        String expression = "(\\?\\S+)";
+        String expression = "(SELECT|select)\\s*(\\?\\S+)\\s*(WHERE|where)";
         Pattern pattern = Pattern.compile(expression);
         List<String> res = new ArrayList<>();
         Matcher matcher = pattern.matcher(select);
         while (matcher.find()) {
-            final String group = matcher.group();
+            final String group = matcher.group(2);
             if (!res.contains(group)) {
                 res.add(group);
             }
@@ -390,22 +390,24 @@ public class Knowdip {
      * SPARQL query.
      *
      * @param selectquery SPARQL select query
-     * @param var Variable corresponding to the SPARQL query (Example: ?c)
      * @param randomcolor true to assign a random colour to each segment.
      */
-    public void display(String selectquery, String var, boolean randomcolor) {
+    public void display(String selectquery, boolean randomcolor) {
+        List<String> sparqlVar = Knowdip.getSparqlVar(selectquery);
         Memory memory = Knowdip.get().getMemory();
         List<APointCloud> pcm = new ArrayList<>();
         Iterator<KSolution> select = this.select(selectquery);
         while (select.hasNext()) {
             //get URI of the patch
             KSolution next = select.next();
-            String uri = next.get(var).asResource().getURI();
-            //retrieve the patch in the memory
-            APointCloud access = (APointCloud) memory.access(uri);
-            pcm.add(access);
+            sparqlVar.forEach(var -> {
+                String uri = next.get(var).asResource().getURI();
+                //retrieve the patch in the memory
+                APointCloud access = (APointCloud) memory.access(uri);
+                pcm.add(access);
+            });
         }
-        ShowPointcloud spc = new ShowPointcloud(null, false, pcm, var, false, randomcolor);
+        ShowPointcloud spc = new ShowPointcloud(null, false, pcm, "Knowdip Display", false, randomcolor);
         spc.setVisible(true);
     }
 
