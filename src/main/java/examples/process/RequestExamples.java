@@ -57,7 +57,7 @@ public class RequestExamples {
              */
             Knowdip knowdip= Knowdip.init(args[0], args[1], false, true);
           
-            knowdip.display("SELECT ?c WHERE{?c rdf:type knowdip:Patch . ?c knowdip:hasNormalZ ?z FILTER (?z>0.8)  }", "?c", true);
+            knowdip.display("SELECT ?c WHERE{?c rdf:type knowdip:Patch . ?c knowdip:hasNormalZ ?z FILTER (?z>0.8)  }", true);
 
         } catch (IOException | KnowdipException | PiOntologyException ex) {
             Logger.getLogger(RequestExamples.class.getName()).log(Level.SEVERE, null, ex);
