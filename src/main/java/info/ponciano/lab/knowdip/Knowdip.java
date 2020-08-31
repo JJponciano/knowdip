@@ -356,7 +356,7 @@ public class Knowdip {
     public static List<String> getSparqlVar(String select, boolean beforeWhere) {
         
         if(beforeWhere){
-               Matcher matcher = Pattern.compile("SELECT\\s*(.*?)\\s*WHERE").matcher(select);
+               Matcher matcher = Pattern.compile("\\s*(.*?)\\s*WHERE").matcher(select);
                if (matcher.find()) {
                    select= matcher.group();
                }
