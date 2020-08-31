@@ -60,9 +60,10 @@ public class MinPatchesDistanceEstimation extends PatchesDistanceEstimation {
                 updateQueries.add("INSERT DATA {<" + uri1 + "> knowdip:" + property + " <" + uri2 + "> }");
             }
         });
-        System.out.println(new Date(System.currentTimeMillis()).toLocaleString() + " Update knowledge base " + this.getClass().getName());
+        System.out.println(new Date(System.currentTimeMillis()).toLocaleString() + " Update knowledge base with " + updateQueries.size() + " queries" + this.getClass().getName());
 
         Knowdip.get().update(updateQueries);
+        System.out.println(new Date(System.currentTimeMillis()).toLocaleString() + " Update done! " + this.getClass().getName());
 
     }
 
