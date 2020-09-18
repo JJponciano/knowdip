@@ -480,4 +480,12 @@ public class Knowdip {
     public void interprets(List<String> queries) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    /**
+     * Get the F1 score, recall and precision based on classified elements and their "dominant class property".
+     * @return Description of the scores for each class.
+     */
+    public String getScore() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
