@@ -472,4 +472,12 @@ public class Knowdip {
     public void automaticCSVintegration(String inputcsvPath,String className) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    /**
+     * Interprets all SPARQL queries
+     * @param queries  list of SPARQL queries to interpret
+     */
+    public void interprets(List<String> queries) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
