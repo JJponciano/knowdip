@@ -123,7 +123,7 @@ public abstract class Kee {
      */
     private void init() throws FileNotFoundException, IOException, KnowdipException {
         /*
-        * Loading ontology from filee.
+        * Loading ontology from file.
          */
         this.model = ModelFactory.createOntologyModel(OntModelSpec.OWL_DL_MEM, FileManager.get()
                 .loadModel(this.ontologyPath));
