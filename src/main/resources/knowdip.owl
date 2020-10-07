@@ -765,6 +765,14 @@
     
 
 
+    <!-- http://lab.ponciano.info/knowdip#CSVIntegration -->
+
+    <owl:DatatypeProperty rdf:about="http://lab.ponciano.info/knowdip#CSVIntegration">
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#DataCharacteristic"/>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://lab.ponciano.info/knowdip#DataCharacteristic -->
 
     <owl:DatatypeProperty rdf:about="http://lab.ponciano.info/knowdip#DataCharacteristic"/>
@@ -774,6 +782,22 @@
     <!-- http://lab.ponciano.info/knowdip#ObjectCharacteristic -->
 
     <owl:DatatypeProperty rdf:about="http://lab.ponciano.info/knowdip#ObjectCharacteristic"/>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#SemanticsClass -->
+
+    <owl:DatatypeProperty rdf:about="http://lab.ponciano.info/knowdip#SemanticsClass">
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#CSVIntegration"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://lab.ponciano.info/knowdip#SemanticsID -->
+
+    <owl:DatatypeProperty rdf:about="http://lab.ponciano.info/knowdip#SemanticsID">
+        <rdfs:subPropertyOf rdf:resource="http://lab.ponciano.info/knowdip#CSVIntegration"/>
+    </owl:DatatypeProperty>
     
 
 
@@ -1686,6 +1710,12 @@
 
     <owl:Class rdf:about="http://lab.ponciano.info/knowdip#Floor">
         <rdfs:subClassOf rdf:resource="http://lab.ponciano.info/knowdip#Indoor"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://lab.ponciano.info/knowdip#hasNormalZ"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
