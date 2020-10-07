@@ -46,6 +46,7 @@ import java.util.regex.Pattern;
 import org.apache.commons.io.FileUtils;
 import org.apache.jena.graph.Node;
 import org.apache.jena.graph.NodeFactory;
+import org.apache.jena.ontology.OntModel;
 import org.apache.jena.query.QuerySolution;
 import org.apache.jena.query.ResultSet;
 import org.apache.jena.rdf.model.Property;
@@ -467,25 +468,33 @@ public class Knowdip {
      * The file header corresponds to the property names without the namespace.
      *
      * @param inputcsvPath path of the CSV file.
-     * @param className  name of the class (without namespace) on which each element must be integrated.
+     * @param className name of the class (without namespace) on which each
+     * element must be integrated.
      */
-    public void automaticCSVintegration(String inputcsvPath,String className) {
+    public void automaticCSVintegration(String inputcsvPath, String className) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     /**
      * Interprets all SPARQL queries
-     * @param queries  list of SPARQL queries to interpret
+     *
+     * @param queries list of SPARQL queries to interpret
      */
     public void interprets(List<String> queries) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     /**
-     * Get the F1 score, recall and precision based on classified elements and their "dominant class property".
+     * Get the F1 score, recall and precision based on classified elements and
+     * their "dominant class property".
+     *
      * @return Description of the scores for each class.
      */
     public String getScore() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public OntModel getModel() {
+        return this.reasoner.getModel();
     }
 }
