@@ -1709,6 +1709,7 @@
     <!-- http://lab.ponciano.info/knowdip#Floor -->
 
     <owl:Class rdf:about="http://lab.ponciano.info/knowdip#Floor">
+        <owl:equivalentClass rdf:resource="http://lab.ponciano.info/knowdip#Ground"/>
         <rdfs:subClassOf rdf:resource="http://lab.ponciano.info/knowdip#Indoor"/>
         <rdfs:subClassOf>
             <owl:Restriction>
