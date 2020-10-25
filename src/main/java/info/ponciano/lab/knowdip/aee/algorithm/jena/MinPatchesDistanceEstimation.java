@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2020 Dr Jean-Jacques Ponciano <jean-jacques@ponciano.info>
+ * Copyright (C) 2020 Dr Jean-Jacques Ponciano (Contact: jean-jacques@ponciano.info)
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -30,7 +30,7 @@ import java.util.Map;
  * between all patches stored in the ontology according to their oriented
  * bounding box.
  *
- * @author Dr Jean-Jacques Ponciano <jean-jacques@ponciano.info>
+ * @author Dr Jean-Jacques Ponciano (Contact: jean-jacques@ponciano.info)
  */
 public class MinPatchesDistanceEstimation extends PatchesDistanceEstimation {
 
