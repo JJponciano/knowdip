@@ -1,6 +1,6 @@
 # Knowledge-based object Detection in Image and Point cloud (KnowDIP)
 
-[knowdip](i3mainz.hs-mainz.de/de/projekte/knowledge-based-object-detection-image-and-point-cloud-knowdip) is a project of the institute [i3mainz](i3mainz.hs-mainz.de)
+[knowdip](http://i3mainz.hs-mainz.de/de/projekte/knowledge-based-object-detection-image-and-point-cloud-knowdip) is a project of the institute [i3mainz](http://i3mainz.hs-mainz.de)
 
 ## Instalation 
 knowdip needs libraries to work including [JavaPointCloud](https://github.com/JJponciano/JavaPointCloud). Being entirely written in java, the easiest way to install it is to use MAVEN. To do so, install MAVEN by following the instructions given [here](https://maven.apache.org/install.html).
